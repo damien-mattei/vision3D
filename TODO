@@ -1,0 +1,37 @@
+DEFINIR UNE FOIS POUR TOUTES UN TYPAGE DE DONNEES PAR REFERENCE/POINTEURS LE PLUS EFFICACES
+
+back up version avant modif
+
+== de point3D pourrait etre simplement sur adresse mais id utile pour index tableau
+
+ne pas utiliser passage par valeur mais par reference
+
+verifier que les destructeurs liberent bien les listes,etc...
+
+voir pourquoi ostream ne fonctionne pas en surcharge dans certains cas
+
+clipping calcule sur pixels
+
+exemple:Point3D->(id3D,[id2D),Pixel2D] 
+avec () et [] representent des tables de hachage
+perte de temps d'acces mais facilite de programmation peut etre une version qui utilisera des tableaux
+
+creer les segments de droite 2D qui font le dessin
+
+creer un constructeur Object3D qui prend en argument la taille max d'un tableau de points3D
+necessite creation d'un mode tableau (C style) ou list (LISP style)
+interet id unique?
+-point3D unique = non duplique 
+ affectation = que se passe t'il? 
+1er cas: affectation pt3D1 = pt3D2 
+construction pt3D1 => id = i1 
+construction pt3D2 => id = i2 avec i1 <> i2
+constructeur necessite actuellement x,y,z definis
+pour l'efficacite un P3D doit etre unique comme dans l'espace, ainsi il n'y a pas de doublons inutiles.
+on peut donc laisser le constructeur de recopie par defaut qui copie la memoire du point.
+
+sortir l'id de point 3d en faire une classe a part point3Did contenant point3D,id
+
+enlever object3dlistvalor car par defaut le passage est en valeur deja
+
+au lieu des point3D utiliser des references et pointeurs vers les point3D !!! dans les classes qui utilisent des references bien sur !!!

@@ -1,0 +1,60 @@
+
+BODY {
+  font-family: 'Verdana', Times, serif;
+  font-size: 10pt;
+}
+
+p {
+  text-indent: 0pt;
+}
+
+DT {
+  font-style: italic;
+  font-family: Helvetica, sans-serif;
+}
+
+H1, H2, H3, H4, H5, H6 {
+  font-family: 'Verdana', Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+H1 {
+  text-align: center;
+  text-decoration: underline;
+  font-variant: small-caps;
+  line-height: 150%;
+  font-size: xx-large;
+}
+
+PRE {
+  font-family: 'Lucida Console', Courier, monospace;
+  font-size: 14pt;
+  background-color: #CCCCCC;
+}
+
+.TITRE {
+  font-style: normal;
+  font-size: xx-large;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.SYNTAXE {
+  text-align: center;
+  font-size: 12pt;
+  font-family: 'Lucida Console', Courier, monospace;
+}
+
+Q {
+  font-style: italic;
+}
+
+VAR {
+  font-family: 'Lucida Console', Courier, monospace;
+  font-style: normal;
+  font-weight: bold;
+}

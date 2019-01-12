@@ -1,0 +1,772 @@
+ -----------------------------  
+# Point3D constructor #
+pt3d : P3D_id_0(7, 8, 9)
+ -----------------------------  
+pt3dbis : P3D_id_0(7, 8, 9)
+# Point3D constructor #
+# Point3D constructor #
+# Point3D constructor #
+# Point3D constructor #
+# Point3D constructor #
+# Point3D constructor #
+# Point3D constructor #
+# Point3D constructor #
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Object3D constructor #
+# Object3DList constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D constructor #
+# Vector3D constructor #
+# Vector3D constructor #
+# Vector3D constructor #
+# Point3D constructor #
+ b : P3D_id_9(2, 2, 1.2)
+ c1 :P3D_id_10(-1, 0.2, 0.5)
+(7, 8, 9)
+(1, 1, 1)
+(8, 9, 10)
+(8, 9, 10)
+# Point3D destructor #
+# Point3D destructor #
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+observer : P3D_id_10(-1, 0.2, 0.5), center of screen : P3D_id_9(2, 2, 1.2), u vector: (0.514496, -0.857493, 0), v vector: (0.168234, 0.100941, -0.980565), w vector: (0.840828, 0.504497, 0.196193)
+vis.u : (0.514496, -0.857493, 0)
+vis.v : (0.168234, 0.100941, -0.980565)
+vis.w : (0.840828, 0.504497, 0.196193)
+# Object3D constructor #
+# Canvas constructor Canvas(Vision3D<T> vision3d) #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# CanvasList constructor CanvasList(Object3DList<T> object3dlist,Vision3D<T> vision3d) #
+# Object3DList destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Object3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+Canvas<T>::vision3d.getViewField() : 0.349066
+Canvas<T>::vision3d.getHalfScreenSizeX() : 400
+Canvas<T>::vision3d.getPixelInUnit() : 308.021
+ *iterP3D : P3D_id_1(0, 0, 0)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (0, -0)
+# Point3D destructor #
+# Point3D destructor #
+ ptproj : (0, -0)
+# Point2D constructor #
+# Point2D destructor #
+ ptc2p : (0, 0)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (0, -0)
+# Point3D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor #
+ pt2 : (400, 300)
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+ *iterP3D : P3D_id_2(0, 0, 1)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (-0.929456, -0)
+# Point3D destructor #
+# Point3D destructor #
+ ptproj : (-0.929456, -0)
+# Point2D constructor #
+# Point2D destructor #
+ ptc2p : (-286, 0)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (-0.929456, -0)
+# Point3D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor #
+ pt2 : (114, 300)
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+ *iterP3D : P3D_id_3(0, 1, 0)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (0.0884359, 0.751265)
+# Point3D destructor #
+# Point3D destructor #
+ ptproj : (0.0884359, 0.751265)
+# Point2D constructor #
+# Point2D destructor #
+ ptc2p : (27, 231)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (0.0884359, 0.751265)
+# Point3D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor #
+ pt2 : (427, 69)
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+ *iterP3D : P3D_id_4(0, 1, 1)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (-0.735235, 0.716736)
+# Point3D destructor #
+# Point3D destructor #
+ ptproj : (-0.735235, 0.716736)
+# Point2D constructor #
+# Point2D destructor #
+ ptc2p : (-226, 220)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (-0.735235, 0.716736)
+# Point3D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor #
+ pt2 : (174, 80)
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+ *iterP3D : P3D_id_5(1, 0, 0)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (0.136149, -0.416372)
+# Point3D destructor #
+# Point3D destructor #
+ ptproj : (0.136149, -0.416372)
+# Point2D constructor #
+# Point2D destructor #
+ ptc2p : (41, -128)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (0.136149, -0.416372)
+# Point3D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor #
+ pt2 : (441, 428)
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+ *iterP3D : P3D_id_6(1, 0, 1)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (-0.629396, -0.398632)
+# Point3D destructor #
+# Point3D destructor #
+ ptproj : (-0.629396, -0.398632)
+# Point2D constructor #
+# Point2D destructor #
+ ptc2p : (-193, -122)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (-0.629396, -0.398632)
+# Point3D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor #
+ pt2 : (207, 422)
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+ *iterP3D : P3D_id_7(1, 1, 0)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (0.19547, 0.249079)
+# Point3D destructor #
+# Point3D destructor #
+ ptproj : (0.19547, 0.249079)
+# Point2D constructor #
+# Point2D destructor #
+ ptc2p : (60, 76)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (0.19547, 0.249079)
+# Point3D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor #
+ pt2 : (460, 224)
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+ *iterP3D : P3D_id_8(1, 1, 1)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (-0.496764, 0.239515)
+# Point3D destructor #
+# Point3D destructor #
+ ptproj : (-0.496764, 0.239515)
+# Point2D constructor #
+# Point2D destructor #
+ ptc2p : (-153, 73)
+# Point3D constructor #
+# Point2D constructor #
+ Vision3D<T>::projection : ps : (-0.496764, 0.239515)
+# Point3D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor #
+ pt2 : (247, 227)
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point2D destructor #
+P3D_id_1(0, 0, 0) -> (400, 300)
+P3D_id_2(0, 0, 1) -> (114, 300)
+P3D_id_3(0, 1, 0) -> (427, 69)
+P3D_id_4(0, 1, 1) -> (174, 80)
+P3D_id_5(1, 0, 0) -> (441, 428)
+P3D_id_6(1, 0, 1) -> (207, 422)
+P3D_id_7(1, 1, 0) -> (460, 224)
+P3D_id_8(1, 1, 1) -> (247, 227)
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Vector3D constructor #
+v2 : (0.168234, 0.100941, -0.980565)
+# Vector3D constructor #
+(0.5, 0.5, 0.5)
+# Vector3D constructor #
+(2, 2, 2)
+# Vector3D constructor #
+ mg = (2, 2, 2)
+# Point3D constructor #
+# Point3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+observer : P3D_id_28(1, -1, 1), center of screen : P3D_id_27(2, -2, 1.2), u vector: (-0.707107, -0.707107, 0), v vector: (0.0990148, -0.0990148, -0.990147), w vector: (0.70014, -0.70014, 0.140028)
+# Point3D constructor #
+# Point3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+observer : P3D_id_30(-1, -1, 1), center of screen : P3D_id_29(-2, -2, 1.2), u vector: (-0.707107, 0.707107, 0), v vector: (-0.0990148, -0.0990148, -0.990147), w vector: (-0.70014, -0.70014, 0.140028)
+# Point3D constructor #
+# Point3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+observer : P3D_id_32(1, -1, -1), center of screen : P3D_id_31(2, -2, -1.2), u vector: (-0.707107, -0.707107, 0), v vector: (-0.0990148, 0.0990148, -0.990147), w vector: (0.70014, -0.70014, -0.140028)
+# Vector3D constructor #
+(2, 2, 2)
+# Edge3D constructor #
+# Point3D destructor #
+# Point3D destructor #
+[P3D_id_10(-1, 0.2, 0.5)] <--> [P3D_id_9(2, 2, 1.2)]
+# Point2D constructor #
+# Point2D constructor #
+# Edge2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+0.349066
+# Object3D constructor #
+# Canvas constructor Canvas() #
+# Object3D constructor #
+# CanvasList constructor CanvasList() #
+Canvas<T>::vision3d.getViewField() : 8.12753e-44
+Canvas<T>::vision3d.getHalfScreenSizeX() : 1651076143
+Canvas<T>::vision3d.getPixelInUnit() : 8.12753e-44
+# Point2D destructor #
+# CanvasList destructor #
+# Object3DList destructor #
+# Object3D destructor #
+# Canvas destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Object3D destructor #
+# Edge2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# CanvasList destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Point2D destructor #
+# Point3D destructor #
+# Object3DList destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Object3D destructor #
+# Canvas destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Object3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor #
+# Object3DList destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Object3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Edge3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #
+# Point3D destructor #

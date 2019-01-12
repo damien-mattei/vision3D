@@ -1,0 +1,71 @@
+
+TT {
+  font-family: 'Lucida Console', Courier, monospace;
+  font-size:12pt;
+  font-weight: bold;
+}
+
+BODY {
+  font-family: "Century Schoolbook", Times, serif;
+  font-size: 12pt;
+}
+
+p {
+  text-indent: 18pt;
+  text-align: justify;
+}
+
+.LEGENDE {
+  font-weight: bold;
+  text-align: center;
+  line-height: 120%;
+}
+
+DT {
+  font-style: italic;
+  font-family: Helvetica, sans-serif;
+}
+
+H1, H2, H3, H4, H5, H6 {
+  font-family: 'Lucida Sans', Helvetica, sans-serif;
+}
+
+H1 {
+  text-align: center;
+  text-decoration: underline;
+  font-variant: small-caps;
+  line-height: 150%;
+  font-size: xx-large;
+}
+
+PRE {
+  font-family: 'Lucida Console', Courier, monospace;
+  font-size: 14pt;
+  background-color: #CCCCCC;
+}
+
+.TITRE {
+  font-style: normal;
+  font-size: xx-large;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.SYNTAXE {
+  text-align: center;
+  font-size: 14pt;
+  font-family: 'Lucida Console', Courier, monospace;
+}
+
+Q {
+  font-style: italic;
+}
+
+VAR {
+  font-family: 'Lucida Console', Courier, monospace;
+  font-size: 14pt;
+  font-style: normal;
+  font-weight: bold;
+}

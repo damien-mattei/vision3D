@@ -1,0 +1,40 @@
+
+
+|w| = 1
+
+d = SQRT((Xc - Xb)² + (Yc - Yb)² + (Zc - Zb)²)
+
+Xw = (Xc - Xb) / d
+
+Yw = (Yc - Yb) / d
+
+Zw = (Zc - Zb) / d
+
+
+u.w=0
+
+|u| = 1
+
+Xw . Xu + Yw . Yu + Zw . Zu = 0
+
+Zu = 0 => Xw . Xu + Yw . Yu = 0
+
+Xu = - Yw . Yu / Xw
+
+Xu² + Yu² = 1 => (Yw² . Yu² / Xw²) + Yu² = 1
+
+=> Yu² . [1 + (Yw² / Xw²)] = 1
+
+=> Yu² = 1 / [1 + (Yw² / Xw²)]
+
+=> Yu² = 1 / [(Xw² + Yw²) / Xw²]
+
+=> Yu² =  Xw² / (Xw² + Yw²)
+
+(negative solution is arbitrary taken for orientation)
+
+Xu² = 1 - Xw² / (Xw² + Yw²)
+
+
+
+
