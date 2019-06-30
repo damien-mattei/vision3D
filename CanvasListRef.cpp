@@ -67,7 +67,8 @@ template<class T> void CanvasListRef<T>::computePoints3DtoPixels(void)   {
   // deprecated function, see associatePt3Pix2InMap
   
   // finding the vertex list
-  list < Point3Did<T> > vertexList = object3dlist.vertexList;
+  //list < Point3Did<T> > &vertexList = object3dlist->vertexList;
+  list < Point3Did<T> > vertexList = object3dlist->vertexList;
   
   // iterate on the list to compute 3D to 2D projection and Pixels calculus
   // note : i put typename hint because as it is a template definition
@@ -88,7 +89,7 @@ template<class T> void CanvasListRef<T>::computePoints3DtoPixels(void)   {
 template<class T> void CanvasListRef<T>::associatePt3Pix2(void) {
 
   // finding the vertex list
-  list < Point3Did<T> > vertexList = object3dlist.vertexList;
+  list < Point3Did<T> > vertexList = object3dlist->vertexList;
 
   // the iterators on the three lists
   typename list < pair < Point3Did<T> , Point2D<int> > >::iterator iterListPt3Pix2;
@@ -111,7 +112,7 @@ template<class T> void CanvasListRef<T>::associatePt3Pix2InMap(void) {
   Point2D<int> pt2;
    
   // finding the vertex list
-  list < Point3Did<T> > vertexList = object3dlist.vertexList;
+  list < Point3Did<T> > vertexList = object3dlist->vertexList;
   
   // iterate on the list to compute 3D to 2D projection and Pixels calculus
   // note : i put typename hint because as it is a template definition
@@ -150,7 +151,7 @@ template<class T> void CanvasListRef<T>::associatePt3Pix2InMap(void) {
 template<class T> void CanvasListRef<T>::displayHTpointPixel(void) {
 
   // finding the vertex list
-  list < Point3Did<T> > vertexList = object3dlist.vertexList;
+  list < Point3Did<T> > vertexList = object3dlist->vertexList;
   
   // iterate on the list to compute 3D to 2D projection and Pixels calculus
   // note : i put typename hint because as it is a template definition

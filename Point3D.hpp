@@ -4,6 +4,8 @@
 #ifndef POINT3D_HPP
 #define POINT3D_HPP
 
+//#include "Vision3D.hpp"
+
 using namespace std;
 #include <iostream>
 #include <utility>
@@ -17,29 +19,31 @@ using namespace std;
 //template<class T> ostream& operator<<(ostream& out, const Point3D<T>& p3d);
 
 
+
+
 template <class T> class Point3D {
         
 public:
    
   T x,y,z; // coords 
 
- 
-  //friend ostream& operator<<<> (ostream &out, const Point3D<T> &p3d);
-
   
-  bool operator== (const Point3D<T> &p3d)  {
-    
-    return (x==p3d.x) && (y==p3d.y) && (z==p3d.z);
-    
-  }
-
-
   Point3D();
+
+  Point3D(list < Point3D<T> > *);
 
   ~Point3D();
     
   Point3D(T x,T y,T z);
+  
+  // copy constructor
+  Point3D(const Point3D<T> &);
 
+  // assignation operator
+  Point3D<T> & operator=(const Point3D<T> &);
+
+  // equality operator
+  bool operator== (const Point3D<T> &);
 
 };
 

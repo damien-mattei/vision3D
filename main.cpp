@@ -31,11 +31,15 @@ using namespace std;
 
 #include "Object3DListRef.hpp"
 
-//#include "CanvasListRef.hpp"
+#include "CanvasListRef.hpp"
 
 int main() {
   
-  
+  Vision3D<float> vis0;
+
+  list < Point3D<float> > lst0;
+
+   
   cout << " -----------------------------  " << endl;
   
   Point3D<float> pt3d(7,8,9);
@@ -181,6 +185,10 @@ int main() {
   cout << cubeRef.name << endl;
 
   cubeRef.printName();
+
+  // finding the vertex list
+  //list < Point3Did<float> > & vertexList = cube.vertexList;
+  list < Point3Did<float> > vertexList = cube.vertexList;
 
 }
 

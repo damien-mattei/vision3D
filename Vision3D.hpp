@@ -14,7 +14,7 @@ const double PI = 4.0*atan(1.0);
 template <class T> class Vision3D {
   
 public:
-  
+
   // position of eye
   Point3D<T> c;
   
@@ -52,6 +52,9 @@ public:
 
   // pixel expressed in unit of rame reference 
   T pixelInUnit;
+
+  // data 
+  list < Point3D<T> > vertexList;
   
   Vision3D();
 
@@ -68,6 +71,8 @@ public:
   Point2D<int> convert2AbsPixel(Point2D<int> p); // convert in absolute screen coords
 
   Point2D<int> convert2ScreenCoord(Point2D<int> p); // convert in computer screen coords (Origin at left top corner)
+
+  Point3D<T> * createPoint3D(T x,T y,T z); // create a point by checking if it already exist
 
   void setViewField(T viewFieldInDegree) { 
 

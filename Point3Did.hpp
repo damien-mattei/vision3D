@@ -40,6 +40,12 @@ public:
     
   Point3Did(T x,T y,T z);
 
+  // copy constructor
+  Point3Did(const Point3Did &);
+
+  // assignation operator
+  Point3Did<T> & operator=(const Point3Did<T> &);
+
 
 };
 

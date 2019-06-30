@@ -22,18 +22,6 @@ public:
   
   Point3D<T> a,b;
   
-  Edge3D<T>& operator=(const Edge3D<T> &e) {
-    
-    if( this !=  &e ) {
-      a = e.a;
-      b = e.b;
-    }
-    
-    return *this;
-    
-  }
-
-
   Edge3D();
 
   ~Edge3D();
@@ -41,6 +29,10 @@ public:
   // create edge AB from point A and B
   Edge3D(Point3D<T> a,Point3D<T> b);
 
+  Edge3D(const Edge3D<T> &);
+
+  Edge3D<T> & operator=(const Edge3D<T> &);
+  
   // // compute the norm 
 //   T norm();
 

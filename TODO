@@ -1,6 +1,7 @@
 DEFINIR UNE FOIS POUR TOUTES UN TYPAGE DE DONNEES PAR REFERENCE/POINTEURS LE PLUS EFFICACES
 
-back up version avant modif
+
+passer aux reference dans edge3D
 
 == de point3D pourrait etre simplement sur adresse mais id utile pour index tableau
 
@@ -22,16 +23,31 @@ creer un constructeur Object3D qui prend en argument la taille max d'un tableau 
 necessite creation d'un mode tableau (C style) ou list (LISP style)
 interet id unique?
 -point3D unique = non duplique 
- affectation = que se passe t'il? 
-1er cas: affectation pt3D1 = pt3D2 
-construction pt3D1 => id = i1 
-construction pt3D2 => id = i2 avec i1 <> i2
+
 constructeur necessite actuellement x,y,z definis
 pour l'efficacite un P3D doit etre unique comme dans l'espace, ainsi il n'y a pas de doublons inutiles.
 on peut donc laisser le constructeur de recopie par defaut qui copie la memoire du point.
 
-sortir l'id de point 3d en faire une classe a part point3Did contenant point3D,id
-
 enlever object3dlistvalor car par defaut le passage est en valeur deja
 
 au lieu des point3D utiliser des references et pointeurs vers les point3D !!! dans les classes qui utilisent des references bien sur !!!
+
+objets:
+
+points 3D
+segment constitués de deux points
+ligne brisée : plusieurs points,doit pouvoir aussi se construire avec plusieurs segments
+face: plusieurs points dans un meme plan,doit pouvoir aussi se construire avec des aretes ou segments voire des faces  !!!
+
+ajout des points segment etc au canvas par une methode qui recherche leur unicité et n'ajoute pas de doublons
+methodes aussi qui permettent de creer un point ou segment en interrogeant leur existence prealable dans le canvas
+mais aussi posibilité de travailler indépendemment du canvas!
+
+Vision3D: contient des calculs mathematiques
+
+Universe en fait une variable dans vision3D: contient des Points de l'espace, lignes brisées, faces, objets 3D...(cubes,...)
+repond au bsoin de stocker les points de maniere unique dans la mémoire pour eviter les doublons
+
+question: le point doit il acceder à l'univers et ainsi verifier son unicité lui meme lors da la tentative de clonage???? non
+ car alors chaque point peut acceder a l'univers et donc contient un pointeur: exces de memoire!
+

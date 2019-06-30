@@ -34,6 +34,45 @@ template <class T> ostream&  operator<< (ostream &out, Edge3D<T> &e)
 }
 
 
+
+// copy constructor
+template <class T> Edge3D<T>::Edge3D(const Edge3D<T> &oneEdge3D) {
+
+  a=oneEdge3D.a;
+  b=oneEdge3D.b;
+  
+#ifdef DISPLAY_CONSTRUCTOR
+  cout << "# Edge3D copy constructor #" << endl;
+#endif
+
+}
+
+
+// assignation operator
+  
+template <class T> Edge3D<T> & Edge3D<T>::operator=(const Edge3D<T> &oneEdge3D)
+  {
+
+#ifdef DISPLAY_ASSIGN
+    cout << "# Edge3D assignation operator #" << endl;
+#endif
+    
+    if (this != &oneEdge3D)
+      {
+	
+	a=oneEdge3D.a;
+	b=oneEdge3D.b;
+  
+	// delete [] tableau;
+	
+    }
+
+    return *this;
+  }
+
+
+
+
 // template<class T> T  Edge3D<T>::norm() {
 
 //   return ( sqrt(x * x + y * y + z * z) ); 

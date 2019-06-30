@@ -5,22 +5,70 @@
 
 // implementations
 
-template <class T> Point3Did<T>::Point3Did()  : Point3D<T>::Point3D(0 ,0, 0) , id(Point3Did<T>::next_id++) {}
+template <class T> Point3Did<T>::Point3Did()  : Point3D<T>::Point3D(0 ,0, 0) , id(Point3Did<T>::next_id++) {
+
+#ifdef DISPLAY_CONSTRUCTOR
+  cout << "# Point3Did() constructor #" << endl;
+#endif
+
+}
 
 template <class T> Point3Did<T>::Point3Did(T x , T y , T z) : Point3D<T>::Point3D(x, y, z) , id(Point3Did<T>::next_id++) {
 
 #ifdef DISPLAY_CONSTRUCTOR
-  cout << "# Point3Did constructor #" << endl;
+  cout << "# Point3Did(T x , T y , T z) constructor #" << endl;
 #endif
 }
 
 template <class T> Point3Did<T>::~Point3Did() {
 
 #ifdef DISPLAY_CONSTRUCTOR
-  cout << "# Point3D destructor #" << endl;
+  cout << "# Point3Did destructor #" << endl;
 #endif
 
 }
+
+// copy constructor
+template <class T> Point3Did<T>::Point3Did(const Point3Did<T> &onePoint3Did) // :
+  //Point3D<T>::Point3D(onePoint3Did.x, onePoint3Did.y, onePoint3Did.z) , id(onePoint3Did.id) {
+
+ {
+   Point3D<T>::x=onePoint3Did.x;
+   Point3D<T>::y=onePoint3Did.y;
+   Point3D<T>::z=onePoint3Did.z;
+   id=onePoint3Did.id;
+  
+#ifdef DISPLAY_CONSTRUCTOR
+  cout << "# Point3Did copy constructor #" << endl;
+#endif
+
+}
+
+// assignation operator
+  
+template <class T> Point3Did<T> & Point3Did<T>::operator=(const Point3Did<T> &onePoint3Did)
+  {
+
+#ifdef DISPLAY_ASSIGN
+    cout << "# Point3Did assignation operator #" << endl;
+#endif
+    
+    if (this != &onePoint3Did)
+      {
+	
+	id=onePoint3Did.id;
+	Point3D<T>::x=onePoint3Did.x;
+	Point3D<T>::y=onePoint3Did.y;
+	Point3D<T>::z=onePoint3Did.z;
+	
+	// delete [] tableau;
+	
+    }
+
+    return *this;
+  }
+
+
 
 template <class T> ostream&  operator<< (ostream &out, Point3Did<T> &p3did)
 {

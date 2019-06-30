@@ -11,7 +11,9 @@ MYINCLUDES=.
 
 MYLIBRARIES=
 CC=g++
-CFLAGS=-Wall -std=c++0x
+#CFLAGS=-Wall -std=c++0x
+#CFLAGS=-Wall -std=c++11
+CFLAGS=-Wall -std=c++14
 LDFLAGS=
 #------------------------------------------------------------------------------
 
