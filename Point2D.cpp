@@ -31,3 +31,11 @@ template <class T> ostream&  operator<< (ostream &out, Point2D<T> &p2d)
   return out;
 
 }
+
+// equality operator
+template <class T> bool Point2D<T>::operator== (const Point2D<T> &p2d)  {
+  
+  return (x==p2d.x) && (y==p2d.y);
+    
+}
+

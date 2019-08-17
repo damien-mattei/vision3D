@@ -84,7 +84,7 @@ template<class T> void CanvasList<T>::computePoints3DtoPixels(void)   {
   
 
 // associate Point3Did and Pixels in list of pair (Point3Did <-> Pixel)
-// not usefull instead we need an hash table
+// not usefull instead we use an hash table, see the next function !
 template<class T> void CanvasList<T>::associatePt3Pix2(void) {
 
   // finding the vertex list

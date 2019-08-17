@@ -32,7 +32,10 @@ public:
   // list of pair (Point3Did <-> Pixel)
   list < pair < Point3Did<T> , Point2D<int> > > listPt3Pix2;
 
-  // map (hash table with ordering relationship between elements) of Points3Did <-> Pixel
+  // unordered map (hash table without ordering relationship between elements) of Points3Did <-> Pixel
+  
+  // unordered hash table give faster access ordered map ("performance of data structure depends on hash function a lot but on an average the cost of search, insert and delete from hash table is O(1). ")
+  // ref: https://www.geeksforgeeks.org/unordered_map-in-cpp-stl/
   unordered_map<Point3Did<float>,Point2D<int>,hash_point3did<float>,point3DidEquals<float>> htPointPixel;
 
   

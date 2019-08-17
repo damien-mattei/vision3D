@@ -51,3 +51,9 @@ repond au bsoin de stocker les points de maniere unique dans la mémoire pour ev
 question: le point doit il acceder à l'univers et ainsi verifier son unicité lui meme lors da la tentative de clonage???? non
  car alors chaque point peut acceder a l'univers et donc contient un pointeur: exces de memoire!
 
+en fait il faudrait que tous les objets puissent exister independemment de l'univers mais que l'on puisse aussi verifier leur unicité dans l'univers
+
+verifier que tous les objets se conforment bien à la description 
+
+essayer avec des Set dans vision3d avec point3d mais faut une relation d'ordre sur point3d alors...
+d'abord des List!

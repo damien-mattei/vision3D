@@ -20,6 +20,8 @@ public:
     
   Point2D(T x,T y);
 
+  // equality operator
+  bool operator== (const Point2D<T> &);
 
 };
 

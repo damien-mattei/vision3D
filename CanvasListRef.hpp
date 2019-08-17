@@ -33,6 +33,8 @@ public:
   list < pair < Point3Did<T> , Point2D<int> > > listPt3Pix2;
 
   // map (hash table with ordering relationship between elements) of Points3Did <-> Pixel
+
+  // unordered map
   unordered_map<Point3Did<float>,Point2D<int>,hash_point3did<float>,point3DidEquals<float>> htPointPixel;
 
   

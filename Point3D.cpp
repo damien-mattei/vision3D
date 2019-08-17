@@ -13,7 +13,7 @@ template <class T> Point3D<T>::Point3D(T x , T y , T z) : x(x) , y(y) , z(z) {
 
   // this->z =z;
 #ifdef DISPLAY_CONSTRUCTOR
-  cout << "# Point3D constructor # " << this << endl;
+  cout << "# Point3D constructor # " << this << " " << *this << endl;
 #endif
 }
 
@@ -52,7 +52,7 @@ template <class T> Point3D<T>::Point3D(const Point3D<T> &onePoint3D) {
    
   
 #ifdef DISPLAY_CONSTRUCTOR
-  cout << "# Point3D copy constructor # " << this  << endl;
+  cout << "# Point3D copy constructor # " << this << " " << *this << endl;
 #endif
 
 }
@@ -93,7 +93,7 @@ template <class T> Point3D<T> & Point3D<T>::operator=(const Point3D<T> &onePoint
 template <class T> struct hash_point3d {
   size_t operator()(const Point3D<T> &p3d ) const
   {
-    return hash<int>()(&p3d); // hash code is made with address !!!
+    return hash<const Point3D<T> *>()(&p3d); // hash code is made with address !!!
   }
 };
 
@@ -108,7 +108,7 @@ template <class T> struct point3DEquals : binary_function<const Point3D<T>&, con
 
 // equality operator
 template <class T> bool Point3D<T>::operator== (const Point3D<T> &p3d)  {
+  
+  return (x==p3d.x) && (y==p3d.y) && (z==p3d.z);
     
-    return (x==p3d.x) && (y==p3d.y) && (z==p3d.z);
-    
-  }
+}

@@ -13,7 +13,7 @@ template <class T> CubeList<T>::CubeList()  {//: Object3DList<T>::Object3DList()
     // definition for cube
 
     // the vertex
-    Point3D<float> cubeP1(0.0, 0.0, 0.0);
+    Point3D<T> cubeP1(0.0, 0.0, 0.0);
     Point3D<float> cubeP2(0.0, 0.0, 1.0);
     Point3D<float> cubeP3(0.0, 1.0, 0.0);
     Point3D<float> cubeP4(0.0, 1.0, 1.0);

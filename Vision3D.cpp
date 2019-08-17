@@ -133,16 +133,88 @@ template<class T> Point2D<int> Vision3D<T>::convert2ScreenCoord(Point2D<int> p) 
 
 }
 
-// create a point by checking if it already exist in the universe
-template<class T> Point3D<T> * Vision3D<T>::createPoint3D(T x,T y,T z) {
+template<class T> Point2D<int> Vision3D<T>::projectPoint3DtoPixel(Point3D<T> p) {
+  
+  convert2ScreenCoord(
+		      convert2AbsPixel(
+				       convert2Pixel(
+						     projection(p))));
+}
 
-  Point3D<T> pt3d(x,y,z);
-  
-  typename list< Point3D<T> >::iterator iterP3D = std::find(vertexList.begin(), vertexList.end(), pt3d);
-  
-  bool found = (iterP3D != vertexList.end());
 
-  // we had to add the point to the universe
-  return found ? *iterP3D : &pt3d;
+// compute the 3D -> 2D for the object
+// so we got the projected 2D points as result
+// nota: this is intermediate calculus that could be used for debugging
+template<class T> void Vision3D<T>::computePoints3DtoPoints2D(void)  {
+    
+  // finding the vertex list
+  list < Point3D<T> > vertexList = object3dlist.vertexList;
+
+  // iterate on the list to compute 3D to 2D projection
+  // note : i put typename hint because as it is a template definition
+  // compiler can not know the type it is until the compiler knows T
+  typename list< Point3D<T> >::iterator iterP3D;
   
+  for ( iterP3D = vertexList.begin();
+	iterP3D != vertexList.end();
+	++iterP3D )
+    
+    points2d.push_back(projection(*iterP3D));
+  
+
+}
+
+
+// compute the pixels, starting from 2D points
+// nota: again this is a whole part calculus splitted in two for debugging
+template<class T> void Vision3D<T>::computePoints2DtoPixels(void) {
+  
+  // iterate on the list 2D point list to compute pixels
+  // note : i put typename hint because as it is a template definition
+  // compiler can not know the type it is until the compiler knows T
+  typename list< Point2D<T> >::iterator iterP2D;
+  for (iterP2D = points2d.begin(); iterP2D != points2d.end(); ++iterP2D) 
+    pixels.push_back(convert2ScreenCoord(convert2AbsPixel(convert2Pixel(*iterP2D))));
+    
+}
+
+
+// associate Point3D and Pixels in unordered map (Point3D <-> Pixel)
+
+template<class T> void Vision3D<T>::associatePt3Pix2InMap(void) {
+
+  Point2D<int> pt2;
+   
+  // finding the vertex list
+  list < Point3D<T> > vertexList = object3dlist.vertexList;
+  
+  // iterate on the list to compute 3D to 2D projection and Pixels calculus
+  // note : i put typename hint because as it is a template definition
+  // compiler can not know the type it is until the compiler knows T
+  typename list< Point3D<T> >::iterator iterP3D;
+  
+#ifdef DEBUG
+  std::cout << "getViewField() : " << getViewField() << std::endl;
+  std::cout << "getHalfScreenSizeX() : " << getHalfScreenSizeX() << std::endl;
+  std::cout << "getPixelInUnit() : " << getPixelInUnit() << std::endl;
+  
+#endif
+  
+  for (iterP3D = vertexList.begin(); iterP3D != vertexList.end(); ++iterP3D) {
+
+#ifdef DEBUG
+    std::cout << " *iterP3D : " << *iterP3D << std::endl;
+    
+    Point2D<float> ptproj = projection(*iterP3D);
+    std::cout << " ptproj : " << ptproj << std::endl;
+    Point2D<int> ptc2p = convert2Pixel(ptproj);
+    std::cout << " ptc2p : " << ptc2p << std::endl;
+#endif
+
+    pt2 = projectPoint3DtoPixel(*iterP3D);
+    
+    std::cout << " pt2 : " << pt2 << std::endl;
+    htPointPixel[*iterP3D] = pt2;
   }
+  
+}

@@ -5,13 +5,15 @@
 
 using namespace std;
 
-#define DISPLAY_CONSTRUCTOR 1
+#define DISPLAY_CONSTRUCTOR 7
 
-#include "Vision3D.hpp"
+
 
 #include "Vector3D.hpp"
 
 #include "Point3D.hpp"
+
+
 
 #include "Point3Did.hpp"
 
@@ -23,6 +25,8 @@ using namespace std;
 
 #include "Object3DList.hpp"
 
+#include "Vision3D.hpp"
+
 #include "Canvas.hpp"
 
 #include "CanvasList.hpp"
@@ -33,9 +37,55 @@ using namespace std;
 
 #include "CanvasListRef.hpp"
 
+#include "Cube.hpp"
+
+
 int main() {
+
+  cout << " ----------- test Universe ------------------  " << endl;
+
+  Universe<float> univ;
+
+  cout << " avec des pointeurs et des references vers des point3D " << endl;
+  
+  Point3D<float> * pt3d_uniq_ptr = univ.createPoint3Dptr(1,0,0);
+
+  Point3D<float> & pt3d_uniq_ref = *pt3d_uniq_ptr;
+  
+  cout << "pt3d_uniq_ref : " << pt3d_uniq_ref << endl;
+
+  //cout << "deleting pt3d_uniq_ptr : delete pt3d_uniq_ptr; " << endl;
+
+  //delete pt3d_uniq_ptr;
+  
+
+  cout << "pt3d_uniq_ref : " << pt3d_uniq_ref << endl;
+
+  cout << "deleting pt3d_uniq_ref : pt3d_uniq_ref.~Point3D<float>(); " << endl;
+
+  pt3d_uniq_ref.~Point3D<float>();
+
+  cout << "pt3d_uniq_ref : " << pt3d_uniq_ref << endl;
+
+  cout << "deleting pt3d_uniq_ptr : delete pt3d_uniq_ptr; " << endl;
+
+  delete pt3d_uniq_ptr;
+
+  cout << "pt3d_uniq_ref : " << pt3d_uniq_ref << endl;
+  
+  cout << " avec des point3D " << endl;
+
+  Point3D<float> pt3d_uniq = univ.createPoint3D(2,0,0);
+
+  cout << "pt3d_uniq : " << pt3d_uniq << endl;
+  
+  cout << " --------------------------------------------  " << endl;
+
+  Point3D<float> * bz = new Point3D<float>(2,2,1.2);
   
   Vision3D<float> vis0;
+
+  
 
   list < Point3D<float> > lst0;
 
@@ -55,6 +105,8 @@ int main() {
   //exit(1);
   
 #include "cube_def.hpp"
+
+
   
   Point3D<float> b(2,2,1.2);
   
