@@ -5,8 +5,6 @@
 #define UNIVERSE_HPP
 
 
-using namespace std;
-
 
 
 template <class T> class Universe {
@@ -21,7 +19,9 @@ public:
 
   ~Universe();
     
-  Point3D<T> * createPoint3D(T x,T y,T z); // create a point by checking if it already exist
+  Point3D<T> * createPoint3Dptr(T x,T y,T z); // create a point by checking if it already exist
+
+  Point3D<T> createPoint3D(T x,T y,T z); // create a point by checking if it already exist
   
 };
 

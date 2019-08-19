@@ -1,0 +1,1363 @@
+ ----------- test Universe ------------------  
+# Universe constructor # 0x7ffee30264c0
+ avec des pointeurs et des references vers des point3D 
+# Point3D constructor # 0x7ffc1bc02720 P3D(1, 0, 0)
+vertexList.push_back(*pt3d);
+# Point3D copy constructor # 0x7ffc1bc027e0 P3D(1, 0, 0)
+pt3d_uniq_ref : P3D(1, 0, 0)
+deleting pt3d_uniq_ref : pt3d_uniq_ref.~Point3D<float>(); 
+# Point3D destructor # 0x7ffc1bc02720
+pt3d_uniq_ref : P3D(1, 0, 0)
+deleting pt3d_uniq_ptr : delete pt3d_uniq_ptr; 
+# Point3D destructor # 0x7ffc1bc02720
+pt3d_uniq_ref : P3D(1, 0, 0)
+ avec des point3D 
+# Point3D constructor # 0x7ffee3024c48 P3D(2, 0, 0)
+# Point3D copy constructor # 0x7ffc1bc02800 P3D(2, 0, 0)
+# Point3D copy constructor # 0x7ffee3026490 P3D(2, 0, 0)
+# Point3D destructor # 0x7ffee3024c48
+pt3d_uniq : P3D(2, 0, 0)
+ --------------------------------------------  
+# Point3D constructor # 0x7ffc1bc02720 P3D(2, 2, 1.2)
+# Universe constructor # 0x7ffee30263b8
+# Object3D constructor #
+ -----------------------------  
+# Point3D constructor # 0x7ffee3026318 P3D(7, 8, 9)
+pt3d : P3D(7, 8, 9)
+# Point3D copy constructor # 0x7ffee3026308 P3D(7, 8, 9)
+ -----------------------------  
+pt3dbis : P3D(7, 8, 9)
+# Point3D constructor # 0x7ffee30262f8 P3D(0, 0, 0)
+# Point3Did(T x , T y , T z) constructor #
+# Point3D constructor # 0x7ffee30262e8 P3D(0, 0, 1)
+# Point3Did(T x , T y , T z) constructor #
+# Point3D constructor # 0x7ffee30262d8 P3D(0, 1, 0)
+# Point3Did(T x , T y , T z) constructor #
+# Point3D constructor # 0x7ffee30262c8 P3D(0, 1, 1)
+# Point3Did(T x , T y , T z) constructor #
+# Point3D constructor # 0x7ffee30262b8 P3D(1, 0, 0)
+# Point3Did(T x , T y , T z) constructor #
+# Point3D constructor # 0x7ffee30262a8 P3D(1, 0, 1)
+# Point3Did(T x , T y , T z) constructor #
+# Point3D constructor # 0x7ffee3026298 P3D(1, 1, 0)
+# Point3Did(T x , T y , T z) constructor #
+# Point3D constructor # 0x7ffee3026288 P3D(1, 1, 1)
+# Point3Did(T x , T y , T z) constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3D copy constructor # 0x7ffee3026248 P3D(0, 0, 0)
+# Point3D copy constructor # 0x7ffee3026238 P3D(0, 0, 1)
+# Point3D copy constructor # 0x7ffee3026258 P3D(0, 0, 0)
+# Point3D copy constructor # 0x7ffee3026264 P3D(0, 0, 1)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee3026238
+# Point3D destructor # 0x7ffee3026248
+# Point3D copy constructor # 0x7ffee3026210 P3D(0, 1, 0)
+# Point3D copy constructor # 0x7ffee3026200 P3D(0, 1, 1)
+# Point3D copy constructor # 0x7ffee3026220 P3D(0, 1, 0)
+# Point3D copy constructor # 0x7ffee302622c P3D(0, 1, 1)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee3026200
+# Point3D destructor # 0x7ffee3026210
+# Point3D copy constructor # 0x7ffee30261d8 P3D(1, 0, 0)
+# Point3D copy constructor # 0x7ffee30261c8 P3D(1, 0, 1)
+# Point3D copy constructor # 0x7ffee30261e8 P3D(1, 0, 0)
+# Point3D copy constructor # 0x7ffee30261f4 P3D(1, 0, 1)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee30261c8
+# Point3D destructor # 0x7ffee30261d8
+# Point3D copy constructor # 0x7ffee30261a0 P3D(1, 1, 0)
+# Point3D copy constructor # 0x7ffee3026190 P3D(1, 1, 1)
+# Point3D copy constructor # 0x7ffee30261b0 P3D(1, 1, 0)
+# Point3D copy constructor # 0x7ffee30261bc P3D(1, 1, 1)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee3026190
+# Point3D destructor # 0x7ffee30261a0
+# Point3D copy constructor # 0x7ffee3026168 P3D(0, 0, 0)
+# Point3D copy constructor # 0x7ffee3026158 P3D(0, 1, 0)
+# Point3D copy constructor # 0x7ffee3026178 P3D(0, 0, 0)
+# Point3D copy constructor # 0x7ffee3026184 P3D(0, 1, 0)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee3026158
+# Point3D destructor # 0x7ffee3026168
+# Point3D copy constructor # 0x7ffee3026130 P3D(0, 1, 0)
+# Point3D copy constructor # 0x7ffee3026120 P3D(1, 0, 0)
+# Point3D copy constructor # 0x7ffee3026140 P3D(0, 1, 0)
+# Point3D copy constructor # 0x7ffee302614c P3D(1, 0, 0)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee3026120
+# Point3D destructor # 0x7ffee3026130
+# Point3D copy constructor # 0x7ffee30260f8 P3D(1, 0, 0)
+# Point3D copy constructor # 0x7ffee30260e8 P3D(1, 1, 0)
+# Point3D copy constructor # 0x7ffee3026108 P3D(1, 0, 0)
+# Point3D copy constructor # 0x7ffee3026114 P3D(1, 1, 0)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee30260e8
+# Point3D destructor # 0x7ffee30260f8
+# Point3D copy constructor # 0x7ffee30260c0 P3D(1, 1, 0)
+# Point3D copy constructor # 0x7ffee30260b0 P3D(0, 0, 0)
+# Point3D copy constructor # 0x7ffee30260d0 P3D(1, 1, 0)
+# Point3D copy constructor # 0x7ffee30260dc P3D(0, 0, 0)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee30260b0
+# Point3D destructor # 0x7ffee30260c0
+# Point3D copy constructor # 0x7ffee3026088 P3D(0, 0, 1)
+# Point3D copy constructor # 0x7ffee3026078 P3D(0, 1, 1)
+# Point3D copy constructor # 0x7ffee3026098 P3D(0, 0, 1)
+# Point3D copy constructor # 0x7ffee30260a4 P3D(0, 1, 1)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee3026078
+# Point3D destructor # 0x7ffee3026088
+# Point3D copy constructor # 0x7ffee3026050 P3D(0, 1, 1)
+# Point3D copy constructor # 0x7ffee3026040 P3D(1, 0, 1)
+# Point3D copy constructor # 0x7ffee3026060 P3D(0, 1, 1)
+# Point3D copy constructor # 0x7ffee302606c P3D(1, 0, 1)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee3026040
+# Point3D destructor # 0x7ffee3026050
+# Point3D copy constructor # 0x7ffee3026018 P3D(1, 0, 1)
+# Point3D copy constructor # 0x7ffee3026008 P3D(1, 1, 1)
+# Point3D copy constructor # 0x7ffee3026028 P3D(1, 0, 1)
+# Point3D copy constructor # 0x7ffee3026034 P3D(1, 1, 1)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee3026008
+# Point3D destructor # 0x7ffee3026018
+# Point3D copy constructor # 0x7ffee3025fe0 P3D(1, 1, 1)
+# Point3D copy constructor # 0x7ffee3025fd0 P3D(0, 0, 1)
+# Point3D copy constructor # 0x7ffee3025ff0 P3D(1, 1, 1)
+# Point3D copy constructor # 0x7ffee3025ffc P3D(0, 0, 1)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee3025fd0
+# Point3D destructor # 0x7ffee3025fe0
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Object3D constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Object3DList constructor #
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02c7c
+# Point3D destructor # 0x7ffc1bc02c70
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02cac
+# Point3D destructor # 0x7ffc1bc02ca0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02cdc
+# Point3D destructor # 0x7ffc1bc02cd0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02d0c
+# Point3D destructor # 0x7ffc1bc02d00
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02d3c
+# Point3D destructor # 0x7ffc1bc02d30
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02d6c
+# Point3D destructor # 0x7ffc1bc02d60
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02d9c
+# Point3D destructor # 0x7ffc1bc02d90
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02dcc
+# Point3D destructor # 0x7ffc1bc02dc0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02dfc
+# Point3D destructor # 0x7ffc1bc02df0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02e2c
+# Point3D destructor # 0x7ffc1bc02e20
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02e5c
+# Point3D destructor # 0x7ffc1bc02e50
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02e8c
+# Point3D destructor # 0x7ffc1bc02e80
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02b70
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02b90
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02bb0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02bd0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02bf0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02c10
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02c30
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02c50
+# Point3D constructor # 0x7ffee3025f18 P3D(2, 2, 1.2)
+# Vector3D constructor #
+# Vector3D constructor #
+# Vector3D constructor #
+# Point3D constructor # 0x7ffee3025ec8 P3D(-1, 0.2, 0.5)
+ b : P3D(2, 2, 1.2)
+ c1 :P3D(-1, 0.2, 0.5)
+(7, 8, 9)
+(1, 1, 1)
+(8, 9, 10)
+(8, 9, 10)
+# Point3D copy constructor # 0x7ffee3025d70 P3D(-1, 0.2, 0.5)
+# Point3D copy constructor # 0x7ffee3025d60 P3D(2, 2, 1.2)
+# Point3D copy constructor # 0x7ffee3025d80 P3D(-1, 0.2, 0.5)
+# Point3D copy constructor # 0x7ffee3025d8c P3D(2, 2, 1.2)
+# Universe constructor # 0x7ffee3025df8
+# Object3D constructor #
+# Point3D copy constructor # 0x7ffee30249b0 P3D(-1, 0.2, 0.5)
+# Point3D copy constructor # 0x7ffee30249a0 P3D(2, 2, 1.2)
+# Point3D destructor # 0x7ffee30249a0
+# Point3D destructor # 0x7ffee30249b0
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee3025d60
+# Point3D destructor # 0x7ffee3025d70
+observer : P3D(-1, 0.2, 0.5), center of screen : P3D(2, 2, 1.2), u vector: (0.514496, -0.857493, 0), v vector: (0.168234, 0.100941, -0.980565), w vector: (0.840828, 0.504497, 0.196193)
+vis.u : (0.514496, -0.857493, 0)
+vis.v : (0.168234, 0.100941, -0.980565)
+vis.w : (0.840828, 0.504497, 0.196193)
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Point3D copy constructor # 0x7ffee3025988 P3D(-1, 0.2, 0.5)
+# Point3D copy constructor # 0x7ffee3025994 P3D(2, 2, 1.2)
+# Canvas constructor Canvas() #
+# Point3D copy constructor # 0x7ffee3025b30 P3D(-1, 0.2, 0.5)
+# Point3D copy constructor # 0x7ffee3025b3c P3D(2, 2, 1.2)
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# Edge3D copy constructor #
+# CanvasList constructor CanvasList(Object3DList<T> object3dlist,Vision3D<T> vision3d) #
+# Object3DList destructor #
+# Object3D destructor #
+# Universe destructor # 0x7ffee3025a00
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee3025994
+# Point3D destructor # 0x7ffee3025988
+# Object3DList destructor #
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02c7c
+# Point3D destructor # 0x7ffc1bc02c70
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02cac
+# Point3D destructor # 0x7ffc1bc02ca0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02cdc
+# Point3D destructor # 0x7ffc1bc02cd0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02d0c
+# Point3D destructor # 0x7ffc1bc02d00
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02d3c
+# Point3D destructor # 0x7ffc1bc02d30
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02d6c
+# Point3D destructor # 0x7ffc1bc02d60
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02d9c
+# Point3D destructor # 0x7ffc1bc02d90
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02dcc
+# Point3D destructor # 0x7ffc1bc02dc0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02dfc
+# Point3D destructor # 0x7ffc1bc02df0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02e2c
+# Point3D destructor # 0x7ffc1bc02e20
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02e5c
+# Point3D destructor # 0x7ffc1bc02e50
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02e8c
+# Point3D destructor # 0x7ffc1bc02e80
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02c50
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02b70
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02b90
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02bb0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02bd0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02bf0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02c10
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02c30
+# Object3D destructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3D copy constructor # 0x7ffee3024cc8 P3D(0, 0, 0)
+# Point3D constructor # 0x7ffee3024c78 P3D(0, 0, 0)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c78
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cc8
+# Point3D copy constructor # 0x7ffee3024cc8 P3D(0, 0, 1)
+# Point3D constructor # 0x7ffee3024c78 P3D(0, -0.980565, 0.196193)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c78
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cc8
+# Point3D copy constructor # 0x7ffee3024cc8 P3D(0, 1, 0)
+# Point3D constructor # 0x7ffee3024c78 P3D(-0.857493, 0.100941, 0.504497)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c78
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cc8
+# Point3D copy constructor # 0x7ffee3024cc8 P3D(0, 1, 1)
+# Point3D constructor # 0x7ffee3024c78 P3D(-0.857493, -0.879625, 0.70069)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c78
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cc8
+# Point3D copy constructor # 0x7ffee3024cc8 P3D(1, 0, 0)
+# Point3D constructor # 0x7ffee3024c78 P3D(0.514496, 0.168234, 0.840828)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c78
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cc8
+# Point3D copy constructor # 0x7ffee3024cc8 P3D(1, 0, 1)
+# Point3D constructor # 0x7ffee3024c78 P3D(0.514496, -0.812331, 1.03702)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c78
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cc8
+# Point3D copy constructor # 0x7ffee3024cc8 P3D(1, 1, 0)
+# Point3D constructor # 0x7ffee3024c78 P3D(-0.342997, 0.269175, 1.34532)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c78
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cc8
+# Point3D copy constructor # 0x7ffee3024cc8 P3D(1, 1, 1)
+# Point3D constructor # 0x7ffee3024c78 P3D(-0.342997, -0.71139, 1.54152)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c78
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cc8
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02c30
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02b70
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02b90
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02bb0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02bd0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02bf0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02c10
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02c50
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3D copy constructor # 0x7ffee3024cb0 P3D(0, 0, 0)
+# Point3D constructor # 0x7ffee3024c68 P3D(0, 0, 0)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c68
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cb0
+# Point3D copy constructor # 0x7ffee3024cb0 P3D(0, 0, 1)
+# Point3D constructor # 0x7ffee3024c68 P3D(0, -0.980565, 0.196193)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c68
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cb0
+# Point3D copy constructor # 0x7ffee3024cb0 P3D(0, 1, 0)
+# Point3D constructor # 0x7ffee3024c68 P3D(-0.857493, 0.100941, 0.504497)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c68
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cb0
+# Point3D copy constructor # 0x7ffee3024cb0 P3D(0, 1, 1)
+# Point3D constructor # 0x7ffee3024c68 P3D(-0.857493, -0.879625, 0.70069)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c68
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cb0
+# Point3D copy constructor # 0x7ffee3024cb0 P3D(1, 0, 0)
+# Point3D constructor # 0x7ffee3024c68 P3D(0.514496, 0.168234, 0.840828)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c68
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cb0
+# Point3D copy constructor # 0x7ffee3024cb0 P3D(1, 0, 1)
+# Point3D constructor # 0x7ffee3024c68 P3D(0.514496, -0.812331, 1.03702)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c68
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cb0
+# Point3D copy constructor # 0x7ffee3024cb0 P3D(1, 1, 0)
+# Point3D constructor # 0x7ffee3024c68 P3D(-0.342997, 0.269175, 1.34532)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c68
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cb0
+# Point3D copy constructor # 0x7ffee3024cb0 P3D(1, 1, 1)
+# Point3D constructor # 0x7ffee3024c68 P3D(-0.342997, -0.71139, 1.54152)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024c68
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024cb0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02d70
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02d90
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02db0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02dd0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02df0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e10
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e30
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e50
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee3024b70
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee3024b70
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee3024b70
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee3024b70
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee3024b70
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee3024b70
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee3024b70
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee3024b70
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e50
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02d70
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02d90
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02db0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02dd0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02df0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e10
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e30
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3D copy constructor # 0x7ffee3024c70 P3D(0, 0, 0)
+# Point3D constructor # 0x7ffee3024bf8 P3D(0, 0, 0)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024bf8
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024c70
+ pt2 : (400, 300)
+# Point3Did copy constructor #
+# Point3D copy constructor # 0x7ffee3024c70 P3D(0, 0, 1)
+# Point3D constructor # 0x7ffee3024bf8 P3D(0, -0.980565, 0.196193)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024bf8
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024c70
+ pt2 : (114, 300)
+# Point3Did copy constructor #
+# Point3D copy constructor # 0x7ffee3024c70 P3D(0, 1, 0)
+# Point3D constructor # 0x7ffee3024bf8 P3D(-0.857493, 0.100941, 0.504497)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024bf8
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024c70
+ pt2 : (427, 69)
+# Point3Did copy constructor #
+# Point3D copy constructor # 0x7ffee3024c70 P3D(0, 1, 1)
+# Point3D constructor # 0x7ffee3024bf8 P3D(-0.857493, -0.879625, 0.70069)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024bf8
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024c70
+ pt2 : (174, 80)
+# Point3Did copy constructor #
+# Point3D copy constructor # 0x7ffee3024c70 P3D(1, 0, 0)
+# Point3D constructor # 0x7ffee3024bf8 P3D(0.514496, 0.168234, 0.840828)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024bf8
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024c70
+ pt2 : (441, 428)
+# Point3Did copy constructor #
+# Point3D copy constructor # 0x7ffee3024c70 P3D(1, 0, 1)
+# Point3D constructor # 0x7ffee3024bf8 P3D(0.514496, -0.812331, 1.03702)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024bf8
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024c70
+ pt2 : (207, 422)
+# Point3Did copy constructor #
+# Point3D copy constructor # 0x7ffee3024c70 P3D(1, 1, 0)
+# Point3D constructor # 0x7ffee3024bf8 P3D(-0.342997, 0.269175, 1.34532)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024bf8
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024c70
+ pt2 : (460, 224)
+# Point3Did copy constructor #
+# Point3D copy constructor # 0x7ffee3024c70 P3D(1, 1, 1)
+# Point3D constructor # 0x7ffee3024bf8 P3D(-0.342997, -0.71139, 1.54152)
+# Point2D constructor #
+# Point3D destructor # 0x7ffee3024bf8
+# Point2D constructor #
+# Point2D constructor #
+# Point2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point3D destructor # 0x7ffee3024c70
+ pt2 : (247, 227)
+# Point3Did copy constructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e30
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e50
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02d70
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02d90
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02db0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02dd0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02df0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e10
+# Point2D destructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+P3Did_id_0() -> (400, 300)
+P3Did_id_1() -> (114, 300)
+P3Did_id_2() -> (427, 69)
+P3Did_id_3() -> (174, 80)
+P3Did_id_4() -> (441, 428)
+P3Did_id_5() -> (207, 422)
+P3Did_id_6() -> (460, 224)
+P3Did_id_7() -> (247, 227)
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e10
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e30
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e50
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02d70
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02d90
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02db0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02dd0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02df0
+# Vector3D constructor #
+v2 : (0.168234, 0.100941, -0.980565)
+# Vector3D constructor #
+(0.5, 0.5, 0.5)
+# Vector3D constructor #
+(2, 2, 2)
+# Vector3D constructor #
+ mg = (2, 2, 2)
+# Point3D constructor # 0x7ffee3025938 P3D(2, -2, 1.2)
+# Point3D constructor # 0x7ffee3025928 P3D(1, -1, 1)
+# Point3D copy constructor # 0x7ffee30257d0 P3D(1, -1, 1)
+# Point3D copy constructor # 0x7ffee30257c0 P3D(2, -2, 1.2)
+# Point3D copy constructor # 0x7ffee30257e0 P3D(1, -1, 1)
+# Point3D copy constructor # 0x7ffee30257ec P3D(2, -2, 1.2)
+# Universe constructor # 0x7ffee3025858
+# Object3D constructor #
+# Point3D copy constructor # 0x7ffee30249b0 P3D(1, -1, 1)
+# Point3D copy constructor # 0x7ffee30249a0 P3D(2, -2, 1.2)
+# Point3D destructor # 0x7ffee30249a0
+# Point3D destructor # 0x7ffee30249b0
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee30257c0
+# Point3D destructor # 0x7ffee30257d0
+observer : P3D(1, -1, 1), center of screen : P3D(2, -2, 1.2), u vector: (-0.707107, -0.707107, 0), v vector: (0.0990148, -0.0990148, -0.990147), w vector: (0.70014, -0.70014, 0.140028)
+# Point3D constructor # 0x7ffee30257b0 P3D(-2, -2, 1.2)
+# Point3D constructor # 0x7ffee30257a0 P3D(-1, -1, 1)
+# Point3D copy constructor # 0x7ffee3025648 P3D(-1, -1, 1)
+# Point3D copy constructor # 0x7ffee3025638 P3D(-2, -2, 1.2)
+# Point3D copy constructor # 0x7ffee3025658 P3D(-1, -1, 1)
+# Point3D copy constructor # 0x7ffee3025664 P3D(-2, -2, 1.2)
+# Universe constructor # 0x7ffee30256d0
+# Object3D constructor #
+# Point3D copy constructor # 0x7ffee30249b0 P3D(-1, -1, 1)
+# Point3D copy constructor # 0x7ffee30249a0 P3D(-2, -2, 1.2)
+# Point3D destructor # 0x7ffee30249a0
+# Point3D destructor # 0x7ffee30249b0
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee3025638
+# Point3D destructor # 0x7ffee3025648
+observer : P3D(-1, -1, 1), center of screen : P3D(-2, -2, 1.2), u vector: (-0.707107, 0.707107, 0), v vector: (-0.0990148, -0.0990148, -0.990147), w vector: (-0.70014, -0.70014, 0.140028)
+# Point3D constructor # 0x7ffee3025628 P3D(2, -2, -1.2)
+# Point3D constructor # 0x7ffee3025618 P3D(1, -1, -1)
+# Point3D copy constructor # 0x7ffee30254c0 P3D(1, -1, -1)
+# Point3D copy constructor # 0x7ffee30254b0 P3D(2, -2, -1.2)
+# Point3D copy constructor # 0x7ffee30254d0 P3D(1, -1, -1)
+# Point3D copy constructor # 0x7ffee30254dc P3D(2, -2, -1.2)
+# Universe constructor # 0x7ffee3025548
+# Object3D constructor #
+# Point3D copy constructor # 0x7ffee30249b0 P3D(1, -1, -1)
+# Point3D copy constructor # 0x7ffee30249a0 P3D(2, -2, -1.2)
+# Point3D destructor # 0x7ffee30249a0
+# Point3D destructor # 0x7ffee30249b0
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D constructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee30254b0
+# Point3D destructor # 0x7ffee30254c0
+observer : P3D(1, -1, -1), center of screen : P3D(2, -2, -1.2), u vector: (-0.707107, -0.707107, 0), v vector: (-0.0990148, 0.0990148, -0.990147), w vector: (0.70014, -0.70014, -0.140028)
+# Vector3D constructor #
+(2, 2, 2)
+# Point3D copy constructor # 0x7ffee3025490 P3D(-1, 0.2, 0.5)
+# Point3D copy constructor # 0x7ffee3025468 P3D(-1, 0.2, 0.5)
+# Point3D copy constructor # 0x7ffee3025458 P3D(2, 2, 1.2)
+# Point3D copy constructor # 0x7ffee3025478 P3D(-1, 0.2, 0.5)
+# Point3D copy constructor # 0x7ffee3025484 P3D(2, 2, 1.2)
+# Edge3D constructor #
+# Point3D destructor # 0x7ffee3025458
+# Point3D destructor # 0x7ffee3025468
+[P3D(-1, 0.2, 0.5)] <--> [P3D(2, 2, 1.2)]
+# Point2D constructor #
+# Point2D constructor #
+# Edge2D constructor #
+# Point2D destructor #
+# Point2D destructor #
+0.349066
+# Canvas constructor Canvas() #
+# Universe constructor # 0x7ffee3025238
+# Object3D constructor #
+# Object3D constructor #
+# CanvasList constructor CanvasList() #
+# Point2D destructor #
+# Object3D constructor #
+# Object3DListRef constructor #
+cube by reference
+cube by reference
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did copy constructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02df0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e10
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e30
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02e50
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02d70
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02d90
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02db0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02dd0
+# Object3DListRef destructor #
+# Object3D destructor #
+# CanvasList destructor #
+# Object3DList destructor #
+# Object3D destructor #
+# Object3DList destructor #
+# Object3D destructor #
+# Universe destructor # 0x7ffee3025238
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee30251cc
+# Point3D destructor # 0x7ffee30251c0
+# Canvas destructor #
+# Edge2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee3025484
+# Point3D destructor # 0x7ffee3025478
+# Point3D destructor # 0x7ffee3025490
+# Vector3D destructor #
+# Object3DList destructor #
+# Object3D destructor #
+# Universe destructor # 0x7ffee3025548
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee30254dc
+# Point3D destructor # 0x7ffee30254d0
+# Point3D destructor # 0x7ffee3025618
+# Point3D destructor # 0x7ffee3025628
+# Object3DList destructor #
+# Object3D destructor #
+# Universe destructor # 0x7ffee30256d0
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee3025664
+# Point3D destructor # 0x7ffee3025658
+# Point3D destructor # 0x7ffee30257a0
+# Point3D destructor # 0x7ffee30257b0
+# Object3DList destructor #
+# Object3D destructor #
+# Universe destructor # 0x7ffee3025858
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee30257ec
+# Point3D destructor # 0x7ffee30257e0
+# Point3D destructor # 0x7ffee3025928
+# Point3D destructor # 0x7ffee3025938
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# CanvasList destructor #
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03920
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03800
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03890
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03860
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03830
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc037d0
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc037a0
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03770
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc035f0
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03620
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03650
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03680
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc036b0
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc036e0
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03710
+# Point2D destructor #
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03740
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Object3DList destructor #
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc032fc
+# Point3D destructor # 0x7ffc1bc032f0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0332c
+# Point3D destructor # 0x7ffc1bc03320
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0335c
+# Point3D destructor # 0x7ffc1bc03350
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0338c
+# Point3D destructor # 0x7ffc1bc03380
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc033bc
+# Point3D destructor # 0x7ffc1bc033b0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc033ec
+# Point3D destructor # 0x7ffc1bc033e0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0341c
+# Point3D destructor # 0x7ffc1bc03410
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0344c
+# Point3D destructor # 0x7ffc1bc03440
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0347c
+# Point3D destructor # 0x7ffc1bc03470
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc034ac
+# Point3D destructor # 0x7ffc1bc034a0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc034dc
+# Point3D destructor # 0x7ffc1bc034d0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0350c
+# Point3D destructor # 0x7ffc1bc03500
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc031f0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03210
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03230
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03250
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03270
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc03290
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc032b0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc032d0
+# Object3D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Point2D destructor #
+# Object3DList destructor #
+# Object3D destructor #
+# Universe destructor # 0x7ffee3025ba8
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee3025b3c
+# Point3D destructor # 0x7ffee3025b30
+# Canvas destructor #
+# Object3DList destructor #
+# Object3D destructor #
+# Universe destructor # 0x7ffee3025df8
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee3025d8c
+# Point3D destructor # 0x7ffee3025d80
+# Point3D destructor # 0x7ffee3025ec8
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee3025f18
+# Object3DList destructor #
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02fbc
+# Point3D destructor # 0x7ffc1bc02fb0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02fec
+# Point3D destructor # 0x7ffc1bc02fe0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0301c
+# Point3D destructor # 0x7ffc1bc03010
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0304c
+# Point3D destructor # 0x7ffc1bc03040
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0307c
+# Point3D destructor # 0x7ffc1bc03070
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc030ac
+# Point3D destructor # 0x7ffc1bc030a0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc030dc
+# Point3D destructor # 0x7ffc1bc030d0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0310c
+# Point3D destructor # 0x7ffc1bc03100
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0313c
+# Point3D destructor # 0x7ffc1bc03130
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0316c
+# Point3D destructor # 0x7ffc1bc03160
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0319c
+# Point3D destructor # 0x7ffc1bc03190
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc031cc
+# Point3D destructor # 0x7ffc1bc031c0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02eb0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02ed0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02ef0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02f10
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02f30
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02f50
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02f70
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02f90
+# Object3D destructor #
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0293c
+# Point3D destructor # 0x7ffc1bc02930
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0296c
+# Point3D destructor # 0x7ffc1bc02960
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc0299c
+# Point3D destructor # 0x7ffc1bc02990
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc029cc
+# Point3D destructor # 0x7ffc1bc029c0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc029fc
+# Point3D destructor # 0x7ffc1bc029f0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02a2c
+# Point3D destructor # 0x7ffc1bc02a20
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02a5c
+# Point3D destructor # 0x7ffc1bc02a50
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02a8c
+# Point3D destructor # 0x7ffc1bc02a80
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02abc
+# Point3D destructor # 0x7ffc1bc02ab0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02aec
+# Point3D destructor # 0x7ffc1bc02ae0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02b1c
+# Point3D destructor # 0x7ffc1bc02b10
+# Edge3D destructor #
+# Point3D destructor # 0x7ffc1bc02b4c
+# Point3D destructor # 0x7ffc1bc02b40
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee3025ffc
+# Point3D destructor # 0x7ffee3025ff0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee3026034
+# Point3D destructor # 0x7ffee3026028
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee302606c
+# Point3D destructor # 0x7ffee3026060
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee30260a4
+# Point3D destructor # 0x7ffee3026098
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee30260dc
+# Point3D destructor # 0x7ffee30260d0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee3026114
+# Point3D destructor # 0x7ffee3026108
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee302614c
+# Point3D destructor # 0x7ffee3026140
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee3026184
+# Point3D destructor # 0x7ffee3026178
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee30261bc
+# Point3D destructor # 0x7ffee30261b0
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee30261f4
+# Point3D destructor # 0x7ffee30261e8
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee302622c
+# Point3D destructor # 0x7ffee3026220
+# Edge3D destructor #
+# Point3D destructor # 0x7ffee3026264
+# Point3D destructor # 0x7ffee3026258
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02830
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02850
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02870
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02890
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc028b0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc028d0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc028f0
+# Point3Did destructor #
+# Point3D destructor # 0x7ffc1bc02910
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee3026288
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee3026298
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee30262a8
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee30262b8
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee30262c8
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee30262d8
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee30262e8
+# Point3Did destructor #
+# Point3D destructor # 0x7ffee30262f8
+# Point3D destructor # 0x7ffee3026308
+# Point3D destructor # 0x7ffee3026318
+# Object3DList destructor #
+# Object3D destructor #
+# Universe destructor # 0x7ffee30263b8
+# Vector3D destructor #
+# Vector3D destructor #
+# Vector3D destructor #
+# Point3D destructor # 0x7ffee302634c
+# Point3D destructor # 0x7ffee3026340
+# Point3D destructor # 0x7ffee3026490
+# Universe destructor # 0x7ffee30264c0
+# Point3D destructor # 0x7ffc1bc027e0
+# Point3D destructor # 0x7ffc1bc02800

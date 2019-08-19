@@ -12,7 +12,7 @@ template <class T> class Universe {
 public:
    
   // data 
-  list < Point3D<T> > vertexList;
+  list < Point3D<T> *> point3DptrList;
   
   
   Universe();

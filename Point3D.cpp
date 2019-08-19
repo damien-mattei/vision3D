@@ -13,7 +13,7 @@ template <class T> Point3D<T>::Point3D(T x , T y , T z) : x(x) , y(y) , z(z) {
 
   // this->z =z;
 #ifdef DISPLAY_CONSTRUCTOR
-  cout << "# Point3D constructor # " << this << " " << *this << endl;
+  cout << "# Point3D constructor # " << *this << endl;
 #endif
 }
 
@@ -31,7 +31,9 @@ template <class T> Point3D<T>::~Point3D() {
 template <class T> ostream&  operator<< (ostream &out, Point3D<T> &p3d)
 {
     
-  out << "P3D("  
+  out << "P3D "
+      << &p3d // display the adress, without & i should make a recursive call to << operator !!!
+      << " ("  
       << p3d.x << ", "
       << p3d.y << ", "
       << p3d.z
@@ -52,7 +54,7 @@ template <class T> Point3D<T>::Point3D(const Point3D<T> &onePoint3D) {
    
   
 #ifdef DISPLAY_CONSTRUCTOR
-  cout << "# Point3D copy constructor # " << this << " " << *this << endl;
+  cout << "# Point3D copy constructor # " << &onePoint3D << " => " << this << " " << *this << endl;
 #endif
 
 }
