@@ -193,27 +193,26 @@ template<class T> void Vision3D<T>::associatePt3Pix2InMap(void) {
   // compiler can not know the type it is until the compiler knows T
   typename list< Point3D<T> >::iterator iterP3D;
   
-#ifdef DEBUG
-  std::cout << "getViewField() : " << getViewField() << std::endl;
-  std::cout << "getHalfScreenSizeX() : " << getHalfScreenSizeX() << std::endl;
-  std::cout << "getPixelInUnit() : " << getPixelInUnit() << std::endl;
+  DEBUG(std::cout << "getViewField() : " << getViewField() << std::endl;
+	std::cout << "getHalfScreenSizeX() : " << getHalfScreenSizeX() << std::endl;
+	std::cout << "getPixelInUnit() : " << getPixelInUnit() << std::endl;)
   
-#endif
+
   
   for (iterP3D = vertexList.begin(); iterP3D != vertexList.end(); ++iterP3D) {
 
-#ifdef DEBUG
-    std::cout << " *iterP3D : " << *iterP3D << std::endl;
+
+    DEBUG(std::cout << " *iterP3D : " << *iterP3D << std::endl;)
     
     Point2D<float> ptproj = projection(*iterP3D);
-    std::cout << " ptproj : " << ptproj << std::endl;
+    DEBUG(std::cout << " ptproj : " << ptproj << std::endl;)
     Point2D<int> ptc2p = convert2Pixel(ptproj);
-    std::cout << " ptc2p : " << ptc2p << std::endl;
-#endif
+    DEBUG(std::cout << " ptc2p : " << ptc2p << std::endl;)
+
 
     pt2 = projectPoint3DtoPixel(*iterP3D);
     
-    std::cout << " pt2 : " << pt2 << std::endl;
+    DEBUG(std::cout << " pt2 : " << pt2 << std::endl;)
     htPointPixel[*iterP3D] = pt2;
   }
   

@@ -1,5 +1,5 @@
 #ifdef DEBUG_BUILD
-#  define DEBUG(x) cerr << x
+#  define DEBUG(x) x
 #else
 #  define DEBUG(x) 
 #endif

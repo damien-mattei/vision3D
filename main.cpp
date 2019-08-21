@@ -54,18 +54,6 @@ int main() {
   
   cout << "pt3d_uniq_ref : " << pt3d_uniq_ref << endl;
 
-  // cout << "deleting pt3d_uniq_ref : pt3d_uniq_ref.~Point3D<float>(); " << endl;
-
-  // pt3d_uniq_ref.~Point3D<float>();
-
-  // cout << "pt3d_uniq_ref : " << pt3d_uniq_ref << endl;
-
-  // cout << "deleting pt3d_uniq_ptr : delete pt3d_uniq_ptr; " << endl;
-
-  // delete pt3d_uniq_ptr;
-
-  // cout << "pt3d_uniq_ref : " << pt3d_uniq_ref << endl;
-  
   Point3D<float> * pt3d_uniq_ptr2 = univ.createPoint3Dptr(1,0,0);
 
   Point3D<float> & pt3d_uniq_ref2 = *pt3d_uniq_ptr2;
@@ -73,12 +61,8 @@ int main() {
   cout << "pt3d_uniq_ref2 : " << pt3d_uniq_ref2 << endl;
   
   cout << " --------------------------------------------  " << endl;
-
-  Point3D<float> * bz = new Point3D<float>(2,2,1.2);
   
   Vision3D<float> vis0;
-
-  
 
   list < Point3D<float> > lst0;
 

@@ -9,7 +9,6 @@
 #include "Object3D.hpp"
 #include "Object3DList.hpp"
 
-using namespace std;
 #include <iostream>
 #include <cmath> // or math.h
 //#include <set>
@@ -81,6 +80,8 @@ public:
   // unordered hash table give faster access ordered map ("performance of data structure depends on hash function a lot but on an average the cost of search, insert and delete from hash table is O(1). ")
   // ref: https://www.geeksforgeeks.org/unordered_map-in-cpp-stl/
   unordered_map<Point3D<float>,Point2D<int>,hash_point3d<float>,point3DEquals<float>> htPointPixel;
+
+  unordered_map<Point3D<float> *,Point2D<int> *> htPointersPointPixel;
 
   
   Vision3D();
