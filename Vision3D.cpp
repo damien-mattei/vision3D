@@ -82,7 +82,7 @@ template <class T> ostream& operator<< (ostream &out, Vision3D<T> &vis3d)
 
 }
 
-
+// TODO: en faire une version avec reference en argument
 template<class T> Point2D<T> Vision3D<T>::projection(Point3D<T> p) {
 
   Point3D<T> pPrim( m[0][0] * p.x + m[0][1] * p.y + m[0][2] * p.z,
@@ -214,6 +214,47 @@ template<class T> void Vision3D<T>::associatePt3Pix2InMap(void) {
     
     DEBUG(std::cout << " pt2 : " << pt2 << std::endl;)
     htPointPixel[*iterP3D] = pt2;
+  }
+  
+}
+
+
+
+// associate Point3D and Pixels in unordered map (Point3D <-> Pixel)
+
+template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
+
+  Point2D<int> pt2;
+   
+  // finding the vertex list
+  list < Point3D<T> *> vertexPtrList = univ.point3DptrList;
+  
+  // iterate on the list to compute 3D to 2D projection and Pixels calculus
+  // note : i put typename hint because as it is a template definition
+  // compiler can not know the type it is until the compiler knows T
+  typename list< Point3D<T> *>::iterator iterPtrP3D;
+  
+  DEBUG(std::cout << "getViewField() : " << getViewField() << std::endl;
+	std::cout << "getHalfScreenSizeX() : " << getHalfScreenSizeX() << std::endl;
+	std::cout << "getPixelInUnit() : " << getPixelInUnit() << std::endl;)
+  
+
+  
+  for (iterPtrP3D = vertexPtrList.begin(); iterPtrP3D != vertexPtrList.end(); ++iterPtrP3D) {
+
+
+    DEBUG(std::cout << " **iterPtrP3D : " << **iterPtrP3D << std::endl;)
+      // seems to be for debug only
+    Point2D<float> ptproj = projection(**iterPtrP3D);
+    DEBUG(std::cout << " ptproj : " << ptproj << std::endl;)
+    Point2D<int> ptc2p = convert2Pixel(ptproj);
+    DEBUG(std::cout << " ptc2p : " << ptc2p << std::endl;)
+
+
+    pt2 = projectPoint3DtoPixel(**iterPtrP3D);
+    
+    DEBUG(std::cout << " pt2 : " << pt2 << std::endl;)
+    htPointersPointPixel[*iterPtrP3D] = &pt2;
   }
   
 }

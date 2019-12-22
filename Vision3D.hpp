@@ -77,11 +77,16 @@ public:
   
   // unordered map (hash table without ordering relationship between elements) of Points3D <-> Pixel
   
-  // unordered hash table give faster access ordered map ("performance of data structure depends on hash function a lot but on an average the cost of search, insert and delete from hash table is O(1). ")
+  // unordered hash table give faster access than ordered map ("performance of data structure depends on hash function a lot but on an average the cost of search, insert and delete from hash table is O(1). ")
   // ref: https://www.geeksforgeeks.org/unordered_map-in-cpp-stl/
-  unordered_map<Point3D<float>,Point2D<int>,hash_point3d<float>,point3DEquals<float>> htPointPixel;
+  
+  unordered_map< Point3D<float>,
+		 Point2D<int>,
+		 hash_point3d<float>,
+		 point3DEquals<float> > htPointPixel; // old definition
 
-  unordered_map<Point3D<float> *,Point2D<int> *> htPointersPointPixel;
+  unordered_map< Point3D<float> *,
+		 Point2D<int> * > htPointersPointPixel; // new definition
 
   
   Vision3D();
@@ -108,6 +113,9 @@ public:
 
   // associate Point3D and Pixels in unordered map (Point3D <-> Pixel)
   void associatePt3Pix2InMap(void);
+
+  // associate pointers of Point3D and Pixels in unordered map (Point3D <-> Pixel)
+  void associatePt3Pix2PointersInMap(void);
 
   Point2D<int> projectPoint3DtoPixel(Point3D<T>);
   

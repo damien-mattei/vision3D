@@ -43,9 +43,9 @@ ajout des points segment etc au canvas par une methode qui recherche leur unicit
 methodes aussi qui permettent de creer un point ou segment en interrogeant leur existence prealable dans le canvas
 mais aussi posibilité de travailler indépendemment du canvas!
 
-Vision3D: contient des calculs mathematiques
+Vision3D: contient des calculs mathematiques , j'ai transféré les methodes de canvas dans vision3D 
 
-Universe en fait une variable dans vision3D: contient des Points de l'espace, provenant des lignes brisées, faces, objets 3D...(cubes,...)
+Universe est en fait une variable dans vision3D: contient des Points de l'espace, provenant des lignes brisées, faces, objets 3D...(cubes,...)
 repond au bsoin de stocker les points de maniere unique dans la mémoire pour eviter les doublons
 
 
