@@ -180,7 +180,7 @@ template<class T> void Vision3D<T>::computePoints2DtoPixels(void) {
 
 
 // associate Point3D and Pixels in unordered map (Point3D <-> Pixel)
-
+// DEPRECATED
 template<class T> void Vision3D<T>::associatePt3Pix2InMap(void) {
 
   Point2D<int> pt2;
@@ -221,10 +221,11 @@ template<class T> void Vision3D<T>::associatePt3Pix2InMap(void) {
 
 
 // associate Point3D and Pixels in unordered map (Point3D <-> Pixel)
+// pointers and reference version
 
 template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
 
-  Point2D<int> pt2;
+  Point2D<int> pt2; // in future should be a pointer returned from projection & co
    
   // finding the vertex list
   list < Point3D<T> *> vertexPtrList = univ.point3DptrList;
@@ -242,7 +243,9 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
   
   for (iterPtrP3D = vertexPtrList.begin(); iterPtrP3D != vertexPtrList.end(); ++iterPtrP3D) {
 
-
+    Point3D<T> * ptrP3D = *iterPtrP3D;
+    Point3D<T> & refP3D = *ptrP3D;
+    
     DEBUG(std::cout << " **iterPtrP3D : " << **iterPtrP3D << std::endl;)
       // seems to be for debug only
     Point2D<float> ptproj = projection(**iterPtrP3D);
@@ -251,10 +254,15 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
     DEBUG(std::cout << " ptc2p : " << ptc2p << std::endl;)
 
 
-    pt2 = projectPoint3DtoPixel(**iterPtrP3D);
+      //pt2 = projectPoint3DtoPixel(**iterPtrP3D);
+      //pt2 = projectPoint3DtoPixel(*ptrP3D);
+      pt2 = projectPoint3DtoPixel(refP3D);
     
     DEBUG(std::cout << " pt2 : " << pt2 << std::endl;)
-    htPointersPointPixel[*iterPtrP3D] = &pt2;
+
+      //htPointersPointPixel[*iterPtrP3D] = &pt2;
+      //htPointersPointPixel[*ptrP3D] = &pt2;
+      htPointersPointPixel[refP3D] = &pt2;
   }
   
 }

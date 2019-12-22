@@ -72,6 +72,7 @@ public:
   list < Point2D<int> > pixels;
 
   // the 3D object
+  // will be DEPRECATED all is now in universe
   Object3DList<T> object3dlist;
 
   
