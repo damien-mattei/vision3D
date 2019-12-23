@@ -18,7 +18,9 @@ public:
 
   ~Universe();
     
-  Point3D<T> & createPoint3Dptr(T x,T y,T z); // create a point by checking if it already exist
+  Point3D<T> & createPoint3Dref(T x,T y,T z); // create a point by checking if it already exist
+
+  Point3D<T> * createPoint3Dptr(T x,T y,T z); // create a point by checking if it already exist
  
 };
 

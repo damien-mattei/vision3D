@@ -46,25 +46,36 @@ int main() {
 
   Universe<float> univ;
 
-  cout << " avec des pointeurs et des references vers des point3D " << endl;
-  
-  //Point3D<float> * pt3d_uniq_ptr = univ.createPoint3Dptr(1,0,0);
+  cout << " avec des references vers des point3D " << endl;
 
-  Point3D<float> & pt3d_uniq_ref = univ.createPoint3Dptr(1,0,0);
+  Point3D<float> & pt3d_uniq_ref = univ.createPoint3Dref(1,0,0);
   
-  // Point3D<float> & pt3d_uniq_ref = *pt3d_uniq_ptr;
   
   cout << "pt3d_uniq_ref : " << pt3d_uniq_ref << endl;
 
-  // Point3D<float> * pt3d_uniq_ptr2 = univ.createPoint3Dptr(1,0,0);
+ 
 
-  // Point3D<float> & pt3d_uniq_ref2 = *pt3d_uniq_ptr2;
-
-  Point3D<float> & pt3d_uniq_ref2 = univ.createPoint3Dptr(1,0,0);
+  Point3D<float> & pt3d_uniq_ref2 = univ.createPoint3Dref(1,0,0);
   
   cout << "pt3d_uniq_ref2 : " << pt3d_uniq_ref2 << endl;
+
+  cout << " --------------------------- " << endl;
+
+  cout << " avec des pointeurs vers des point3D " << endl;
+
+  Point3D<float> * pt3d_uniq_ptr = univ.createPoint3Dptr(2,0,0);
+
+  Point3D<float> & pt3d_uniq_ref3 = *pt3d_uniq_ptr;
+
+  cout << "pt3d_uniq_ref3 : " << pt3d_uniq_ref3 << endl;
+
+  Point3D<float> * pt3d_uniq_ptr2 = univ.createPoint3Dptr(2,0,0);
+
+  pt3d_uniq_ref3 = *pt3d_uniq_ptr2;
+
+  cout << "pt3d_uniq_ref3 : " << pt3d_uniq_ref3 << endl;
   
-  cout << " --------------------------------------------  " << endl;
+  cout << " ------------- end test Universe -------------------------------  " << endl;
   
   Vision3D<float> vis0;
 
