@@ -82,7 +82,30 @@ template <class T> ostream& operator<< (ostream &out, Vision3D<T> &vis3d)
 
 }
 
-// TODO: en faire une version avec reference en argument
+//  une version avec reference en argument et resultat
+template<class T> Point2D<T> & Vision3D<T>::projection_ref(Point3D<T> & p) {
+
+  Point3D<T> pPrim( m[0][0] * p.x + m[0][1] * p.y + m[0][2] * p.z,
+		    m[1][0] * p.x + m[1][1] * p.y + m[1][2] * p.z,
+		    m[2][0] * p.x + m[2][1] * p.y + m[2][2] * p.z );
+
+  T r = d / (d + pPrim.z);
+  
+  // screen point
+  Point2D<T> ps(  pPrim.y * r,
+		- pPrim.x * r );
+
+  delete &pPrim;
+  
+#ifdef DEBUG
+  std::cout << " Vision3D<T>::projection : ps : " << ps << std::endl;
+#endif
+
+  return &ps; 
+
+}
+
+
 template<class T> Point2D<T> Vision3D<T>::projection(Point3D<T> p) {
 
   Point3D<T> pPrim( m[0][0] * p.x + m[0][1] * p.y + m[0][2] * p.z,
@@ -94,6 +117,8 @@ template<class T> Point2D<T> Vision3D<T>::projection(Point3D<T> p) {
   // screen point
   Point2D<T> ps(  pPrim.y * r,
 		- pPrim.x * r );
+
+  delete &pPrim;
 
 #ifdef DEBUG
   std::cout << " Vision3D<T>::projection : ps : " << ps << std::endl;
@@ -133,6 +158,7 @@ template<class T> Point2D<int> Vision3D<T>::convert2ScreenCoord(Point2D<int> p) 
 
 }
 
+// TODO: en faire une version avec pointeurs
 template<class T> Point2D<int> Vision3D<T>::projectPoint3DtoPixel(Point3D<T> p) {
   
   convert2ScreenCoord(
@@ -180,7 +206,7 @@ template<class T> void Vision3D<T>::computePoints2DtoPixels(void) {
 
 
 // associate Point3D and Pixels in unordered map (Point3D <-> Pixel)
-// DEPRECATED
+// DEPRECATED new version use pointers instead of copying objects
 template<class T> void Vision3D<T>::associatePt3Pix2InMap(void) {
 
   Point2D<int> pt2;
@@ -260,9 +286,9 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
     
     DEBUG(std::cout << " pt2 : " << pt2 << std::endl;)
 
-      //htPointersPointPixel[*iterPtrP3D] = &pt2;
-      //htPointersPointPixel[*ptrP3D] = &pt2;
-      htPointersPointPixel[refP3D] = &pt2;
+    //htPointersPointPixel[*iterPtrP3D] = &pt2;
+    //htPointersPointPixel[*ptrP3D] = &pt2;
+    htPointersPointPixel[refP3D] = &pt2;
   }
   
 }

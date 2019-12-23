@@ -98,6 +98,8 @@ public:
 
   Point2D<T> projection(Point3D<T> m); // projection on screen
 
+  Point2D<T> & projection_ref(Point3D<T> & p);
+
   //friend ostream& operator<< (ostream &out, Vision3D &vis3d);
 
   Point2D<int> convert2Pixel(Point2D<T> p); // convert in relative screen coords
