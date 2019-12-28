@@ -111,7 +111,10 @@ template<class T> Vector3D<T> operator*(const T m3d[][3],const Vector3D<T> &u) {
 
 template<class T> T  Vector3D<T>::norm() {
 
-  return ( sqrt(x * x + y * y + z * z) ); 
+  //return ( sqrt(x * x + y * y + z * z) );
+
+  Vector3D<T> & v = *this;
+  return sqrt( v * v ) ; 
 
 }
 
