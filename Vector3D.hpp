@@ -60,7 +60,11 @@ public:
   // create vector AB from point A and B
   Vector3D(Point3D<T> a,Point3D<T> b);
 
-  Vector3D<T> operator*(const Vector3D<T> &v); 
+  // dot product - produit scalaire
+  T operator*(const Vector3D<T> &v);
+
+  // cross product - produit vectoriel
+  Vector3D<T> operator^(const Vector3D<T> &v);
 
   // compute the norm 
   T norm();

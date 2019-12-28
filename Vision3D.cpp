@@ -14,10 +14,12 @@ template <class T> Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : c(c), s(s)
 
   // compute vector w
 
-  // create SC vector
+   // create SC vector
   Vector3D<T> sc(c,s);
-  d = sc.norm(); // compute norm of SC 
-  w = sc / d; // normalize w
+  d = sc.norm(); // compute norm of SC
+  // Vector3D<T> * ptr_w = sc | d; // normalize w
+  // w = *ptr_w;
+  w = sc /d;
   
   /* compute vector u
    * knowing u.w = 0
@@ -32,37 +34,68 @@ template <class T> Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : c(c), s(s)
    * i.e: v = w ^ u
    * ( ^ : cross product)
    */
-  v = w * u;
+  v = w ^ u;
 
 
   // change of basis matrix
 
-  T da1,da2,da3;
+  // T da1,da2,da3;
 
-  da1 = v.y * w.z - v.z * w.y;
-  da2 = v.z * w.x - v.x * w.z;
-  da3 = v.x * w.y - v.y * w.x;
+  // da1 = v.y * w.z - v.z * w.y;
+  // da2 = v.z * w.x - v.x * w.z;
+  // da3 = v.x * w.y - v.y * w.x;
 
-  T db1,db2,db3;
+  Vector3D<T> da = v ^ w;
+  
+  // T db1,db2,db3;
 
-  db1 = w.y * u.z - w.z * u.y;
-  db2 = w.z * u.x - w.x * u.z;
-  db3 = w.x * u.y - w.y * u.x;
+  // db1 = w.y * u.z - w.z * u.y;
+  // db2 = w.z * u.x - w.x * u.z;
+  // db3 = w.x * u.y - w.y * u.x;
 
-  T dc1,dc2,dc3;
+  Vector3D<T> db = w ^ u;
 
-  dc1 = u.y * v.z - u.z * v.y;
-  dc2 = u.z * v.x - u.x * v.z;
-  dc3 = u.x * v.y - u.y * v.x;
+  // T dc1,dc2,dc3;
 
+  // dc1 = u.y * v.z - u.z * v.y;
+  // dc2 = u.z * v.x - u.x * v.z;
+  // dc3 = u.x * v.y - u.y * v.x;
+
+  Vector3D<T> dc = u ^ v;
+  
   T dau,dbv,dcw;
-  dau = u.x * da1 + u.y * da2 + u.z * da3;
-  dbv = v.x * db1 + v.y * db2 + v.z * db3;
-  dcw = w.x * dc1 + w.y * dc2 + w.z * dc3;
+  // dau = u.x * da1 + u.y * da2 + u.z * da3;
+  // dbv = v.x * db1 + v.y * db2 + v.z * db3;
+  // dcw = w.x * dc1 + w.y * dc2 + w.z * dc3;
 
-  m[0][0] = da1 / dau; m[0][1] = da2 / dau; m[0][2] = da3 / dau;
-  m[1][0] = db1 / dbv; m[1][1] = db2 / dbv; m[1][2] = db3 / dbv;
-  m[2][0] = dc1 / dcw; m[2][1] = dc2 / dcw; m[2][2] = dc3 / dcw;
+  dau = u * da;
+  dbv = v * db;
+  dcw = w * dc;
+
+  // m[0][0] = da1 / dau; m[0][1] = da2 / dau; m[0][2] = da3 / dau;
+  // m[1][0] = db1 / dbv; m[1][1] = db2 / dbv; m[1][2] = db3 / dbv;
+  // m[2][0] = dc1 / dcw; m[2][1] = dc2 / dcw; m[2][2] = dc3 / dcw;
+
+  // Vector3D<T> * daquPtr = da | dau;
+  // Vector3D<T> * dbqvPtr = db | dbv;
+  // Vector3D<T> * dcqwPtr = dc | dcw;
+
+  // // q mean quotient i.e: daqu -> da Quotient u
+  // Vector3D<T> & daqu = *daquPtr;
+  // Vector3D<T> & dbqv = *dbqvPtr;
+  // Vector3D<T> & dcqw = *dcqwPtr;
+
+  Vector3D<T> daqu = da / dau;
+  Vector3D<T> dbqv = db / dbv;
+  Vector3D<T> dcqw = dc / dcw;
+  
+  // m[0][0] = da.x / dau; m[0][1] = da.y / dau; m[0][2] = da.z / dau;
+  // m[1][0] = db.x / dbv; m[1][1] = db.y / dbv; m[1][2] = db.z / dbv;
+  // m[2][0] = dc.x / dcw; m[2][1] = dc.y / dcw; m[2][2] = dc.z / dcw;
+
+  m[0][0] = daqu.x; m[0][1] = daqu.y; m[0][2] = daqu.z;
+  m[1][0] = dbqv.x; m[1][1] = dbqv.y; m[1][2] = dbqv.z;
+  m[2][0] = dcqw.x; m[2][1] = dcqw.y; m[2][2] = dcqw.z;
  
 }
 
@@ -83,7 +116,7 @@ template <class T> ostream& operator<< (ostream &out, Vision3D<T> &vis3d)
 }
 
 //  une version avec reference en argument et resultat
-template<class T> Point2D<T> & Vision3D<T>::projection_ref(Point3D<T> & p) {
+template<class T> Point2D<T> * Vision3D<T>::projectionRef(Point3D<T> & p) {
 
   Point3D<T> pPrim( m[0][0] * p.x + m[0][1] * p.y + m[0][2] * p.z,
 		    m[1][0] * p.x + m[1][1] * p.y + m[1][2] * p.z,
@@ -92,16 +125,15 @@ template<class T> Point2D<T> & Vision3D<T>::projection_ref(Point3D<T> & p) {
   T r = d / (d + pPrim.z);
   
   // screen point
-  Point2D<T> ps(  pPrim.y * r,
-		- pPrim.x * r );
+  Point2D<T> * ps = new Point2D<T>(  pPrim.y * r,
+				   - pPrim.x * r );
 
-  delete &pPrim;
-  
+   
 #ifdef DEBUG
   std::cout << " Vision3D<T>::projection : ps : " << ps << std::endl;
 #endif
 
-  return &ps; 
+  return ps; 
 
 }
 
@@ -118,8 +150,7 @@ template<class T> Point2D<T> Vision3D<T>::projection(Point3D<T> p) {
   Point2D<T> ps(  pPrim.y * r,
 		- pPrim.x * r );
 
-  delete &pPrim;
-
+ 
 #ifdef DEBUG
   std::cout << " Vision3D<T>::projection : ps : " << ps << std::endl;
 #endif
@@ -132,11 +163,21 @@ template<class T> Point2D<T> Vision3D<T>::projection(Point3D<T> p) {
 template<class T> Point2D<int> Vision3D<T>::convert2Pixel(Point2D<T> p) {
 
   Point2D<int> pix( (int) (p.x * pixelInUnit),
-		    (int) (p.y * pixelInUnit));
+		    (int) (p.y * pixelInUnit) );
   
   return pix;
 
 }
+
+template<class T> Point2D<int> * Vision3D<T>::convert2PixelRef(Point2D<T> & p) {
+
+  Point2D<int> * pix = new Point2D<T>( (int) (p.x * pixelInUnit),
+				       (int) (p.y * pixelInUnit) );
+  
+  return pix;
+
+}
+
 
 
 template<class T> Point2D<int> Vision3D<T>::convert2AbsPixel(Point2D<int> p) {
@@ -149,6 +190,17 @@ template<class T> Point2D<int> Vision3D<T>::convert2AbsPixel(Point2D<int> p) {
 }
 
 
+template<class T> Point2D<int> * Vision3D<T>::convert2AbsPixelRef(Point2D<int> & p) {
+
+  Point2D<int> * pix = new Point2D<T>( p.x + winHalfSizeX,
+				       p.y + winHalfSizeY );
+  
+  return pix;
+
+}
+
+
+
 template<class T> Point2D<int> Vision3D<T>::convert2ScreenCoord(Point2D<int> p) {
 
   Point2D<int> pix( p.x ,
@@ -158,13 +210,37 @@ template<class T> Point2D<int> Vision3D<T>::convert2ScreenCoord(Point2D<int> p) 
 
 }
 
-// TODO: en faire une version avec pointeurs
+template<class T> Point2D<int> * Vision3D<T>::convert2ScreenCoordRef(Point2D<int> & p) {
+
+  Point2D<int> * pix = new Point2D<int>( p.x ,
+					 2 * winHalfSizeY - p.y );
+  
+  return pix;
+
+}
+
+
 template<class T> Point2D<int> Vision3D<T>::projectPoint3DtoPixel(Point3D<T> p) {
   
   convert2ScreenCoord(
 		      convert2AbsPixel(
 				       convert2Pixel(
 						     projection(p))));
+}
+
+// une version avec pointeurs,  liberer les variables intermédiaires, donc decomposee en etapes d'affectations aussi
+template<class T> Point2D<int> * Vision3D<T>::projectPoint3DtoPixelRef(Point3D<T> & p) {
+
+  // screen point
+  Point2D<T> * ps = projectionRef(p);
+  Point2D<int> * pix = convert2PixelRef(ps);
+  delete ps;
+  Point2D<int> * pixAbs = convert2AbsPixelRef(pix);
+  delete pix; 
+  Point2D<int> * pixScreenCoord = convert2ScreenCoordRef(pixAbs);
+  delete pixAbs;
+  return pixScreenCoord;
+		  
 }
 
 
@@ -292,3 +368,5 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
   }
   
 }
+
+

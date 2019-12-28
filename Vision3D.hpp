@@ -98,15 +98,21 @@ public:
 
   Point2D<T> projection(Point3D<T> m); // projection on screen
 
-  Point2D<T> & projection_ref(Point3D<T> & p);
+  Point2D<T> * projectionRef(Point3D<T> & p);
 
   //friend ostream& operator<< (ostream &out, Vision3D &vis3d);
 
   Point2D<int> convert2Pixel(Point2D<T> p); // convert in relative screen coords
 
+  Point2D<int> * convert2PixelRef(Point2D<T> & p);
+
   Point2D<int> convert2AbsPixel(Point2D<int> p); // convert in absolute screen coords
 
+  Point2D<int> * convert2AbsPixelRef(Point2D<int> & p);
+
   Point2D<int> convert2ScreenCoord(Point2D<int> p); // convert in computer screen coords (Origin at left top corner)
+
+  Point2D<int> * convert2ScreenCoordRef(Point2D<int> & p);
 
   // compute the projection from Points3D to Points2D for the object,results are points
   void computePoints3DtoPoints2D(void);
@@ -121,6 +127,7 @@ public:
   void associatePt3Pix2PointersInMap(void);
 
   Point2D<int> projectPoint3DtoPixel(Point3D<T>);
+  Point2D<int> * projectPoint3DtoPixelRef(Point3D<T> &);
   
   void setViewField(T viewFieldInDegree) { 
 

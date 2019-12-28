@@ -147,14 +147,14 @@ int main() {
   cv.associatePt3Pix2InMap();
   cv.displayHTpointPixel(); 
 
-  Vector3D<float> v2 = vis.w * vis.u;
+  Vector3D<float> v2 = vis.w ^ vis.u;
 
   cout << "v2 : " << v2 << endl;
 
   float d2 = 2;
 
-  Vector3D<float> f = c/d2;
-  cout << f << endl;
+  //Vector3D<float> f = c/d2;
+  //cout << f << endl;
 
   Vector3D<float> md = c*d2;
   cout << md << endl;

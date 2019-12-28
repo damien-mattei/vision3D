@@ -55,6 +55,15 @@ template<class T> Vector3D<T> operator/(const Vector3D<T> &v,const T d) {
 		     );
 }
 
+template<class T> Vector3D<T> * operator|(const Vector3D<T> &v,const T d) {
+
+  return new Vector3D<T>(
+			 v.x / d,
+			 v.y / d,
+			 v.z / d
+			 );
+}
+
 template<class T> Vector3D<T> operator*(const T m,const Vector3D<T> &v) {
 
   return Vector3D<T>(
@@ -73,8 +82,15 @@ template<class T> Vector3D<T> operator*(const Vector3D<T> &v,const T m) {
 		     );
 }
 
-// cross product
-template<class T> Vector3D<T> Vector3D<T>::operator* (const Vector3D<T> &v)  {
+// dot product - produit scalaire
+template<class T> T Vector3D<T>::operator* (const Vector3D<T> &v)  {
+
+  return x * v.x + y * v.y + z * v.z;
+  
+}
+
+// cross product - produit vectoriel
+template<class T> Vector3D<T> Vector3D<T>::operator^(const Vector3D<T> &v)  {
 
   return Vector3D<T>(
 		     y * v.z - z * v.y,
