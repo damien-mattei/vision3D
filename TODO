@@ -56,6 +56,5 @@ verifier que tous les objets se conforment bien à la description
 essayer avec des Set dans vision3d avec point3d mais faut une relation d'ordre sur point3d alors...
 d'abord des List!
 
-faire une liste vertexList de pointeurs! vers des points FAIT
 
 reecrire Vision3D<T>::associatePt3Pix2InMap

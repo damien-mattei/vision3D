@@ -13,6 +13,10 @@ public:
    
   // data 
   list < Point3D<T> *> point3DptrList;
+
+  // for deprecated compatibility in Vision3D.cpp
+  // the vertex
+  list < Point3D<T> > vertexList;
   
   Universe();
 

@@ -114,6 +114,7 @@ template<class T> T  Vector3D<T>::norm() {
   //return ( sqrt(x * x + y * y + z * z) );
 
   Vector3D<T> & v = *this;
+  
   return sqrt( v * v ) ; 
 
 }

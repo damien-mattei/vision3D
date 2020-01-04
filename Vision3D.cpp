@@ -250,7 +250,7 @@ template<class T> Point2D<int> * Vision3D<T>::projectPoint3DtoPixelRef(Point3D<T
 template<class T> void Vision3D<T>::computePoints3DtoPoints2D(void)  {
     
   // finding the vertex list
-  list < Point3D<T> > vertexList = object3dlist.vertexList;
+  list < Point3D<T> > vertexList = univ.vertexList;
 
   // iterate on the list to compute 3D to 2D projection
   // note : i put typename hint because as it is a template definition
@@ -288,7 +288,7 @@ template<class T> void Vision3D<T>::associatePt3Pix2InMap(void) {
   Point2D<int> pt2;
    
   // finding the vertex list
-  list < Point3D<T> > vertexList = object3dlist.vertexList;
+  list < Point3D<T> > vertexList = univ.vertexList;
   
   // iterate on the list to compute 3D to 2D projection and Pixels calculus
   // note : i put typename hint because as it is a template definition

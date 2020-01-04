@@ -6,8 +6,6 @@
 #include "Point2D.hpp"
 #include "Universe.hpp"
 
-#include "Object3D.hpp"
-#include "Object3DList.hpp"
 
 #include <iostream>
 #include <cmath> // or math.h
@@ -70,10 +68,6 @@ public:
 
   // list of pixel  
   list < Point2D<int> > pixels;
-
-  // the 3D object
-  // will be DEPRECATED all is now in universe
-  Object3DList<T> object3dlist;
 
   
   // unordered map (hash table without ordering relationship between elements) of Points3D <-> Pixel
