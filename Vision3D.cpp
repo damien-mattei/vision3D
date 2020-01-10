@@ -133,7 +133,7 @@ template<class T> Point2D<T> * Vision3D<T>::projectionRef(Point3D<T> & p) {
   std::cout << " Vision3D<T>::projection : ps : " << ps << std::endl;
 #endif
 
-  return ps; 
+  return ps; // warning: ps should be deleted by the calling function
 
 }
 
@@ -174,7 +174,7 @@ template<class T> Point2D<int> * Vision3D<T>::convert2PixelRef(Point2D<T> & p) {
   Point2D<int> * pix = new Point2D<T>( (int) (p.x * pixelInUnit),
 				       (int) (p.y * pixelInUnit) );
   
-  return pix;
+  return pix;  // warning: pix should be deleted by the calling function
 
 }
 
@@ -215,20 +215,21 @@ template<class T> Point2D<int> * Vision3D<T>::convert2ScreenCoordRef(Point2D<int
   Point2D<int> * pix = new Point2D<int>( p.x ,
 					 2 * winHalfSizeY - p.y );
   
-  return pix;
+  return pix; // warning: pix should be deleted by the calling function
 
 }
 
-
+// functional programming style :-)
 template<class T> Point2D<int> Vision3D<T>::projectPoint3DtoPixel(Point3D<T> p) {
   
-  convert2ScreenCoord(
-		      convert2AbsPixel(
-				       convert2Pixel(
-						     projection(p))));
+  return convert2ScreenCoord(
+			     convert2AbsPixel(
+					      convert2Pixel(
+							    projection(p))));
 }
 
 // une version avec pointeurs,  liberer les variables intermédiaires, donc decomposee en etapes d'affectations aussi
+// less functional programming :-( but a little more fast
 template<class T> Point2D<int> * Vision3D<T>::projectPoint3DtoPixelRef(Point3D<T> & p) {
 
   // screen point
@@ -244,41 +245,41 @@ template<class T> Point2D<int> * Vision3D<T>::projectPoint3DtoPixelRef(Point3D<T
 }
 
 
-// compute the 3D -> 2D for the object
-// so we got the projected 2D points as result
-// nota: this is intermediate calculus that could be used for debugging
-template<class T> void Vision3D<T>::computePoints3DtoPoints2D(void)  {
+// // compute the 3D -> 2D for the object
+// // so we got the projected 2D points as result
+// // nota: this is intermediate calculus that could be used for debugging
+// template<class T> void Vision3D<T>::computePoints3DtoPoints2D(void)  {
     
-  // finding the vertex list
-  list < Point3D<T> > vertexList = univ.vertexList;
+//   // finding the vertex list
+//   list < Point3D<T> > vertexList = univ.vertexList;
 
-  // iterate on the list to compute 3D to 2D projection
-  // note : i put typename hint because as it is a template definition
-  // compiler can not know the type it is until the compiler knows T
-  typename list< Point3D<T> >::iterator iterP3D;
+//   // iterate on the list to compute 3D to 2D projection
+//   // note : i put typename hint because as it is a template definition
+//   // compiler can not know the type it is until the compiler knows T
+//   typename list< Point3D<T> >::iterator iterP3D;
   
-  for ( iterP3D = vertexList.begin();
-	iterP3D != vertexList.end();
-	++iterP3D )
+//   for ( iterP3D = vertexList.begin();
+// 	iterP3D != vertexList.end();
+// 	++iterP3D )
     
-    points2d.push_back(projection(*iterP3D));
+//     points2d.push_back(projection(*iterP3D));
   
 
-}
+// }
 
 
-// compute the pixels, starting from 2D points
-// nota: again this is a whole part calculus splitted in two for debugging
-template<class T> void Vision3D<T>::computePoints2DtoPixels(void) {
+// // compute the pixels, starting from 2D points
+// // nota: again this is a whole part calculus splitted in two for debugging
+// template<class T> void Vision3D<T>::computePoints2DtoPixels(void) {
   
-  // iterate on the list 2D point list to compute pixels
-  // note : i put typename hint because as it is a template definition
-  // compiler can not know the type it is until the compiler knows T
-  typename list< Point2D<T> >::iterator iterP2D;
-  for (iterP2D = points2d.begin(); iterP2D != points2d.end(); ++iterP2D) 
-    pixels.push_back(convert2ScreenCoord(convert2AbsPixel(convert2Pixel(*iterP2D))));
+//   // iterate on the list 2D point list to compute pixels
+//   // note : i put typename hint because as it is a template definition
+//   // compiler can not know the type it is until the compiler knows T
+//   typename list< Point2D<T> >::iterator iterP2D;
+//   for (iterP2D = points2d.begin(); iterP2D != points2d.end(); ++iterP2D) 
+//     pixels.push_back(convert2ScreenCoord(convert2AbsPixel(convert2Pixel(*iterP2D))));
     
-}
+// }
 
 
 // associate Point3D and Pixels in unordered map (Point3D <-> Pixel)
@@ -327,7 +328,7 @@ template<class T> void Vision3D<T>::associatePt3Pix2InMap(void) {
 
 template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
 
-  Point2D<int> pt2; // in future should be a pointer returned from projection & co
+  Point2D<int> * ptr_pt2;
    
   // finding the vertex list
   list < Point3D<T> *> vertexPtrList = univ.point3DptrList;
@@ -349,22 +350,29 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
     Point3D<T> & refP3D = *ptrP3D;
     
     DEBUG(std::cout << " **iterPtrP3D : " << **iterPtrP3D << std::endl;)
-      // seems to be for debug only
+
+    // seems to be for debug only
     Point2D<float> ptproj = projection(**iterPtrP3D);
     DEBUG(std::cout << " ptproj : " << ptproj << std::endl;)
     Point2D<int> ptc2p = convert2Pixel(ptproj);
     DEBUG(std::cout << " ptc2p : " << ptc2p << std::endl;)
 
 
-      //pt2 = projectPoint3DtoPixel(**iterPtrP3D);
-      //pt2 = projectPoint3DtoPixel(*ptrP3D);
-      pt2 = projectPoint3DtoPixel(refP3D);
+    //pt2 = projectPoint3DtoPixel(**iterPtrP3D);
+    //pt2 = projectPoint3DtoPixel(*ptrP3D);
+
+    // a pointer returned from projection & co
+    ptr_pt2 = projectPoint3DtoPixelRef(refP3D);
     
-    DEBUG(std::cout << " pt2 : " << pt2 << std::endl;)
+    Point2D<int> & ref_pt2 = *ptr_pt2;
+    DEBUG(std::cout << " ref_pt2 : " << ref_pt2 << std::endl;)
 
     //htPointersPointPixel[*iterPtrP3D] = &pt2;
     //htPointersPointPixel[*ptrP3D] = &pt2;
-    htPointersPointPixel[refP3D] = &pt2;
+    //htPointersPointPixel[refP3D] = &pt2;
+
+    htPointersPointPixel[ptrP3D] = ptr_pt2;
+    
   }
   
 }

@@ -5,7 +5,7 @@
 #define UNIVERSE_HPP
 
 //#include <memory> // for std::unique_ptr
-
+#include <algorithm> // used by Universe
 
 template <class T> class Universe {
         

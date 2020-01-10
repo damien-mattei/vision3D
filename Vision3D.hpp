@@ -9,7 +9,7 @@
 
 #include <iostream>
 #include <cmath> // or math.h
-//#include <set>
+
 #include <unordered_map>
 
 const double PI = 4.0*atan(1.0);
@@ -24,6 +24,8 @@ public:
   // position of center of screen
   Point3D<T> s;
 
+
+  
   // vectors defining screen frame
 
   // vector u
@@ -35,9 +37,12 @@ public:
   // vector w
   Vector3D<T> w;
 
+
+  
   // change of basis matrix
   T m[3][3];
 
+  
   // distance, norm of SC
   T d;
   
@@ -56,18 +61,19 @@ public:
   // pixel expressed in unit of rame reference 
   T pixelInUnit;
 
-  // data 
-  //list < Point3D<T> > vertexList;
-  
-  //set < int > vertexSet;
 
+
+  
+  // data 
+
+  
   Universe<T> univ;
 
-  // list of points 2D making the canvas list  
-  list < Point2D<T> > points2d;
+  // // list of points 2D making the canvas list  
+  // list < Point2D<T> > points2d;
 
-  // list of pixel  
-  list < Point2D<int> > pixels;
+  // // list of pixel  
+  // list < Point2D<int> > pixels;
 
   
   // unordered map (hash table without ordering relationship between elements) of Points3D <-> Pixel
@@ -78,10 +84,14 @@ public:
   unordered_map< Point3D<float>,
 		 Point2D<int>,
 		 hash_point3d<float>,
-		 point3DEquals<float> > htPointPixel; // old definition
+		 point3DEquals<float> > htPointPixel; // old definition DEPRECATED
 
   unordered_map< Point3D<float> *,
 		 Point2D<int> * > htPointersPointPixel; // new definition
+
+
+
+
 
   
   Vision3D();
@@ -108,11 +118,11 @@ public:
 
   Point2D<int> * convert2ScreenCoordRef(Point2D<int> & p);
 
-  // compute the projection from Points3D to Points2D for the object,results are points
-  void computePoints3DtoPoints2D(void);
+  // // compute the projection from Points3D to Points2D for the object,results are points
+  // void computePoints3DtoPoints2D(void);
   
-  // compute the pixels from Points2D
-  void computePoints2DtoPixels(void);
+  // // compute the pixels from Points2D
+  // void computePoints2DtoPixels(void);
 
   // associate Point3D and Pixels in unordered map (Point3D <-> Pixel)
   void associatePt3Pix2InMap(void);
@@ -122,6 +132,7 @@ public:
 
   Point2D<int> projectPoint3DtoPixel(Point3D<T>);
   Point2D<int> * projectPoint3DtoPixelRef(Point3D<T> &);
+
   
   void setViewField(T viewFieldInDegree) { 
 

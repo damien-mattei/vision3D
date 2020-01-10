@@ -23,7 +23,7 @@ template <class T> Vector3D<T>::~Vector3D() {
 }
 
 // create vector AB from point A and B
-template <class T> Vector3D<T>::Vector3D(Point3D<T> a,Point3D<T> b)
+template <class T> Vector3D<T>::Vector3D(Point3D<T> & a,Point3D<T> & b)
  : x(b.x - a.x), y(b.y - a.y), z(b.z - a.z) {}
 
 template <class T> ostream&  operator<< (ostream &out, Vector3D<T> &v3d)
@@ -36,6 +36,32 @@ template <class T> ostream&  operator<< (ostream &out, Vector3D<T> &v3d)
   return out;
 
 }
+
+template <class T> Vector3D<T> & Vector3D<T>::operator=(const Vector3D<T> &v)
+ {
+    
+    if( this !=  &v ) {
+      x = v.x;
+      y = v.y;
+      z = v.z;
+      
+    }
+    
+    return *this;
+    
+  }
+
+
+template <class T> Vector3D<T> & Vector3D<T>::operator+=(const Vector3D<T> &v)
+ {
+   this->x += v.x;
+   this->y += v.y;
+   this->z += v.z;
+   
+   return *this;
+    
+ }
+
 
 template<class T> Vector3D<T> operator+(const Vector3D<T> &u,const Vector3D<T> &v) {
 

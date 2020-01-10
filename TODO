@@ -49,12 +49,10 @@ Universe est en fait une variable dans vision3D: contient des Points de l'espace
 repond au bsoin de stocker les points de maniere unique dans la mémoire pour eviter les doublons
 
 
-en fait il faudrait que tous les objets puissent exister independemment de l'univers mais que l'on puisse aussi verifier leur unicité dans l'univers FAIT
+en fait il faudrait que tous les objets puissent exister independemment de l'univers mais que l'on puisse aussi verifier leur unicité dans l'univers FAIT (pour les points3D)
 
 verifier que tous les objets se conforment bien à la description 
 
 essayer avec des Set dans vision3d avec point3d mais faut une relation d'ordre sur point3d alors...
 d'abord des List!
 
-
-reecrire Vision3D<T>::associatePt3Pix2InMap

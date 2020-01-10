@@ -46,6 +46,7 @@ template <class T> ostream&  operator<< (ostream &out, Point3D<T> &p3d)
 
 
 // copy constructor
+// exist but should NOT be used because one point in Universe should be unique
 template <class T> Point3D<T>::Point3D(const Point3D<T> &onePoint3D) {
 
   x=onePoint3D.x;
@@ -61,15 +62,16 @@ template <class T> Point3D<T>::Point3D(const Point3D<T> &onePoint3D) {
 
 
 // assignation operator
-  
-template <class T> Point3D<T> & Point3D<T>::operator=(const Point3D<T> &onePoint3D)
-  {
+// same comment as for copy constructor:
+// exist but should NOT be used because one point in Universe should be unique
+template <class T> Point3D<T> & Point3D<T>::operator=(const Point3D<T> &onePoint3D) {
 
 #ifdef DISPLAY_ASSIGN
     cout << "# Point3D assignation operator #" << endl;
 #endif
     
     if (this != &onePoint3D)
+
       {
 	
 	x=onePoint3D.x;
@@ -78,10 +80,10 @@ template <class T> Point3D<T> & Point3D<T>::operator=(const Point3D<T> &onePoint
 	
 	// delete [] tableau;
 	
-    }
+      }
 
     return *this;
-  }
+}
 
 
 

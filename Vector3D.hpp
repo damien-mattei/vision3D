@@ -16,39 +16,11 @@ using namespace std;
 //template<class T> class Vector3D;
 
 
-template <class T>
-
-class Vector3D
-
-{
+template <class T> class Vector3D {
   
 public:
   
   T x,y,z; // coords 
-  
-  Vector3D<T>& operator=(const Vector3D<T> &v) {
-    
-    if( this !=  &v ) {
-      x = v.x;
-      y = v.y;
-      z = v.z;
-      
-    }
-    
-    return *this;
-    
-  }
-
-
-  Vector3D<T>& operator+=(const Vector3D<T> &v) {
-    
-    this->x += v.x;
-    this->y += v.y;
-    this->z += v.z;
-    
-    return *this;
-    
-  }
   
 
   Vector3D();
@@ -58,8 +30,13 @@ public:
   Vector3D(T x,T y,T z);
 
   // create vector AB from point A and B
-  Vector3D(Point3D<T> a,Point3D<T> b);
+  Vector3D(Point3D<T> & a,Point3D<T> & b);
 
+  Vector3D<T> & operator=(const Vector3D<T> &);
+  
+  Vector3D<T>& operator+=(const Vector3D<T> &v);
+
+  
   // dot product - produit scalaire
   T operator*(const Vector3D<T> &v);
 
