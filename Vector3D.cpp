@@ -101,11 +101,14 @@ template<class T> Vector3D<T> operator*(const T m,const Vector3D<T> &v) {
 
 template<class T> Vector3D<T> operator*(const Vector3D<T> &v,const T m) {
 
-  return Vector3D<T>(
-		     v.x * m,
-		     v.y * m,
-		     v.z * m
-		     );
+  // return Vector3D<T>(
+  // 		     v.x * m,
+  // 		     v.y * m,
+  // 		     v.z * m
+  // 		     );
+
+  return m*v;
+  
 }
 
 // dot product - produit scalaire

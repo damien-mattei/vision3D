@@ -200,15 +200,29 @@ int main() {
 
   Point3D<float> a(c1);
 
+  cout << "a :" << a << endl;
+  
   Edge3D<float> ab(a,b);
 
-  cout << ab << endl;
+  cout << "ab :" << ab << endl;
 
+  cout << endl;
+  
   Point2D<double> x1(1.5,3.7);
+
+  cout << "x1:" << x1 << endl;
+
+  cout << "x1:" << x1.display() << endl;
 
   Point2D<double> x2(2.5,3.4);
 
+  cout << "x2:" << x2 << endl;
+
   Edge2D<double> x1x2(x1,x2);
+
+  cout << "x1x2:" << x1x2 << endl;
+
+  cout << endl;
 
   float angle(20.0);
 

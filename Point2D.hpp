@@ -20,6 +20,8 @@ public:
     
   Point2D(T x,T y);
 
+  string display(void);
+  
   // equality operator
   bool operator== (const Point2D<T> &);
 

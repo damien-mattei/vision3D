@@ -31,14 +31,9 @@ template <class T> Point3D<T>::~Point3D() {
 template <class T> ostream&  operator<< (ostream &out, Point3D<T> &p3d)
 {
     
-  out << "P3D "
+  out << "Point3D "
       << &p3d // display the adress, without & i should make a recursive call to << operator !!!
-      << " ("  
-      << p3d.x << ", "
-      << p3d.y << ", "
-      << p3d.z
-      << ")"
-    ;
+      << " ("  << p3d.x << ", " << p3d.y << ", " << p3d.z << ")";
   
   return out;
   

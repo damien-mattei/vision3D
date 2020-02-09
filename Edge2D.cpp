@@ -10,7 +10,7 @@ template <class T> Edge2D<T>::Edge2D() : a(), b() {}
 template <class T> Edge2D<T>::Edge2D(Point2D<T> a,Point2D<T> b) : a(a), b(b) {
 
 #ifdef DISPLAY_CONSTRUCTOR
-  cout << "# Edge2D constructor #" << endl;
+  cout << "# Edge2D constructor # " << *this << endl;
 #endif
 
 }
@@ -18,7 +18,7 @@ template <class T> Edge2D<T>::Edge2D(Point2D<T> a,Point2D<T> b) : a(a), b(b) {
 template <class T> Edge2D<T>::~Edge2D() {
 
 #ifdef DISPLAY_CONSTRUCTOR
-  cout << "# Edge2D destructor #" << endl;
+  cout << "# Edge2D destructor # " << *this << endl;
 #endif
 
 }
@@ -26,8 +26,9 @@ template <class T> Edge2D<T>::~Edge2D() {
 template <class T> ostream&  operator<< (ostream &out, Edge2D<T> &e)
 {
     
-  out << "[" << e.a << "] <--> ["
-      << e.b << "]";
+  out << "Edge2D "
+      << &e
+      << " [" << e.a << "] <--> [" << e.b << "]";
   
   return out;
 

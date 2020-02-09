@@ -27,7 +27,7 @@ public:
   ~Edge3D();
     
   // create edge AB from point A and B
-  Edge3D(Point3D<T> a,Point3D<T> b);
+  Edge3D(Point3D<T> & a,Point3D<T> & b);
 
   //Edge3D(Point3D<T> & ref_a,Point3D<T> & ref_b);
 

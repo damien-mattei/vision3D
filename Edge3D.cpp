@@ -7,7 +7,7 @@
 template <class T> Edge3D<T>::Edge3D() : a(), b() {}
 
 // create edge AB from point A and B
-template <class T> Edge3D<T>::Edge3D(Point3D<T> a,Point3D<T> b) : a(a), b(b) {
+template <class T> Edge3D<T>::Edge3D(Point3D<T> & a,Point3D<T> & b) : a(a), b(b) {
 
 #ifdef DISPLAY_CONSTRUCTOR
   cout << "# Edge3D constructor #" << endl;
