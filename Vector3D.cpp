@@ -1,6 +1,7 @@
 // Vector3D Class
 // Damien MATTEI
 
+#include "Vector3D.hpp"
 
 // implementations
 
@@ -128,6 +129,7 @@ template<class T> Vector3D<T> Vector3D<T>::operator^(const Vector3D<T> &v)  {
 		     );
 }
 
+// matrix multiplication
 template<class T> Vector3D<T> operator*(const T m3d[][3],const Vector3D<T> &u) {
 
   return Vector3D<T>(
@@ -149,4 +151,16 @@ template<class T> T  Vector3D<T>::norm() {
 }
 
 
+template class Vector3D<float>;
 
+template Vector3D<float> operator/(const Vector3D<float> &v,const float d);
+
+template  ostream&  operator<< (ostream &out, Vector3D<float> &v3d);
+
+template  Vector3D<float> operator+(const Vector3D<float> &u,const Vector3D<float> &v);
+
+template Vector3D<float> operator*(const Vector3D<float> &v,const float m);
+
+template Vector3D<float> operator*(const float m,const Vector3D<float> &v);
+
+template Vector3D<float> operator*(const float m3d[][3],const Vector3D<float> &u);

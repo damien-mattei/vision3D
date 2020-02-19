@@ -1,6 +1,7 @@
 // Edge3D Class
 // Damien MATTEI
 
+#include "Edge3D.hpp"
 
 // implementations
 
@@ -90,3 +91,6 @@ template <class T> Edge3D<T> & Edge3D<T>::operator=(const Edge3D<T> &oneEdge3D)
 // }
 
 
+template class Edge3D<float>;
+
+template ostream&  operator<< (ostream &out, Edge3D<float> &e);

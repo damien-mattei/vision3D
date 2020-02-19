@@ -6,10 +6,11 @@
 
 #include "Point3D.hpp"
 
-using namespace std;
+
 #include <iostream>
 #include <math.h>
 
+using namespace std;
 
 // export not yet implemented in g++
 //export template<class T> class Vector3D;
@@ -48,6 +49,22 @@ public:
 
 };
 
-#include "Vector3D.cpp"
+
+template <class T> Vector3D<T> operator+(const Vector3D<T> &u,const Vector3D<T> &v);
+
+template<class T> Vector3D<T> operator*(const Vector3D<T> &v,const T m);
+
+template<class T> Vector3D<T> operator*(const T m,const Vector3D<T> &v);
+
+// matrix multiplication
+template<class T> Vector3D<T> operator*(const T m3d[][3],const Vector3D<T> &u);
+
+template<class T> Vector3D<T> operator/(const Vector3D<T> &v,const T d);
+
+
+
+template <class T> ostream&  operator<< (ostream &out, Vector3D<T> &v3d);
+
+
 
 #endif /* VECTOR3D_HPP */

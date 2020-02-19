@@ -1,12 +1,5 @@
 // main for testing Vision3D code
 
-#include <list>
-
-
-using namespace std;
-
-#define DISPLAY_CONSTRUCTOR 7
-
 
 
 #include "Vector3D.hpp"
@@ -15,32 +8,20 @@ using namespace std;
 
 
 
-//#include "Point3Did.hpp"
 
 #include "Edge3D.hpp"
 
 #include "Edge2D.hpp"
 
-//#include "Object3D.hpp"
+#include "Point2D.hpp"
 
-//#include "Object3DList.hpp"
-
+#include "Universe.hpp"
 #include "Vision3D.hpp"
 
-//#include "Canvas.hpp"
-
-//#include "CanvasList.hpp"
-
-//#include "CubeList.hpp"
-
-//#include "Object3DListRef.hpp"
-
-//#include "CanvasListRef.hpp"
-
-//#include "Cube.hpp"
-
+using namespace std;
 
 int main() {
+
 
   cout << " ----------- test Universe ------------------  " << endl;
 
@@ -149,7 +130,7 @@ int main() {
 
   Vector3D<float> v2 = vis.w ^ vis.u;
 
-  cout << "v2 : " << v2 << endl;
+  // cout << "v2 : " << v2 << endl;
 
   float d2 = 2;
 
@@ -207,23 +188,35 @@ int main() {
   cout << "ab :" << ab << endl;
 
   cout << endl;
+
+
+
+  
   
   Point2D<double> x1(1.5,3.7);
 
   cout << "x1:" << x1 << endl;
 
-  cout << "x1:" << x1.display() << endl;
+  cout << "x1=" << x1.display() << endl;
 
   Point2D<double> x2(2.5,3.4);
 
   cout << "x2:" << x2 << endl;
 
+  cout << "x2=" << x2.display() << endl;
+
   Edge2D<double> x1x2(x1,x2);
 
   cout << "x1x2:" << x1x2 << endl;
 
+  cout << "x1x2=" << x1x2.display() << endl;
+
   cout << endl;
 
+
+
+  
+  
   float angle(20.0);
 
   vis3.setViewField( angle );

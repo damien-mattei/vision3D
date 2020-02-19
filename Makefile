@@ -1,39 +1,45 @@
 
 #------------------------------------------------------------------------------
-MAINSOURCE=main.cpp
-SOURCE=*.cpp *.hpp
-OBJECT=$(MAINSOURCE:.cpp=.o)
+
+OBJECT=Point2D.o Point3D.o Edge2D.o Edge3D.o Vector3D.o Universe.o Vision3D.o main.o
 MYPROGRAM=vision3d
 MYINCLUDES=.
-#DEFVAR=-DNOT_DISPLAY_CONSTRUCTOR -DDEBUG -DREF_OR_PTR
-#DEFVAR=-DDISPLAY_CONSTRUCTOR -DDEBUG
-#DEFVAR=-DDISPLAY_CONSTRUCTOR
 
 MYLIBRARIES=
+
 CC=g++
+
 #CFLAGS=-Wall -std=c++0x
 #CFLAGS=-Wall -std=c++11
 CFLAGS=-Wall -std=c++14
+
 LDFLAGS=
-DEFVAR=-DDEBUG_BUILD
+
+#DEFVAR=-DNOT_DISPLAY_CONSTRUCTOR -DDEBUG -DREF_OR_PTR
+#DEFVAR=-DDISPLAY_CONSTRUCTOR -DDEBUG
+#DEFVAR=-DDISPLAY_CONSTRUCTOR
+DEFVAR=-DDEBUG_BUILD -DDISPLAY_CONSTRUCTOR
+
 #------------------------------------------------------------------------------
 
 
 
 all: $(MYPROGRAM)
 
-$(MYPROGRAM): $(OBJECT) Makefile
+
+
+
+
+%.o: %.cpp
+	$(CC) -c -o $@ $< $(CFLAGS) -I$(MYINCLUDES) $(DEFVAR)
+
+
+$(MYPROGRAM): $(OBJECT)
 	@echo ---------
 	@echo LINKING	
 	@echo ---------
-	$(CC) $(OBJECT) $(LDFLAGS) -o $(MYPROGRAM) #-l$(MYLIBRARIES) 
-
-$(OBJECT): $(SOURCE) Makefile
-	@echo ----------
-	@echo COMPILING
-	@echo ----------
-	$(CC) -I$(MYINCLUDES) -c $(CFLAGS) $(DEFVAR) $(MAINSOURCE)
-
+	@echo $(OBJECT)
+	$(CC) $(LDFLAGS) -o $@ $^ #-l$(MYLIBRARIES) 
 
 
 clean:

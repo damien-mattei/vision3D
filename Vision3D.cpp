@@ -19,7 +19,7 @@ template <class T> Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : c(c), s(s)
   d = sc.norm(); // compute norm of SC
   // Vector3D<T> * ptr_w = sc | d; // normalize w
   // w = *ptr_w;
-  w = sc /d;
+  w = sc / d;
   
   /* compute vector u
    * knowing u.w = 0
@@ -171,8 +171,8 @@ template<class T> Point2D<int> Vision3D<T>::convert2Pixel(Point2D<T> p) {
 
 template<class T> Point2D<int> * Vision3D<T>::convert2PixelRef(Point2D<T> & p) {
 
-  Point2D<int> * pix = new Point2D<T>( (int) (p.x * pixelInUnit),
-				       (int) (p.y * pixelInUnit) );
+  Point2D<int> * pix = new Point2D<int>( (int) (p.x * pixelInUnit),
+					 (int) (p.y * pixelInUnit) );
   
   return pix;  // warning: pix should be deleted by the calling function
 
@@ -192,8 +192,8 @@ template<class T> Point2D<int> Vision3D<T>::convert2AbsPixel(Point2D<int> p) {
 
 template<class T> Point2D<int> * Vision3D<T>::convert2AbsPixelRef(Point2D<int> & p) {
 
-  Point2D<int> * pix = new Point2D<T>( p.x + winHalfSizeX,
-				       p.y + winHalfSizeY );
+  Point2D<int> * pix = new Point2D<int>( p.x + winHalfSizeX,
+					 p.y + winHalfSizeY );
   
   return pix;
 
@@ -234,11 +234,14 @@ template<class T> Point2D<int> * Vision3D<T>::projectPoint3DtoPixelRef(Point3D<T
 
   // screen point
   Point2D<T> * ps = projectionRef(p);
-  Point2D<int> * pix = convert2PixelRef(ps);
+  Point2D<T> & refPntT = *ps;
+  Point2D<int> * pix = convert2PixelRef(refPntT);
   delete ps;
-  Point2D<int> * pixAbs = convert2AbsPixelRef(pix);
-  delete pix; 
-  Point2D<int> * pixScreenCoord = convert2ScreenCoordRef(pixAbs);
+  Point2D<int> & refPntInt = *pix;
+  Point2D<int> * pixAbs = convert2AbsPixelRef(refPntInt);
+  delete pix;
+  refPntInt = *pixAbs;
+  Point2D<int> * pixScreenCoord = convert2ScreenCoordRef(refPntInt);
   delete pixAbs;
   return pixScreenCoord;
 		  
@@ -284,42 +287,42 @@ template<class T> Point2D<int> * Vision3D<T>::projectPoint3DtoPixelRef(Point3D<T
 
 // associate Point3D and Pixels in unordered map (Point3D <-> Pixel)
 // DEPRECATED new version use pointers instead of copying objects
-template<class T> void Vision3D<T>::associatePt3Pix2InMap(void) {
+// template<class T> void Vision3D<T>::associatePt3Pix2InMap(void) {
 
-  Point2D<int> pt2;
+//   Point2D<int> pt2;
    
-  // finding the vertex list
-  list < Point3D<T> > vertexList = univ.vertexList;
+//   // finding the vertex list
+//   list < Point3D<T> > vertexList = univ.vertexList;
   
-  // iterate on the list to compute 3D to 2D projection and Pixels calculus
-  // note : i put typename hint because as it is a template definition
-  // compiler can not know the type it is until the compiler knows T
-  typename list< Point3D<T> >::iterator iterP3D;
+//   // iterate on the list to compute 3D to 2D projection and Pixels calculus
+//   // note : i put typename hint because as it is a template definition
+//   // compiler can not know the type it is until the compiler knows T
+//   typename list< Point3D<T> >::iterator iterP3D;
   
-  DEBUG(std::cout << "getViewField() : " << getViewField() << std::endl;
-	std::cout << "getHalfScreenSizeX() : " << getHalfScreenSizeX() << std::endl;
-	std::cout << "getPixelInUnit() : " << getPixelInUnit() << std::endl;)
+//   DEBUG(std::cout << "getViewField() : " << getViewField() << std::endl;
+// 	std::cout << "getHalfScreenSizeX() : " << getHalfScreenSizeX() << std::endl;
+// 	std::cout << "getPixelInUnit() : " << getPixelInUnit() << std::endl;)
   
 
   
-  for (iterP3D = vertexList.begin(); iterP3D != vertexList.end(); ++iterP3D) {
+//   for (iterP3D = vertexList.begin(); iterP3D != vertexList.end(); ++iterP3D) {
 
 
-    DEBUG(std::cout << " *iterP3D : " << *iterP3D << std::endl;)
+//     DEBUG(std::cout << " *iterP3D : " << *iterP3D << std::endl;)
     
-    Point2D<float> ptproj = projection(*iterP3D);
-    DEBUG(std::cout << " ptproj : " << ptproj << std::endl;)
-    Point2D<int> ptc2p = convert2Pixel(ptproj);
-    DEBUG(std::cout << " ptc2p : " << ptc2p << std::endl;)
+//     Point2D<float> ptproj = projection(*iterP3D);
+//     DEBUG(std::cout << " ptproj : " << ptproj << std::endl;)
+//     Point2D<int> ptc2p = convert2Pixel(ptproj);
+//     DEBUG(std::cout << " ptc2p : " << ptc2p << std::endl;)
 
 
-    pt2 = projectPoint3DtoPixel(*iterP3D);
+//     pt2 = projectPoint3DtoPixel(*iterP3D);
     
-    DEBUG(std::cout << " pt2 : " << pt2 << std::endl;)
-    htPointPixel[*iterP3D] = pt2;
-  }
+//     DEBUG(std::cout << " pt2 : " << pt2 << std::endl;)
+//     htPointPixel[*iterP3D] = pt2;
+//   }
   
-}
+// }
 
 
 
@@ -378,3 +381,6 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
 }
 
 
+template class Vision3D<float>;
+
+template  ostream& operator<< (ostream &out, Vision3D<float> &vis3d);

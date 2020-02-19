@@ -4,8 +4,16 @@
 #ifndef UNIVERSE_HPP
 #define UNIVERSE_HPP
 
-//#include <memory> // for std::unique_ptr
+
 #include <algorithm> // used by Universe
+#include <iostream>
+
+#include <list>
+
+#include "Point3D.hpp"
+#include "debug.hpp"
+
+using namespace std;
 
 template <class T> class Universe {
         
@@ -28,6 +36,6 @@ public:
  
 };
 
-#include "Universe.cpp"
+
 
 #endif /* UNIVERSE_HPP */

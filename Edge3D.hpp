@@ -40,6 +40,8 @@ public:
 
 };
 
-#include "Edge3D.cpp"
+
+template <class T> ostream&  operator<< (ostream &out, Edge3D<T> &e);
+
 
 #endif /* EDGE3D_HPP */

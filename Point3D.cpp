@@ -12,19 +12,33 @@ template <class T> Point3D<T>::Point3D() : x(0) , y(0) , z(0) {}
 template <class T> Point3D<T>::Point3D(T x , T y , T z) : x(x) , y(y) , z(z) {
 
   // this->z =z;
+
 #ifdef DISPLAY_CONSTRUCTOR
-  cout << "# Point3D constructor # " << *this << endl;
+  cout << "# constructor "  << this->display() << " #" << endl;
 #endif
+
+  
 }
+
 
 template <class T> Point3D<T>::~Point3D() {
 
 #ifdef DISPLAY_CONSTRUCTOR
-  cout << "# Point3D destructor # "  << this << endl;
+  cout << "# destructor " << this->display() << " #" << endl;
 #endif
-
+  
 }
 
+
+template <class T>  string Point3D<T>::display(void) {
+
+  std::stringstream stream;
+
+  stream << "Point3D @" << " 0x" << std::hex << (long)this << " " << *this;
+ 
+  return stream.str();
+
+}
 
 
 
@@ -111,3 +125,8 @@ template <class T> bool Point3D<T>::operator== (const Point3D<T> &p3d)  {
   return (x==p3d.x) && (y==p3d.y) && (z==p3d.z);
     
 }
+
+// create an instanciation that will be usefull at linking
+template class Point3D<float>;
+
+template ostream&  operator<< (ostream &out, Point3D<float> &p3d);

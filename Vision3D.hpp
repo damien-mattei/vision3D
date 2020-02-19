@@ -5,6 +5,7 @@
 #include "Vector3D.hpp"
 #include "Point2D.hpp"
 #include "Universe.hpp"
+#include "debug.hpp"
 
 
 #include <iostream>
@@ -81,10 +82,10 @@ public:
   // unordered hash table give faster access than ordered map ("performance of data structure depends on hash function a lot but on an average the cost of search, insert and delete from hash table is O(1). ")
   // ref: https://www.geeksforgeeks.org/unordered_map-in-cpp-stl/
   
-  unordered_map< Point3D<float>,
-		 Point2D<int>,
-		 hash_point3d<float>,
-		 point3DEquals<float> > htPointPixel; // old definition DEPRECATED
+  // unordered_map< Point3D<float>,
+  // 		 Point2D<int>,
+  // 		 hash_point3d<float>,
+  // 		 point3DEquals<float> > htPointPixel; // old definition DEPRECATED
 
   unordered_map< Point3D<float> *,
 		 Point2D<int> * > htPointersPointPixel; // new definition
@@ -125,7 +126,8 @@ public:
   // void computePoints2DtoPixels(void);
 
   // associate Point3D and Pixels in unordered map (Point3D <-> Pixel)
-  void associatePt3Pix2InMap(void);
+  // DEPRECATED
+  //void associatePt3Pix2InMap(void);
 
   // associate pointers of Point3D and Pixels in unordered map (Point3D <-> Pixel)
   void associatePt3Pix2PointersInMap(void);
@@ -188,6 +190,6 @@ public:
 
 };
 
-#include "Vision3D.cpp"
+template <class T> ostream& operator<< (ostream &out, Vision3D<T> &vis3d);
 
 #endif /* VISION3D_HPP */

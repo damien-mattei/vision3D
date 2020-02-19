@@ -11,7 +11,7 @@ using namespace std;
 #include <math.h>
 
 
-// export not yet implemented in g++
+// export not yet implemented in g++ and no more in C++ specifications
 //export template<class T> class Edge2D;
 //template<class T> class Edge2D;
 
@@ -41,11 +41,15 @@ public:
   // create edge AB from point A and B
   Edge2D(Point2D<T> a,Point2D<T> b);
 
-  // // compute the norm 
-//   T norm();
+  string display(void);
+
+  // compute the norm 
+  //   T norm();
 
 };
 
-#include "Edge2D.cpp"
+
+template <class T> ostream&  operator<< (ostream &out, Edge2D<T> &e);
+
 
 #endif /* EDGE2D_HPP */

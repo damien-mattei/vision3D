@@ -1,10 +1,10 @@
 // Universe Class
 // Damien MATTEI
 
-#include "Point3D.hpp"
+
 #include "Universe.hpp"
 
-#include "debug.hpp"
+
 
 // implementations
 
@@ -147,3 +147,6 @@ template<class T> Point3D<T> * Universe<T>::createPoint3Dptr(T x,T y,T z) {
 
 }
 
+
+
+template class Universe<float>;
