@@ -25,20 +25,7 @@ public:
   // position of center of screen
   Point3D<T> s;
 
-
-  
-  // vectors defining screen frame
-
-  // vector u
-  Vector3D<T> u;
-
-  // vector v
-  Vector3D<T> v;
-
-  // vector w
-  Vector3D<T> w;
-
-
+  // note: u,v,w have been moved as local variable
   
   // change of basis matrix
   T m[3][3];

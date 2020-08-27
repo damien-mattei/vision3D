@@ -17,6 +17,19 @@ template <class T> Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : c(c), s(s)
    // create SC vector
   Vector3D<T> sc(c,s);
   d = sc.norm(); // compute norm of SC
+
+  // vectors defining screen frame
+
+  // vector u
+  Vector3D<T> u;
+
+  // vector v
+  Vector3D<T> v;
+
+  // vector w
+  Vector3D<T> w;
+
+  
   // Vector3D<T> * ptr_w = sc | d; // normalize w
   // w = *ptr_w;
   w = sc / d;
@@ -106,9 +119,9 @@ template <class T> ostream& operator<< (ostream &out, Vision3D<T> &vis3d)
     
   out << "observer : " << vis3d.c 
       << ", center of screen : " << vis3d.s
-      << ", u vector: " << vis3d.u
-      << ", v vector: " << vis3d.v
-      << ", w vector: " << vis3d.w
+      // << ", u vector: " << vis3d.u
+      // << ", v vector: " << vis3d.v
+      // << ", w vector: " << vis3d.w
 ;
   
   return out;

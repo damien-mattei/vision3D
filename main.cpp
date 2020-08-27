@@ -25,6 +25,7 @@ int main() {
 
   cout << " ----------- test Universe ------------------  " << endl;
 
+  // we create twice the same point's coordinates
   Universe<float> univ;
 
   cout << " avec des references vers des point3D " << endl;
