@@ -14,7 +14,7 @@ template <class T> Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : c(c), s(s)
 
   // compute vector w
 
-   // create SC vector
+  // create SC vector
   Vector3D<T> sc(c,s);
   d = sc.norm(); // compute norm of SC
 
@@ -24,15 +24,17 @@ template <class T> Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : c(c), s(s)
   Vector3D<T> u;
 
   // vector v
-  Vector3D<T> v;
+  //Vector3D<T> v;
 
   // vector w
-  Vector3D<T> w;
+  //Vector3D<T> w;
 
   
   // Vector3D<T> * ptr_w = sc | d; // normalize w
   // w = *ptr_w;
-  w = sc / d;
+  //w = sc / d;
+
+  Vector3D<T> w = Vector3D<T>(sc / d);
   
   /* compute vector u
    * knowing u.w = 0
@@ -42,12 +44,26 @@ template <class T> Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : c(c), s(s)
   u.y = - ( w.x / sqrt(w.x * w.x + w.y * w.y)); // arbitrary taking negative solution for orientation
   u.x = - w.y * u.y / w.x;
 
+  // // vector u
+  // this definition create a possible problem:
+  // Vision3D.cpp:50:19: warning: variable 'u' is uninitialized when used within its own initialization
+  //     [-Wuninitialized]
+  //                              - w.y * u.y / w.x
+  //                                      ^
+
+  // Vector3D<T> u = Vector3D<T>( 0 ,
+  // 			       - ( w.x / sqrt(w.x * w.x + w.y * w.y)) , // arbitrary taking negative solution for orientation
+  // 			       - w.y * u.y / w.x
+  // 			       ) ;
+
+  
   /* compute vector v
    * knowing u ^ v = w
    * i.e: v = w ^ u
    * ( ^ : cross product)
    */
-  v = w ^ u;
+  // vector v
+  Vector3D<T> v = Vector3D<T>( w ^ u );
 
 
   // change of basis matrix
@@ -93,7 +109,7 @@ template <class T> Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : c(c), s(s)
   // Vector3D<T> * dbqvPtr = db | dbv;
   // Vector3D<T> * dcqwPtr = dc | dcw;
 
-  // // q mean quotient i.e: daqu -> da Quotient u
+  // // q mean quotient i.e: daqu -> da Quotient dau
   // Vector3D<T> & daqu = *daquPtr;
   // Vector3D<T> & dbqv = *dbqvPtr;
   // Vector3D<T> & dcqw = *dcqwPtr;
@@ -106,6 +122,7 @@ template <class T> Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : c(c), s(s)
   // m[1][0] = db.x / dbv; m[1][1] = db.y / dbv; m[1][2] = db.z / dbv;
   // m[2][0] = dc.x / dcw; m[2][1] = dc.y / dcw; m[2][2] = dc.z / dcw;
 
+  // this would be more simple with a Matrix3X3 class
   m[0][0] = daqu.x; m[0][1] = daqu.y; m[0][2] = daqu.z;
   m[1][0] = dbqv.x; m[1][1] = dbqv.y; m[1][2] = dbqv.z;
   m[2][0] = dcqw.x; m[2][1] = dcqw.y; m[2][2] = dcqw.z;

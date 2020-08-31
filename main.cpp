@@ -110,11 +110,11 @@ int main() {
 
   cout << vis << endl;
 
-  cout << "vis.u : " << vis.u << endl;
+  // cout << "vis.u : " << vis.u << endl;
 
-  cout << "vis.v : " << vis.v << endl;
+  // cout << "vis.v : " << vis.v << endl;
 
-  cout << "vis.w : " << vis.w << endl;
+  // cout << "vis.w : " << vis.w << endl;
 
   vis.setViewField(20); // a view field of twenty degree
   vis.setHalfScreenSizeX(400); // 400 pixels
@@ -129,7 +129,7 @@ int main() {
   // cv.associatePt3Pix2InMap();
   // cv.displayHTpointPixel(); 
 
-  Vector3D<float> v2 = vis.w ^ vis.u;
+  //Vector3D<float> v2 = vis.w ^ vis.u;
 
   // cout << "v2 : " << v2 << endl;
 

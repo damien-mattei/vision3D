@@ -55,7 +55,7 @@ template <class T> Vector3D<T> & Vector3D<T>::operator=(const Vector3D<T> &v)
 
 template <class T> Vector3D<T> & Vector3D<T>::operator+=(const Vector3D<T> &v)
  {
-   this->x += v.x;
+   this->x += v.x; // x += v.x works also
    this->y += v.y;
    this->z += v.z;
    
@@ -120,6 +120,7 @@ template<class T> T Vector3D<T>::operator* (const Vector3D<T> &v)  {
 }
 
 // cross product - produit vectoriel
+// should not be returned a reference and first allocate memory for the vector3d ?
 template<class T> Vector3D<T> Vector3D<T>::operator^(const Vector3D<T> &v)  {
 
   return Vector3D<T>(

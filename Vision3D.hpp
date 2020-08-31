@@ -28,6 +28,7 @@ public:
   // note: u,v,w have been moved as local variable
   
   // change of basis matrix
+  // could be a class with overload * operator
   T m[3][3];
 
   
