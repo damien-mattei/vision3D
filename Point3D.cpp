@@ -6,7 +6,13 @@
 
 // implementations
 
-template <class T> Point3D<T>::Point3D() : x(0) , y(0) , z(0) {}
+template <class T> Point3D<T>::Point3D() : x(0) , y(0) , z(0) {
+
+#ifdef DISPLAY_CONSTRUCTOR
+  cout << "# constructor "  << this->display() << " #" << endl;
+#endif
+  
+}
 
 
 template <class T> Point3D<T>::Point3D(T x , T y , T z) : x(x) , y(y) , z(z) {
@@ -42,7 +48,7 @@ template <class T>  string Point3D<T>::display(void) {
 
 
 
-template <class T> ostream&  operator<< (ostream &out, Point3D<T> &p3d)
+template <class T> ostream&  operator<< (ostream &out, const Point3D<T> &p3d)
 {
     
   out << "Point3D "
@@ -52,6 +58,8 @@ template <class T> ostream&  operator<< (ostream &out, Point3D<T> &p3d)
   return out;
   
 }
+
+
 
 
 // copy constructor
@@ -83,7 +91,7 @@ template <class T> Point3D<T> & Point3D<T>::operator=(const Point3D<T> &onePoint
 
       {
 	
-	x=onePoint3D.x;
+	Point3D<T>::x=onePoint3D.x; // just for test
 	y=onePoint3D.y;
 	z=onePoint3D.z;
 	
@@ -129,4 +137,4 @@ template <class T> bool Point3D<T>::operator== (const Point3D<T> &p3d)  {
 // create an instanciation that will be usefull at linking
 template class Point3D<float>;
 
-template ostream&  operator<< (ostream &out, Point3D<float> &p3d);
+template ostream&  operator<< (ostream &out, const Point3D<float> &p3d);

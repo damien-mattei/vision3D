@@ -22,7 +22,7 @@ DEFVAR=-DDEBUG_BUILD -DDISPLAY_CONSTRUCTOR
 
 #------------------------------------------------------------------------------
 
-
+# strange i donot really understand which rule make the main.o compilation, default not written perheaps
 
 all: $(MYPROGRAM)
 
@@ -30,15 +30,14 @@ all: $(MYPROGRAM)
 
 
 
-%.o: %.cpp
+%.o: %.cpp %.hpp
+	@echo COMPILING	$<
 	$(CC) -c -o $@ $< $(CFLAGS) -I$(MYINCLUDES) $(DEFVAR)
 
 
 $(MYPROGRAM): $(OBJECT)
-	@echo ---------
-	@echo LINKING	
-	@echo ---------
-	@echo $(OBJECT)
+	@echo
+	@echo LINKING $(OBJECT)	
 	$(CC) $(LDFLAGS) -o $@ $^ #-l$(MYLIBRARIES) 
 
 

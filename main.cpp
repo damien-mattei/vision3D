@@ -18,26 +18,55 @@
 #include "Universe.hpp"
 #include "Vision3D.hpp"
 
+//extern template int Universe<float>::GetMax<int>( int,int ) ;
+
+
 using namespace std;
 
 int main() {
 
+  int x,y;
+  x=3;
+  y=5;
+  
 
+  
   cout << " ----------- test Universe ------------------  " << endl;
 
+ 
   // we create twice the same point's coordinates
   Universe<float> univ;
 
+  univ.GetMax <int,float> (x,y);
+
+  Point3D<float> & tp = univ.createObjectRef<Point3D<float>,float,float,float>(1.0,2.0,3.0);
+
+  cout << "tp : " << tp << endl;
+
+  Point3D<float> & tp2 = univ.createObjectRef<Point3D<float>,float,float,float>(1.0,2.0,3.0);
+
+  cout << "tp2 : " << tp2 << endl;
+
+  cout << " creation Cube 0 " << endl;
+  univ.createCube(tp,1.5);
+
+  cout << " avec des point3D (il y a construction d'un Point3D supplémentaire par le constructeur de recopie !) " << endl;
+  
+  Point3D<float> pot = univ.createPoint3DRef<Point3D<float>,float,float,float>(7.0,2.0,3.0);
+  cout << "pot : " << pot << endl;
+  cout << " creation Cube 1  " << endl;
+  univ.createCube(pot,1.7);
+  
   cout << " avec des references vers des point3D " << endl;
 
-  Point3D<float> & pt3d_uniq_ref = univ.createPoint3Dref(1,0,0);
-  
+  //Point3D<float> & pt3d_uniq_ref = univ.createPoint3Dref(1,0,0);
+  Point3D<float> & pt3d_uniq_ref = univ.createPoint3DRef<Point3D<float>,float,float,float>(1,0,0);
   
   cout << "pt3d_uniq_ref : " << pt3d_uniq_ref << endl;
 
  
-
-  Point3D<float> & pt3d_uniq_ref2 = univ.createPoint3Dref(1,0,0);
+  // DEPRECATED
+  Point3D<float> & pt3d_uniq_ref2 = univ.createPoint3DReference(1,0,0);
   
   cout << "pt3d_uniq_ref2 : " << pt3d_uniq_ref2 << endl;
 
@@ -76,11 +105,18 @@ int main() {
   
   cout << "pt3dbis : " << pt3dbis << endl;
   
-  //exit(1);
+  cout << " creation Cube 2  " << endl;
+  univ.createCube(pt3d,1.5);
   
-  //#include "cube_def.hpp"
+  cerr << endl << endl << "Matrix test: " << endl;
+  
+  Matrix3x3<float> m33((float) 1.0,(float) 1.0,(float) 1.0,(float) 1.0,(float) 1.0,(float) 1.0,(float) 1.0,(float) 1.0,(float) 1.0);
 
+  Matrix3x3<float> m33res = (float) 3.0 * m33;
+  
+  Matrix3x3<float> m33res2 = m33 * (float) 5.0;
 
+  Matrix3x3<float> m33res3 = m33 / (float) 5.0;
   
   Point3D<float> b(2,2,1.2);
   
@@ -228,19 +264,6 @@ int main() {
 
   // scene.associatePt3Pix2InMap();
 
-  // //Point2D<int> *ptr_p2dint = new Point2D<int>(4,5);
-
-  // Object3DListRef<float> cubeRef(vertexCube,edgeCube);
-
-  // cubeRef.name = "cube by reference";
-
-  // cout << cubeRef.name << endl;
-
-  // cubeRef.printName();
-
-  // // finding the vertex list
-  // //list < Point3Did<float> > & vertexList = cube.vertexList;
-  // list < Point3Did<float> > vertexList = cube.vertexList;
 
 }
 

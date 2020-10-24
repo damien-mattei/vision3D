@@ -50,6 +50,6 @@ public:
 
 };
 
-template <class T> ostream&  operator<< (ostream &out, Point3D<T> &p3d);
+template <class T> ostream&  operator<< (ostream &out, const Point3D<T> &p3d);
 
 #endif /* POINT3D_HPP */

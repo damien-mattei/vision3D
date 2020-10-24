@@ -2,7 +2,7 @@
 #define VISION3D_HPP
 
 #include "Point3D.hpp"
-#include "Vector3D.hpp"
+#include "Matrix3x3.hpp"
 #include "Point2D.hpp"
 #include "Universe.hpp"
 #include "debug.hpp"
@@ -31,6 +31,10 @@ public:
   // could be a class with overload * operator
   T m[3][3];
 
+  Matrix3x3<T> * ptrM33;
+
+  Matrix3x3<T> m3x3;
+  
   
   // distance, norm of SC
   T d;
@@ -89,6 +93,12 @@ public:
 
   ~Vision3D();
 
+  string display(void);
+
+  void displayConstructor(void);
+
+  void displayDestructor(void);
+  
   Point2D<T> projection(Point3D<T> m); // projection on screen
 
   Point2D<T> * projectionRef(Point3D<T> & p);
@@ -123,15 +133,15 @@ public:
   Point2D<int> projectPoint3DtoPixel(Point3D<T>);
   Point2D<int> * projectPoint3DtoPixelRef(Point3D<T> &);
 
-  
+
   void setViewField(T viewFieldInDegree) { 
-
+    
     this->viewField = ( viewFieldInDegree / 180 ) * PI;
-
+    
     // as i get the viewField angle i set the half screen sizes
     computeWinHalfX();
     
- };
+  };
 
   // return value of view field in radian
   T getViewField() {

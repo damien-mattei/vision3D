@@ -131,6 +131,8 @@ template<class T> Vector3D<T> Vector3D<T>::operator^(const Vector3D<T> &v)  {
 }
 
 // matrix multiplication
+
+
 template<class T> Vector3D<T> operator*(const T m3d[][3],const Vector3D<T> &u) {
 
   return Vector3D<T>(
@@ -139,6 +141,8 @@ template<class T> Vector3D<T> operator*(const T m3d[][3],const Vector3D<T> &u) {
 		     m3d[2][0] * u.x + m3d[2][1] * u.y + m3d[2][2] * u.z 
 		     );
 }
+
+
 
 
 template<class T> T  Vector3D<T>::norm() {

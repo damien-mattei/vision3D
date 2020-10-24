@@ -1,8 +1,0 @@
-g++ -c -o Point2D.o Point2D.cpp -Wall -std=c++14 -I. -DDEBUG_BUILD
-g++ -c -o Point3D.o Point3D.cpp -Wall -std=c++14 -I. -DDEBUG_BUILD
-g++ -c -o Edge2D.o Edge2D.cpp -Wall -std=c++14 -I. -DDEBUG_BUILD
-g++ -c -o Edge3D.o Edge3D.cpp -Wall -std=c++14 -I. -DDEBUG_BUILD
-g++ -c -o Vector3D.o Vector3D.cpp -Wall -std=c++14 -I. -DDEBUG_BUILD
-g++ -c -o Universe.o Universe.cpp -Wall -std=c++14 -I. -DDEBUG_BUILD
-g++ -c -o Vision3D.o Vision3D.cpp -Wall -std=c++14 -I. -DDEBUG_BUILD
-Makefile:34: recipe for target 'Vision3D.o' failed

@@ -20,7 +20,8 @@ template <class T> class Edge3D {
   
 public:
   
-  Point3D<T> a,b;
+  Point3D<T> *a;
+  Point3D<T> *b;
   
   Edge3D();
 
@@ -34,6 +35,11 @@ public:
   Edge3D(const Edge3D<T> &);
 
   Edge3D<T> & operator=(const Edge3D<T> &);
+
+  // equality operator
+  bool operator== (const Edge3D<T> &);
+  
+  string display(void);
   
   // // compute the norm 
 //   T norm();

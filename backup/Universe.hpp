@@ -5,26 +5,42 @@
 #define UNIVERSE_HPP
 
 
+#include <algorithm> // used by Universe
+#include <iostream>
 
+#include <list>
 
-template <class T> class Universe {
+#include "Point3D.hpp"
+#include "debug.hpp"
+
+using namespace std;
+
+template <class T,
+	  class Object_Type>
+
+class Universe {
         
 public:
    
   // data 
+  list < Point3D<T> *> point3DptrList;
+
+  // for deprecated compatibility in Vision3D.cpp
+  // the vertex
   list < Point3D<T> > vertexList;
-  
   
   Universe();
 
   ~Universe();
     
+  Point3D<T> & createPoint3Dref(T x,T y,T z); // create a point by checking if it already exist
+
   Point3D<T> * createPoint3Dptr(T x,T y,T z); // create a point by checking if it already exist
 
-  Point3D<T> createPoint3D(T x,T y,T z); // create a point by checking if it already exist
-  
+  void createCube(Point3D<T> &,T);
+ 
 };
 
-#include "Universe.cpp"
+
 
 #endif /* UNIVERSE_HPP */

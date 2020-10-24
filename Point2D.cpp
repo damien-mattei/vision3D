@@ -10,6 +10,7 @@
 
 template <class T> Point2D<T>::Point2D() : x(0), y(0) {
 
+  
 #ifdef DISPLAY_CONSTRUCTOR
   cout << "# constructor "  << this->display() << " #" << endl;
 #endif

@@ -10,17 +10,20 @@
 
 #include <list>
 
-#include "Point3D.hpp"
+// Edge3D will include Point3D
+#include "Edge3D.hpp"
 #include "debug.hpp"
 
 using namespace std;
 
-template <class T> class Universe {
+template <typename T> class Universe {
         
 public:
    
   // data 
-  list < Point3D<T> *> point3DptrList;
+  list < Point3D<T> *> containerPoint3DptrList;
+
+  list < Edge3D<T> *> containerEdge3DptrList;
 
   // for deprecated compatibility in Vision3D.cpp
   // the vertex
@@ -29,10 +32,32 @@ public:
   Universe();
 
   ~Universe();
-    
-  Point3D<T> & createPoint3Dref(T x,T y,T z); // create a point by checking if it already exist
 
+
+  // DEPRECATED (for tests)
+  Point3D<T> & createPoint3DReference(T x,T y,T z); // create a point by checking if it already exist
+  Point3D<T> & createPoint3Dref_BACKUP(T x,T y,T z); // backup because i created macro that builds functions now
+
+  // create a Point3D by checking if it already exist in the universe
+  template <typename ObjectType, typename... ParamTypes>
+  ObjectType & createPoint3DRef(ParamTypes ...args);
+
+  // create a Edge3D by checking if it already exist in the universe
+  template <typename ObjectType, typename... ParamTypes>
+  ObjectType & createEdge3DRef(ParamTypes ...args);
+  
+  // create an object by checking if it already exist in the universe
+  // DEPRECATED
+  template <typename ObjectType, typename... ParamTypes>
+  ObjectType & createObjectRef(ParamTypes ...args);
+  
   Point3D<T> * createPoint3Dptr(T x,T y,T z); // create a point by checking if it already exist
+
+  void createCube(Point3D<T> &,T);
+
+  // for testing
+  template <typename myType,typename otherType>
+  myType GetMax (myType a, myType b);
  
 };
 

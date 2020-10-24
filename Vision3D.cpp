@@ -6,12 +6,23 @@
 
 
 // implementations
-template <class T> Vision3D<T>::Vision3D() : c(), s() {}
+template <class T> Vision3D<T>::Vision3D() : c(), s() {
+
+#ifdef DISPLAY_CONSTRUCTOR
+  displayConstructor();
+#endif
+
+}
 
 
 // c position of eye or camera ,s position of center of screen
 template <class T> Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : c(c), s(s) {
 
+#ifdef DISPLAY_CONSTRUCTOR
+  displayConstructor();
+#endif
+
+  
   // compute vector w
 
   // create SC vector
@@ -97,6 +108,7 @@ template <class T> Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : c(c), s(s)
   // dbv = v.x * db1 + v.y * db2 + v.z * db3;
   // dcw = w.x * dc1 + w.y * dc2 + w.z * dc3;
 
+  // dot products - produits scalaires
   dau = u * da;
   dbv = v * db;
   dcw = w * dc;
@@ -123,16 +135,49 @@ template <class T> Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : c(c), s(s)
   // m[2][0] = dc.x / dcw; m[2][1] = dc.y / dcw; m[2][2] = dc.z / dcw;
 
   // this would be more simple with a Matrix3X3 class
-  m[0][0] = daqu.x; m[0][1] = daqu.y; m[0][2] = daqu.z;
-  m[1][0] = dbqv.x; m[1][1] = dbqv.y; m[1][2] = dbqv.z;
-  m[2][0] = dcqw.x; m[2][1] = dcqw.y; m[2][2] = dcqw.z;
+  // m[0][0] = daqu.x; m[0][1] = daqu.y; m[0][2] = daqu.z;
+  // m[1][0] = dbqv.x; m[1][1] = dbqv.y; m[1][2] = dbqv.z;
+  // m[2][0] = dcqw.x; m[2][1] = dcqw.y; m[2][2] = dcqw.z;
+
+  DEBUG(cerr << endl << endl << "Vision3D.cpp : Vision3D<T>::Vision3D(Point3D<T> c,Point3D<T> s) : m3x3" << endl;)
+
+  m3x3 = Matrix3x3<T>(daqu,dbqv,dcqw);
  
 }
 
-template <class T> Vision3D<T>::~Vision3D() {}
 
-template <class T> ostream& operator<< (ostream &out, Vision3D<T> &vis3d)
-{
+template <class T>  string Vision3D<T>::display(void) {
+
+  std::stringstream stream;
+
+  stream << "Vision3D @" << " 0x" << std::hex << (long)this << endl << *this;
+ 
+  return stream.str();
+
+}
+
+
+
+
+template <class T> Vision3D<T>::~Vision3D() {
+
+#ifdef DISPLAY_CONSTRUCTOR
+  displayDestructor();
+#endif
+
+
+}
+
+template <class T> void Vision3D<T>::displayConstructor() {
+  cout << "# Vision3D constructor "  << this->display() << " #" << endl;
+}
+
+
+template <class T> void Vision3D<T>::displayDestructor() {
+  cout << "# Vision3D destructor "  << this->display() << " #" << endl;
+}
+
+template <class T> ostream& operator<< (ostream &out, Vision3D<T> &vis3d) {
     
   out << "observer : " << vis3d.c 
       << ", center of screen : " << vis3d.s
@@ -148,9 +193,11 @@ template <class T> ostream& operator<< (ostream &out, Vision3D<T> &vis3d)
 //  une version avec reference en argument et resultat
 template<class T> Point2D<T> * Vision3D<T>::projectionRef(Point3D<T> & p) {
 
-  Point3D<T> pPrim( m[0][0] * p.x + m[0][1] * p.y + m[0][2] * p.z,
-		    m[1][0] * p.x + m[1][1] * p.y + m[1][2] * p.z,
-		    m[2][0] * p.x + m[2][1] * p.y + m[2][2] * p.z );
+  // Point3D<T> pPrim( m[0][0] * p.x + m[0][1] * p.y + m[0][2] * p.z,
+  // 		    m[1][0] * p.x + m[1][1] * p.y + m[1][2] * p.z,
+  // 		    m[2][0] * p.x + m[2][1] * p.y + m[2][2] * p.z );
+
+  Point3D<T> pPrim = m3x3 * p;
 
   T r = d / (d + pPrim.z);
   
@@ -170,9 +217,11 @@ template<class T> Point2D<T> * Vision3D<T>::projectionRef(Point3D<T> & p) {
 
 template<class T> Point2D<T> Vision3D<T>::projection(Point3D<T> p) {
 
-  Point3D<T> pPrim( m[0][0] * p.x + m[0][1] * p.y + m[0][2] * p.z,
-		    m[1][0] * p.x + m[1][1] * p.y + m[1][2] * p.z,
-		    m[2][0] * p.x + m[2][1] * p.y + m[2][2] * p.z );
+  // Point3D<T> pPrim( m[0][0] * p.x + m[0][1] * p.y + m[0][2] * p.z,
+  // 		    m[1][0] * p.x + m[1][1] * p.y + m[1][2] * p.z,
+  // 		    m[2][0] * p.x + m[2][1] * p.y + m[2][2] * p.z );
+
+  Point3D<T> pPrim = m3x3 * p;
 
   T r = d / (d + pPrim.z);
   
@@ -364,7 +413,7 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
   Point2D<int> * ptr_pt2;
    
   // finding the vertex list
-  list < Point3D<T> *> vertexPtrList = univ.point3DptrList;
+  list < Point3D<T> *> vertexPtrList = univ.containerPoint3DptrList;
   
   // iterate on the list to compute 3D to 2D projection and Pixels calculus
   // note : i put typename hint because as it is a template definition
@@ -409,6 +458,8 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
   }
   
 }
+
+
 
 
 template class Vision3D<float>;

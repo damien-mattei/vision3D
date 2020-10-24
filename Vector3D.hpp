@@ -5,6 +5,7 @@
 #define VECTOR3D_HPP
 
 #include "Point3D.hpp"
+//#include "Matrix3x3.hpp" // recursive definitions cause error
 
 
 #include <iostream>
@@ -16,9 +17,13 @@ using namespace std;
 //export template<class T> class Vector3D;
 //template<class T> class Vector3D;
 
+//template class Matrix3x3<T>;
+
+//class Matrix3x3<float>;
 
 template <class T> class Vector3D {
-  
+
+
 public:
   
   T x,y,z; // coords 
@@ -56,8 +61,13 @@ template<class T> Vector3D<T> operator*(const Vector3D<T> &v,const T m);
 
 template<class T> Vector3D<T> operator*(const T m,const Vector3D<T> &v);
 
+
 // matrix multiplication
+// m3d a reference &  ???
 template<class T> Vector3D<T> operator*(const T m3d[][3],const Vector3D<T> &u);
+
+
+
 
 template<class T> Vector3D<T> operator/(const Vector3D<T> &v,const T d);
 

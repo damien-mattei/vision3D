@@ -1,47 +1,27 @@
 DEFINIR UNE FOIS POUR TOUTES UN TYPAGE DE DONNEES PAR REFERENCE/POINTEURS LE PLUS EFFICACES
 
 
-passer aux reference dans edge3D
-
-== de point3D pourrait etre simplement sur adresse mais id utile pour index tableau
 
 ne pas utiliser passage par valeur mais par reference
 
 verifier que les destructeurs liberent bien les listes,etc...
 
-voir pourquoi ostream ne fonctionne pas en surcharge dans certains cas
 
 clipping calcule sur pixels
 
-exemple:Point3D->(id3D,[id2D),Pixel2D] 
-avec () et [] representent des tables de hachage
-perte de temps d'acces mais facilite de programmation peut etre une version qui utilisera des tableaux
 
 creer les segments de droite 2D qui font le dessin
-
-creer un constructeur Object3D qui prend en argument la taille max d'un tableau de points3D
-necessite creation d'un mode tableau (C style) ou list (LISP style)
-interet id unique?
--point3D unique = non duplique 
-
-constructeur necessite actuellement x,y,z definis
-pour l'efficacite un P3D doit etre unique comme dans l'espace, ainsi il n'y a pas de doublons inutiles.
-on peut donc laisser le constructeur de recopie par defaut qui copie la memoire du point.
-
-enlever object3dlistvalor car par defaut le passage est en valeur deja
 
 au lieu des point3D utiliser des references et pointeurs vers les point3D !!! dans les classes qui utilisent des references bien sur !!!
 
 objets:
 
 points 3D
-segment constitués de deux points
-ligne brisée : plusieurs points,doit pouvoir aussi se construire avec plusieurs segments
-face: plusieurs points dans un meme plan,doit pouvoir aussi se construire avec des aretes ou segments voire des faces  !!!
 
-ajout des points segment etc au canvas par une methode qui recherche leur unicité et n'ajoute pas de doublons
-methodes aussi qui permettent de creer un point ou segment en interrogeant leur existence prealable dans le canvas
-mais aussi posibilité de travailler indépendemment du canvas!
+segment constitués de deux points
+face: des segments + une normale tournée vers l'exterieur
+
+ajout des points segment etc à l'univers
 
 Vision3D: contient des calculs mathematiques , j'ai transféré les methodes de canvas dans vision3D 
 
@@ -51,8 +31,7 @@ repond au bsoin de stocker les points de maniere unique dans la mémoire pour ev
 
 en fait il faudrait que tous les objets puissent exister independemment de l'univers mais que l'on puisse aussi verifier leur unicité dans l'univers FAIT (pour les points3D)
 
-verifier que tous les objets se conforment bien à la description 
 
-essayer avec des Set dans vision3d avec point3d mais faut une relation d'ordre sur point3d alors...
+essayer avec des Set dans vision3d avec point3d mais
 d'abord des List!
 
