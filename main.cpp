@@ -88,7 +88,7 @@ int main() {
   
   cout << " ------------- end test Universe -------------------------------  " << endl;
   
-  Vision3D<float> vis0;
+  //Vision3D<float> vis0;
 
   list < Point3D<float> > lst0;
 
@@ -169,6 +169,8 @@ int main() {
 
   // cout << "v2 : " << v2 << endl;
 
+  
+  
   float d2 = 2;
 
   //Vector3D<float> f = c/d2;

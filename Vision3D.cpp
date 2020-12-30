@@ -281,7 +281,7 @@ template<class T> Point2D<int> * Vision3D<T>::convert2AbsPixelRef(Point2D<int> &
 
 
 template<class T> Point2D<int> Vision3D<T>::convert2ScreenCoord(Point2D<int> p) {
-
+  // verifier ce calcul
   Point2D<int> pix( p.x ,
 		    2 * winHalfSizeY - p.y );
   
@@ -434,9 +434,9 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
     DEBUG(std::cout << " **iterPtrP3D : " << **iterPtrP3D << std::endl;)
 
     // seems to be for debug only
-    Point2D<float> ptproj = projection(**iterPtrP3D);
+    DEBUG(Point2D<float> ptproj = projection(**iterPtrP3D);)
     DEBUG(std::cout << " ptproj : " << ptproj << std::endl;)
-    Point2D<int> ptc2p = convert2Pixel(ptproj);
+    DEBUG(Point2D<int> ptc2p = convert2Pixel(ptproj);)
     DEBUG(std::cout << " ptc2p : " << ptc2p << std::endl;)
 
 
@@ -446,7 +446,7 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
     // a pointer returned from projection & co
     ptr_pt2 = projectPoint3DtoPixelRef(refP3D);
     
-    Point2D<int> & ref_pt2 = *ptr_pt2;
+    DEBUG(Point2D<int> & ref_pt2 = *ptr_pt2;)
     DEBUG(std::cout << " ref_pt2 : " << ref_pt2 << std::endl;)
 
     //htPointersPointPixel[*iterPtrP3D] = &pt2;
@@ -460,8 +460,29 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
 }
 
 
+// for test coding , not used , a functional approach with lambda
+template<class T> void Vision3D<T>::associatePt3Pix2PointersInMapWithTransform(void) {
 
+  // finding the vertex list
+  list < Point3D<T> *> vertexPtrList = univ.containerPoint3DptrList;
+  
+  list < Point2D<int> *> containerPoint2DptrList;
+  
+  std::transform (vertexPtrList.begin(), vertexPtrList.end(), containerPoint2DptrList.begin(),
+		  //projectPoint3DtoPixelRef);
+		  //std::function< Point2D<int> * (Point3D<T> &) > (&Vision3D<T>::projectPoint3DtoPixelRef));
+		  //std::function< Point2D<int> * (Point3D<T> &) > (&Vision3D<T>::projectPoint3DtoPixelRef));
+		  //std::mem_fun(&Vision3D<T>::projectPoint3DtoPixelRef));
+		  [this](Point3D<T> * ptrP3D){ // lambda
+		    Point2D<int> * ptr_pt2;
+		    Point3D<T> & refP3D = *ptrP3D;
+		    ptr_pt2 = projectPoint3DtoPixelRef(refP3D);
+		    htPointersPointPixel[ptrP3D] = ptr_pt2;
+		    return ptr_pt2;
+		  });
+}
 
+  
 template class Vision3D<float>;
 
 template  ostream& operator<< (ostream &out, Vision3D<float> &vis3d);

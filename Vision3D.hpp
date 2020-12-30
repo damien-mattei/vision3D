@@ -12,6 +12,9 @@
 #include <cmath> // or math.h
 
 #include <unordered_map>
+#include <algorithm>    // std::transform
+
+#include <functional>
 
 const double PI = 4.0*atan(1.0);
 
@@ -51,7 +54,7 @@ public:
   // winHalfSizeX in units of internal frame reference
   T winHalfX;
 
-  // pixel expressed in unit of rame reference 
+  // pixel expressed in unit of frame reference 
   T pixelInUnit;
 
 
@@ -130,9 +133,10 @@ public:
   // associate pointers of Point3D and Pixels in unordered map (Point3D <-> Pixel)
   void associatePt3Pix2PointersInMap(void);
 
+  void associatePt3Pix2PointersInMapWithTransform(void);
+
   Point2D<int> projectPoint3DtoPixel(Point3D<T>);
   Point2D<int> * projectPoint3DtoPixelRef(Point3D<T> &);
-
 
   void setViewField(T viewFieldInDegree) { 
     
@@ -141,20 +145,20 @@ public:
     // as i get the viewField angle i set the half screen sizes
     computeWinHalfX();
     
-  };
+  }
 
   // return value of view field in radian
   T getViewField() {
     return this->viewField;
-  };
+  }
   
   void setHalfScreenSizeY(int winHalfSizeY) { 
     this->winHalfSizeY =  winHalfSizeY;
- };
+  }
 
   int getHalfScreenSizeY() {
     return this->winHalfSizeY;
-  };
+  }
 
   void setHalfScreenSizeX(int winHalfSizeX) { 
     
@@ -163,11 +167,11 @@ public:
     if (winHalfSizeX !=0)
       computePixelInUnit();
     
-  };
+  }
   
   int getHalfScreenSizeX() {
     return this->winHalfSizeX;
-  };
+  }
   
   void computeWinHalfX() { 
     // half size on X of screen in units of reference frame
@@ -176,7 +180,7 @@ public:
 
   T getWinHalfX()  {
     return this->winHalfX;
-  };
+  }
 
   void computePixelInUnit() {
     pixelInUnit = winHalfSizeX / winHalfX;
@@ -184,7 +188,7 @@ public:
   
   T getPixelInUnit()  {
     return this->pixelInUnit;
-  };
+  }
 
 };
 
