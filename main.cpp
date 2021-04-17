@@ -1,7 +1,7 @@
 // main for testing Vision3D code
 
 
-
+#include "Object.hpp"
 #include "Vector3D.hpp"
 
 #include "Point3D.hpp"
@@ -29,7 +29,12 @@ int main() {
   x=3;
   y=5;
   
+  cout << " ----------- test Object ------------------  " << endl;
 
+  Object<float> obj0;
+  Object<float> obj("cubby");
+  
+  cout << " ----------- End test Object ------------------  " << endl;
   
   cout << " ----------- test Universe ------------------  " << endl;
 

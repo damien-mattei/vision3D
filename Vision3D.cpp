@@ -234,6 +234,7 @@ template<class T> Point2D<T> Vision3D<T>::projection(Point3D<T> p) {
   std::cout << " Vision3D<T>::projection : ps : " << ps << std::endl;
 #endif
 
+  // todo: tester les recopie (si elles se font bien) lors du retour du parametre ps
   return ps; 
 
 }
@@ -299,6 +300,7 @@ template<class T> Point2D<int> * Vision3D<T>::convert2ScreenCoordRef(Point2D<int
 }
 
 // functional programming style :-)
+// TODO: tester les recopies que celà crée lors du return à la fin de la fonction
 template<class T> Point2D<int> Vision3D<T>::projectPoint3DtoPixel(Point3D<T> p) {
   
   return convert2ScreenCoord(

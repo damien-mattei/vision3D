@@ -1,7 +1,7 @@
 
 #------------------------------------------------------------------------------
 
-OBJECT=Point2D.o Point3D.o Edge2D.o Edge3D.o Vector3D.o Matrix3x3.o Universe.o Vision3D.o main.o
+OBJECT=Point2D.o Point3D.o Edge2D.o Edge3D.o Vector3D.o Matrix3x3.o Object.o Universe.o Vision3D.o main.o
 MYPROGRAM=vision3d
 MYINCLUDES=.
 
@@ -23,7 +23,7 @@ DEFVAR=-DDEBUG_BUILD -DDISPLAY_CONSTRUCTOR
 
 #------------------------------------------------------------------------------
 
-# strange i donot really understand which rule make the main.o compilation, default not written perheaps
+# strange i do not really understand which rule make the main.o compilation, default not written perheaps
 
 all: $(MYPROGRAM)
 

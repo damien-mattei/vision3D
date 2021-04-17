@@ -23,7 +23,7 @@ face: des segments + une normale tournée vers l'exterieur
 
 ajout des points segment etc à l'univers
 
-Vision3D: contient des calculs mathematiques , j'ai transféré les methodes de canvas dans vision3D 
+Vision3D: contient des calculs mathematiques
 
 Universe est en fait une variable dans vision3D: contient des Points de l'espace, provenant des lignes brisées, faces, objets 3D...(cubes,...)
 répond au besoin de stocker les points de maniere unique dans la mémoire pour eviter les doublons
@@ -31,6 +31,16 @@ répond au besoin de stocker les points de maniere unique dans la mémoire pour 
 
 en fait il faudrait que tous les objets puissent exister independemment de l'univers mais que l'on puisse aussi verifier leur unicité dans l'univers FAIT (pour les points3D)
 
+UniversePhysic : liste d'objets
+classe qui contient les objets ,les objets contiennent des listes vers les points, faces, etc...
+
+Objet: liste points, liste faces, listes lignes,listes groupes
+
+Groupe: liste faces
+
+il faudrait pouvoir dessiner les objets par ordre de distance (décroissante par/r camera) et gérer les intersections
+
+https://fr.wikipedia.org/wiki/Triangulation_d%27un_polygone
 
 essayer avec des Set dans vision3d avec point3d mais
 d'abord des List!
@@ -38,3 +48,9 @@ d'abord des List!
 tester avec des complex à la place des points2D
 
 filereader : charge les objets dans univers
+utiliser le format .OBJ calquer la structure de donnée interne du programme sur celle du format .OBJ
+
+utiliser le cube de wikipedia .obj pour tester avant la statue de la liberté et la porsche 911 ! :-)
+
+creer plus tard la liste des noms d'objet du fichier .obj repérés par les index de début et fin des vertex, normales,faces ,etc... creer une classe listes en c++ qui contient des pointeurs vers void....
+
