@@ -1,13 +1,8 @@
 // main for testing Vision3D code
 
 
-#include "Object.hpp"
+#include "ObjFileReader.hpp"
 #include "Vector3D.hpp"
-
-#include "Point3D.hpp"
-
-
-
 
 #include "Edge3D.hpp"
 
@@ -28,13 +23,14 @@ int main() {
   int x,y;
   x=3;
   y=5;
-  
-  cout << " ----------- test Object ------------------  " << endl;
 
-  Object<float> obj0;
-  Object<float> obj("cubby");
-  
-  cout << " ----------- End test Object ------------------  " << endl;
+  cout << " ----------- test ObjFileReader ------------------  " << endl;
+
+  ObjFileReader<float> objFR("./contrib/cube.obj");
+
+  cout << "main : objFR = " << objFR << endl;
+
+  cout << " ----------- End test ObjFileReader ------------------  " << endl;
   
   cout << " ----------- test Universe ------------------  " << endl;
 
@@ -46,7 +42,19 @@ int main() {
 
   Point3D<float> & tp = univ.createObjectRef<Point3D<float>,float,float,float>(1.0,2.0,3.0);
 
-  cout << "tp : " << tp << endl;
+  cout << "main : tp = " << tp << endl;
+
+  cout << " ----------- test Object ------------------  " << endl;
+
+  Object<float> obj0;
+  Object<float> obj("cubby");
+
+  cout << "main : obj = " << obj << endl;
+  
+  obj.storeVertex(tp);
+  
+  cout << " ----------- End test Object ------------------  " << endl;
+  
 
   Point3D<float> & tp2 = univ.createObjectRef<Point3D<float>,float,float,float>(1.0,2.0,3.0);
 

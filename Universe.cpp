@@ -415,6 +415,8 @@ template int Universe<float>::GetMax<int,float>( int,int );
 template Point3D<float> & Universe<float>::createObjectRef<Point3D<float>,float,float,float>(float,float,float) ;
 //template int Universe<float>::createObjectRef<int,float,float,float>(float,float,float) ;
 
+
+
 // call by : univ.createPoint3DRef<Point3D<float>,float,float,float>(1,0,0);
 template Point3D<float> & Universe<float>::createPoint3DRef<Point3D<float>,float,float,float>(float,float,float) ;
 

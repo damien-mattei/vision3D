@@ -11,26 +11,30 @@ using namespace std;
 #include <iostream>
 #include <list>
 
+#include "debug.hpp"
+
 template <typename T> class Object {
         
 public:
 
-// data
+  // data
 
-// the text name
-string name;
+  // the text name
+  string name;
 
-list < Point3D<T> *> vertexList;
+  list < Point3D<T> *> vertexList;
 
-Object();
+  Object();
 
-Object(string);
+  Object(string);
 
-~Object();
+  ~Object();
+
+  void storeVertex(Point3D<T> &); // TODO verifier si c'est pas mieux un pointeur
 
 };
 
-template <class T> ostream&  operator<< (ostream &out, const Object<T> &p3d);
+template <class T> ostream&  operator<< (ostream &, const Object<T> &);
 
 #endif /* OBJECT_HPP */
 
