@@ -5,12 +5,14 @@
 #define POINT3D_HPP
 
 
-#include <string>       // std::string
+//#include <string>       // std::string
 #include <iostream>
 #include <sstream>      // std::stringstream
 #include <iomanip>
 
 using namespace std;
+//using std::stringstream;
+//using std::string;
 
 // class must be forward declared because it contains a friend function template
 //export template<class T> class Point3D;
@@ -38,7 +40,7 @@ public:
   // copy constructor
   Point3D(const Point3D<T> &);
 
-  string display(void);
+  std::string display(void);
 
   // assignation operator
   Point3D<T> & operator=(const Point3D<T> &);
@@ -50,6 +52,6 @@ public:
 
 };
 
-template <class T> ostream&  operator<< (ostream &out, const Point3D<T> &p3d);
+template <class T> std::ostream&  operator<< (std::ostream &out, const Point3D<T> &p3d);
 
 #endif /* POINT3D_HPP */

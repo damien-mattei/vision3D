@@ -1,7 +1,7 @@
 // main for testing Vision3D code
 
 
-#include "ObjFileReader.hpp"
+#include "ObjFile.hpp"
 #include "Vector3D.hpp"
 
 #include "Edge3D.hpp"
@@ -24,13 +24,13 @@ int main() {
   x=3;
   y=5;
 
-  cout << " ----------- test ObjFileReader ------------------  " << endl;
+  cout << " ----------- test ObjFile ------------------  " << endl;
 
-  ObjFileReader<float> objFR("./contrib/cube.obj");
+  ObjFile<float> objF("./contrib/cube.obj");
 
-  cout << "main : objFR = " << objFR << endl;
+  cout << "main : objF = " << objF << endl;
 
-  cout << " ----------- End test ObjFileReader ------------------  " << endl;
+  cout << " ----------- End test ObjFile ------------------  " << endl;
   
   cout << " ----------- test Universe ------------------  " << endl;
 
@@ -40,20 +40,21 @@ int main() {
 
   univ.GetMax <int,float> (x,y);
 
+  // DEPRECATED 
   Point3D<float> & tp = univ.createObjectRef<Point3D<float>,float,float,float>(1.0,2.0,3.0);
 
   cout << "main : tp = " << tp << endl;
 
-  cout << " ----------- test Object ------------------  " << endl;
+  // cout << " ----------- test Object ------------------  " << endl;
 
-  Object<float> obj0;
-  Object<float> obj("cubby");
+  // Object<float> obj0;
+  // Object<float> obj("cubby");
 
-  cout << "main : obj = " << obj << endl;
+  // cout << "main : obj = " << obj << endl;
   
-  obj.storeVertex(tp);
+  // obj.storeVertex(tp);
   
-  cout << " ----------- End test Object ------------------  " << endl;
+  // cout << " ----------- End test Object ------------------  " << endl;
   
 
   Point3D<float> & tp2 = univ.createObjectRef<Point3D<float>,float,float,float>(1.0,2.0,3.0);
@@ -64,8 +65,8 @@ int main() {
   univ.createCube(tp,1.5);
 
   cout << " avec des point3D (il y a construction d'un Point3D supplémentaire par le constructeur de recopie !) " << endl;
-  
-  Point3D<float> pot = univ.createPoint3DRef<Point3D<float>,float,float,float>(7.0,2.0,3.0);
+ 
+  Point3D<float> pot = univ.createPoint3DReflistC<Point3D<float>,float,float,float>(7.0,2.0,3.0);
   cout << "pot : " << pot << endl;
   cout << " creation Cube 1  " << endl;
   univ.createCube(pot,1.7);
@@ -73,11 +74,17 @@ int main() {
   cout << " avec des references vers des point3D " << endl;
 
   //Point3D<float> & pt3d_uniq_ref = univ.createPoint3Dref(1,0,0);
-  Point3D<float> & pt3d_uniq_ref = univ.createPoint3DRef<Point3D<float>,float,float,float>(1,0,0);
+  Point3D<float> & pt3d_uniq_ref = univ.createPoint3DReflistC<Point3D<float>,float,float,float>(1,0,0);
   
   cout << "pt3d_uniq_ref : " << pt3d_uniq_ref << endl;
 
- 
+  cout << " avec des references vers des point3D et un container std::vector" << endl;
+  
+  Point3D<float> & pt3d_uniq_ref_vector = univ.createPoint3DRefvectorC<Point3D<float>,float,float,float>(7,4,7);
+  
+  cout << "pt3d_uniq_ref_vector : " << pt3d_uniq_ref_vector << endl;
+
+  
   // DEPRECATED
   Point3D<float> & pt3d_uniq_ref2 = univ.createPoint3DReference(1,0,0);
   
@@ -130,6 +137,8 @@ int main() {
   Matrix3x3<float> m33res2 = m33 * (float) 5.0;
 
   Matrix3x3<float> m33res3 = m33 / (float) 5.0;
+
+  cout << "main : m33res3 =" << endl << m33res3 << endl;
   
   Point3D<float> b(2,2,1.2);
   

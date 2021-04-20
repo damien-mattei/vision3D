@@ -1,6 +1,9 @@
 // Object Class
 // Damien MATTEI
 
+
+// read .OBJ file from disk
+
 #ifndef OBJFILEREADER_HPP
 #define OBJFILEREADER_HPP
 

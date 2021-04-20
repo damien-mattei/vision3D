@@ -1,7 +1,7 @@
 
 #------------------------------------------------------------------------------
 
-OBJECT=Point2D.o Point3D.o Edge2D.o Edge3D.o Vector3D.o Matrix3x3.o Object.o ObjFileReader.o Universe.o Vision3D.o main.o
+OBJECT=Point2D.o Point3D.o Edge2D.o Edge3D.o Vector3D.o Matrix3x3.o ObjFile.o Universe.o Vision3D.o main.o
 MYPROGRAM=vision3d
 MYINCLUDES=.
 

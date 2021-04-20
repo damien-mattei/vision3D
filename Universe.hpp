@@ -8,6 +8,8 @@
 #include <algorithm> // used by Universe
 #include <iostream>
 
+#include <vector>
+
 #include <list>
 
 // Edge3D will include Point3D
@@ -20,10 +22,14 @@ template <typename T> class Universe {
         
 public:
    
-  // data 
-  list < Point3D<T> *> containerPoint3DptrList;
+  // data
 
-  list < Edge3D<T> *> containerEdge3DptrList;
+  std::vector< Point3D<T> *> containerPoint3DptrvectorC;
+  
+  // deprecated
+  list < Point3D<T> *> containerPoint3DptrlistC;
+
+  list < Edge3D<T> *> containerEdge3DptrlistC;
 
   // for deprecated compatibility in Vision3D.cpp
   // the vertex
@@ -38,14 +44,27 @@ public:
   Point3D<T> & createPoint3DReference(T x,T y,T z); // create a point by checking if it already exist
   Point3D<T> & createPoint3Dref_BACKUP(T x,T y,T z); // backup because i created macro that builds functions now
 
+
+
+  
   // create a Point3D by checking if it already exist in the universe
   template <typename ObjectType, typename... ParamTypes>
-  ObjectType & createPoint3DRef(ParamTypes ...args);
+  ObjectType & createPoint3DReflistC(ParamTypes ...args);
 
   // create a Edge3D by checking if it already exist in the universe
   template <typename ObjectType, typename... ParamTypes>
-  ObjectType & createEdge3DRef(ParamTypes ...args);
+  ObjectType & createEdge3DReflistC(ParamTypes ...args);
+
+
+  // create a Point3D by checking if it already exist in the universe
+  template <typename ObjectType, typename... ParamTypes>
+  ObjectType & createPoint3DRefvectorC(ParamTypes ...args);
+
+
+ 
   
+
+
   // create an object by checking if it already exist in the universe
   // DEPRECATED
   template <typename ObjectType, typename... ParamTypes>

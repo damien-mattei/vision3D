@@ -415,7 +415,7 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
   Point2D<int> * ptr_pt2;
    
   // finding the vertex list
-  list < Point3D<T> *> vertexPtrList = univ.containerPoint3DptrList;
+  list < Point3D<T> *> vertexPtrList = univ.containerPoint3DptrlistC;
   
   // iterate on the list to compute 3D to 2D projection and Pixels calculus
   // note : i put typename hint because as it is a template definition
@@ -466,7 +466,7 @@ template<class T> void Vision3D<T>::associatePt3Pix2PointersInMap(void) {
 template<class T> void Vision3D<T>::associatePt3Pix2PointersInMapWithTransform(void) {
 
   // finding the vertex list
-  list < Point3D<T> *> vertexPtrList = univ.containerPoint3DptrList;
+  list < Point3D<T> *> vertexPtrList = univ.containerPoint3DptrlistC;
   
   list < Point2D<int> *> containerPoint2DptrList;
   

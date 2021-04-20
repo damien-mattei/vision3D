@@ -47,40 +47,40 @@ template <typename T> ostream&  operator<< (ostream &out, Universe<T> &u)
 }
 
 
-#define CREATE_OBJECT_TEMPLATED(TYPE,TYPE_CONTAINER)					\
+#define CREATE_OBJECT_TEMPLATED(TYPE) \
   /* create an object by checking if it already exist in the universe */ \
 template <typename T> \
 template <typename ObjectType, typename... ParamTypes> \
 \
-ObjectType & Universe<T>::create##TYPE##Ref##TYPE_CONTAINER##C(ParamTypes ...args) { \
+ObjectType & Universe<T>::create##TYPE##Ref(ParamTypes ...args) { \
 \
-  DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<>" << endl;) \
+  DEBUG(cerr << "Universe<T>::create" #TYPE "Ref<>" << endl;) \
 \
   ObjectType & object = *(new ObjectType(std::forward<ParamTypes>(args) ...));\
 \
-  DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : std::find_if ... " << endl;)\
+  DEBUG(cerr << "Universe<T>::create" #TYPE "Ref<> : std::find_if ... " << endl;)\
 \
   /* i check unicity of the object in Universe i.e to save memory and speed */ \
   /* i do not want to have two mathematically identical 3D objects */ \
-  typename TYPE_CONTAINER < ObjectType *>::iterator iterOBJECTptr = \
-    std::find_if(container##TYPE##ptr##TYPE_CONTAINER##C.begin(), container##TYPE##ptr##TYPE_CONTAINER##C.end(), \
+  typename list< ObjectType *>::iterator iterOBJECTptr = \
+    std::find_if(container##TYPE##ptrList.begin(), container##TYPE##ptrList.end(), \
   		 /* lambda in C++ */ \
   		      [&object](ObjectType * object_ptr_lambda_param) { \
   		                  ObjectType & object_lambda_param = *object_ptr_lambda_param; \
-  		                  DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : in Lambda" << endl;) \
+  		                  DEBUG(cerr << "Universe<T>::create" #TYPE "Ref<> : in Lambda" << endl;) \
   				  return  object_lambda_param == object; \
   		      } \
   		 ); \
 \
-  DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : bool found ... " << endl;) \
-  bool found = (iterOBJECTptr != container##TYPE##ptr##TYPE_CONTAINER##C.end()); \
+  DEBUG(cerr << "Universe<T>::create" #TYPE "Ref<> : bool found ... " << endl;) \
+  bool found = (iterOBJECTptr != container##TYPE##ptrList.end()); \
 \
 \
   if (found) { \
 \
-    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : found ... " << endl;) \
-    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : *iterOBJECTptr " << *iterOBJECTptr << endl;) \
-    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : **iterOBJECTptr " << **iterOBJECTptr << endl;) \
+    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref<> : found ... " << endl;) \
+    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref<> : *iterOBJECTptr " << *iterOBJECTptr << endl;) \
+    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref<> : **iterOBJECTptr " << **iterOBJECTptr << endl;) \
 \
     delete &object; \
 \
@@ -88,34 +88,25 @@ ObjectType & Universe<T>::create##TYPE##Ref##TYPE_CONTAINER##C(ParamTypes ...arg
     \
   } \
   else { /* we have to add the point to the universe */ \
-    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : NOT found ... " << endl;) \
-    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : container" #TYPE "ptr"  #TYPE_CONTAINER "C.push_back(&object);" << endl;) \
+    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref<> : NOT found ... " << endl;) \
+    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref<> : container???.push_back(&object);" << endl;) \
 \
-    container##TYPE##ptr##TYPE_CONTAINER##C.push_back(&object); \
+    container##TYPE##ptrList.push_back(&object); \
 \
     return object; \
   } \
 \
 }
 
-// DEPRECATED
 // this create the Template only for Point3D (not a particular instance for float by example)
 // example of call : univ.createPoint3DRef<Point3D<float>,float,float,float>(1,0,0);
-CREATE_OBJECT_TEMPLATED(Point3D,list)
+CREATE_OBJECT_TEMPLATED(Point3D)
 
-CREATE_OBJECT_TEMPLATED(Edge3D,list)
-
-
-
-
-CREATE_OBJECT_TEMPLATED(Point3D,vector)
-
-
-
+CREATE_OBJECT_TEMPLATED(Edge3D)
 
 
 // create an object by checking if it already exist in the universe
-// warning: works only with Point3D as the container containerPoint3DptrlistC is statically defined
+// warning: works only with Point3D as the container containerPoint3DptrList is statically defined
 // DEPRECATED i suppose
 template <typename T>
 template <typename ObjectType, typename... ParamTypes>
@@ -133,7 +124,7 @@ ObjectType & Universe<T>::createObjectRef(ParamTypes ...args) {
   // i check unicity of the point in Universe i.e to save memory and speed
   // i do not want to have two mathematically identical 3D points
   typename list< ObjectType *>::iterator iterOBJECTptr =
-    std::find_if(containerPoint3DptrlistC.begin(), containerPoint3DptrlistC.end(),
+    std::find_if(containerPoint3DptrList.begin(), containerPoint3DptrList.end(),
   		 // lambda in C++
   		      [&object](ObjectType * object_ptr_lambda_param) {
   		                  ObjectType & object_lambda_param = *object_ptr_lambda_param;                  
@@ -143,7 +134,7 @@ ObjectType & Universe<T>::createObjectRef(ParamTypes ...args) {
   		 );
 
   DEBUG(cerr << "Universe<T>::createObjectRef : bool found ... " << endl;)
-  bool found = (iterOBJECTptr != containerPoint3DptrlistC.end());
+  bool found = (iterOBJECTptr != containerPoint3DptrList.end());
 
   
   if (found) {
@@ -159,9 +150,9 @@ ObjectType & Universe<T>::createObjectRef(ParamTypes ...args) {
   }
   else { // we have to add the point to the universe
     DEBUG(cerr << "Universe<T>::createObjectRef : NOT found ... " << endl;)
-    DEBUG(cerr << "Universe<T>::createObjectRef : containerPoint3DptrlistC.push_back(&object);" << endl;)
+    DEBUG(cerr << "Universe<T>::createObjectRef : containerPoint3DptrList.push_back(&object);" << endl;)
 
-    containerPoint3DptrlistC.push_back(&object);
+    containerPoint3DptrList.push_back(&object);
   
     return object;
   }
@@ -181,7 +172,7 @@ template<typename T> Point3D<T> & Universe<T>::createPoint3Dref_BACKUP(T x,T y,T
   // i check unicity of the point in Universe i.e to save memory and speed
   // i do not want to have two mathematically identical 3D points
   typename list< Point3D<T> *>::iterator iterP3Dptr =
-    std::find_if(containerPoint3DptrlistC.begin(), containerPoint3DptrlistC.end(),
+    std::find_if(containerPoint3DptrList.begin(), containerPoint3DptrList.end(),
 		 // lambda in C++
 		      [&pt3d](Point3D<T> * pt3d_ptr_lambda_param) {
 		                  Point3D<T> & pt3d_lambda_param = *pt3d_ptr_lambda_param;                  
@@ -192,7 +183,7 @@ template<typename T> Point3D<T> & Universe<T>::createPoint3Dref_BACKUP(T x,T y,T
 		 );
 
   DEBUG(cerr << "Universe<T>::createPoint3Dref : bool found ... " << endl;)
-  bool found = (iterP3Dptr != containerPoint3DptrlistC.end());
+  bool found = (iterP3Dptr != containerPoint3DptrList.end());
 
   
   if (found) {
@@ -212,9 +203,9 @@ template<typename T> Point3D<T> & Universe<T>::createPoint3Dref_BACKUP(T x,T y,T
   }
   else { // we have to add the point to the universe
     DEBUG(cerr << "Universe<T>::createPoint3Dptr : NOT found ... " << endl;)
-    DEBUG(cerr << "Universe<T>::createPoint3Dref : containerPoint3DptrlistC.push_back(&pt3d);" << endl;)
+    DEBUG(cerr << "Universe<T>::createPoint3Dref : containerPoint3DptrList.push_back(&pt3d);" << endl;)
 
-    containerPoint3DptrlistC.push_back(&pt3d);
+    containerPoint3DptrList.push_back(&pt3d);
     return pt3d;
       
   }
@@ -254,7 +245,7 @@ template<typename T> Point3D<T> & Universe<T>::createPoint3Dref_BACKUP(T x,T y,T
 }
 
 
-//CREATE_OBJECT(createPoint3Dref,Point3D<T>,containerPoint3DptrlistC,(x,y,z),T x,T y,T z);
+//CREATE_OBJECT(createPoint3Dref,Point3D<T>,containerPoint3DptrList,(x,y,z),T x,T y,T z);
 
 // create an object by checking if it already exist in the universe
 // this a better version than CREATE_OBJECT, this macro use less parameters
@@ -290,7 +281,7 @@ template<typename T> Point3D<T> & Universe<T>::createPoint3Dref_BACKUP(T x,T y,T
 // DEPRECATED
 //#define CONCATENATE(x , y) x##y
 
-//CREATE_OBJECT_TYPE(Point3D,containerPoint3DptrlistC,(x,y,z),T x,T y,T z);
+//CREATE_OBJECT_TYPE(Point3D,containerPoint3DptrList,(x,y,z),T x,T y,T z);
 
 
 // create an object by checking if it already exist in the universe
@@ -302,7 +293,7 @@ template<typename T> TYPE<T> & Universe<T>::create##TYPE##Reference(TYPED_PARAMS
   TYPE<T> & object = *(new TYPE<T> PARENTHESIS_ARGS);	\
   DEBUG(cerr << "Universe<T>::create" #TYPE "Reference : std::find_if ... " << endl;) \
   typename list< TYPE<T> *>::iterator iterObjectptr = \
-    std::find_if( container##TYPE##ptrlistC.begin(), container##TYPE##ptrlistC.end(), \
+    std::find_if( container##TYPE##ptrList.begin(), container##TYPE##ptrList.end(), \
 		      [&object](TYPE<T> * object_ptr_lambda_param) { \
 		                  TYPE<T> & object_lambda_param = *object_ptr_lambda_param; \
 		                  DEBUG(cerr << "Universe<T>::create" #TYPE "Reference : in Lambda" << endl;) \
@@ -310,7 +301,7 @@ template<typename T> TYPE<T> & Universe<T>::create##TYPE##Reference(TYPED_PARAMS
 		      } \
 		 ); \
   DEBUG(cerr << "Universe<T>::create" #TYPE "Reference : bool found ... " << endl;) \
-  bool found = (iterObjectptr != container##TYPE##ptrlistC.end()); \
+  bool found = (iterObjectptr != container##TYPE##ptrList.end()); \
   if (found) { \
     DEBUG(cerr << "Universe<T>::create" #TYPE "Reference : found ... " << endl;) \
     DEBUG(cerr << "Universe<T>::create" #TYPE "Reference : *iterObjectptr " << *iterObjectptr << endl;) \
@@ -321,7 +312,7 @@ template<typename T> TYPE<T> & Universe<T>::create##TYPE##Reference(TYPED_PARAMS
   else { \
     DEBUG(cerr << "Universe<T>::create" #TYPE "ptr : NOT found ... " << endl;) \
     DEBUG(cerr << "Universe<T>::create" #TYPE "Reference : container???.push_back(object_ptr);" << endl;) \
-    container##TYPE##ptrlistC.push_back(&object); \
+    container##TYPE##ptrList.push_back(&object); \
     return object; \
   } \
 }
@@ -343,7 +334,7 @@ template<typename T> Point3D<T> * Universe<T>::createPoint3Dptr(T x,T y,T z) {
   // i check unicity of the point in Universe i.e to save memory and speed
   // i do not want to have two mathematically identical 3D points
   typename list< Point3D<T> *>::iterator iterP3Dptr =
-    std::find_if(containerPoint3DptrlistC.begin(), containerPoint3DptrlistC.end(),
+    std::find_if(containerPoint3DptrList.begin(), containerPoint3DptrList.end(),
 		 // lambda in C++
 		      [&pt3d](Point3D<T> * pt3d_ptr_lambda_param) {
 		                  Point3D<T> & pt3d_lambda_param = *pt3d_ptr_lambda_param;                  
@@ -354,7 +345,7 @@ template<typename T> Point3D<T> * Universe<T>::createPoint3Dptr(T x,T y,T z) {
 		 );
 
   DEBUG(cerr << "Universe<T>::createPoint3Dptr : bool found ... " << endl;)
-  bool found = (iterP3Dptr != containerPoint3DptrlistC.end());
+  bool found = (iterP3Dptr != containerPoint3DptrList.end());
 
   
   if (found) {
@@ -374,8 +365,8 @@ template<typename T> Point3D<T> * Universe<T>::createPoint3Dptr(T x,T y,T z) {
   }
   else { // we have to add the point to the universe
     DEBUG(cerr << "Universe<T>::createPoint3Dptr : NOT found ... " << endl;)
-    DEBUG(cerr << "Universe<T>::createPoint3Dptr : containerPoint3DptrlistC.push_back(pt3d_ptr);" << endl;)
-    containerPoint3DptrlistC.push_back(pt3d_ptr);
+    DEBUG(cerr << "Universe<T>::createPoint3Dptr : containerPoint3DptrList.push_back(pt3d_ptr);" << endl;)
+    containerPoint3DptrList.push_back(pt3d_ptr);
     return pt3d_ptr;
   
       
@@ -387,28 +378,28 @@ template<typename T> Point3D<T> * Universe<T>::createPoint3Dptr(T x,T y,T z) {
 template<typename T> void Universe<T>::createCube(Point3D<T> & p,T s) {
 
   // horizontal edges
-  Point3D<T> & p2 = createPoint3DReflistC<Point3D<T>,T,T,T>(p.x+s,p.y,p.z); // bottom ,right x
-  createEdge3DReflistC<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p,p2);
-  Point3D<T> & p3 = createPoint3DReflistC<Point3D<T>,T,T,T>(p.x+s,p.y+s,p.z); // bottom ,right x,left y
-  createEdge3DReflistC<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p2,p3);
-  Point3D<T> & p4 = createPoint3DReflistC<Point3D<T>,T,T,T>(p.x,p.y+s,p.z); // bottom ,left y
-  createEdge3DReflistC<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p3,p4);
-  createEdge3DReflistC<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p,p4);
+  Point3D<T> & p2 = createPoint3DRef<Point3D<T>,T,T,T>(p.x+s,p.y,p.z); // bottom ,right x
+  createEdge3DRef<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p,p2);
+  Point3D<T> & p3 = createPoint3DRef<Point3D<T>,T,T,T>(p.x+s,p.y+s,p.z); // bottom ,right x,left y
+  createEdge3DRef<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p2,p3);
+  Point3D<T> & p4 = createPoint3DRef<Point3D<T>,T,T,T>(p.x,p.y+s,p.z); // bottom ,left y
+  createEdge3DRef<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p3,p4);
+  createEdge3DRef<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p,p4);
 
-  Point3D<T> & ptop = createPoint3DReflistC<Point3D<T>,T,T,T>(p.x,p.y,p.z+s);
-  Point3D<T> & p2top = createPoint3DReflistC<Point3D<T>,T,T,T>(p.x+s,p.y,ptop.z); // top ,right x
-  createEdge3DReflistC<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p,p2top);
-  Point3D<T> & p3top = createPoint3DReflistC<Point3D<T>,T,T,T>(p.x+s,p.y+s,ptop.z); // top ,right x,left y
-  createEdge3DReflistC<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p2top,p3top);
-  Point3D<T> & p4top = createPoint3DReflistC<Point3D<T>,T,T,T>(p.x,p.y+s,ptop.z); // top ,left y
-  createEdge3DReflistC<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p3top,p4top);
-  createEdge3DReflistC<Edge3D<T>,Point3D<T> &,Point3D<T> &>(ptop,p4top);
+  Point3D<T> & ptop = createPoint3DRef<Point3D<T>,T,T,T>(p.x,p.y,p.z+s);
+  Point3D<T> & p2top = createPoint3DRef<Point3D<T>,T,T,T>(p.x+s,p.y,ptop.z); // top ,right x
+  createEdge3DRef<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p,p2top);
+  Point3D<T> & p3top = createPoint3DRef<Point3D<T>,T,T,T>(p.x+s,p.y+s,ptop.z); // top ,right x,left y
+  createEdge3DRef<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p2top,p3top);
+  Point3D<T> & p4top = createPoint3DRef<Point3D<T>,T,T,T>(p.x,p.y+s,ptop.z); // top ,left y
+  createEdge3DRef<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p3top,p4top);
+  createEdge3DRef<Edge3D<T>,Point3D<T> &,Point3D<T> &>(ptop,p4top);
 
   // vertical edges
-  createEdge3DReflistC<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p,ptop);
-  createEdge3DReflistC<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p2,p2top);
-  createEdge3DReflistC<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p3,p3top);
-  createEdge3DReflistC<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p4,p4top);
+  createEdge3DRef<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p,ptop);
+  createEdge3DRef<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p2,p2top);
+  createEdge3DRef<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p3,p3top);
+  createEdge3DRef<Edge3D<T>,Point3D<T> &,Point3D<T> &>(p4,p4top);
   
 }
 
@@ -426,14 +417,7 @@ template Point3D<float> & Universe<float>::createObjectRef<Point3D<float>,float,
 
 
 
-// call by : univ.createPoint3DReflistC<Point3D<float>,float,float,float>(1,0,0);
-template Point3D<float> & Universe<float>::createPoint3DReflistC<Point3D<float>,float,float,float>(float,float,float) ;
+// call by : univ.createPoint3DRef<Point3D<float>,float,float,float>(1,0,0);
+template Point3D<float> & Universe<float>::createPoint3DRef<Point3D<float>,float,float,float>(float,float,float) ;
 
-template Edge3D<float> & Universe<float>::createEdge3DReflistC<Edge3D<float>,Point3D<float>&,Point3D<float>&>(Point3D<float>&,Point3D<float>&) ;
-
-
-
-
-
-
-template Point3D<float> & Universe<float>::createPoint3DRefvectorC<Point3D<float>,float,float,float>(float,float,float) ;
+template Edge3D<float> & Universe<float>::createEdge3DRef<Edge3D<float>,Point3D<float>&,Point3D<float>&>(Point3D<float>&,Point3D<float>&) ;

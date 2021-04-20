@@ -63,9 +63,9 @@ template <class T>  string Matrix3x3<T>::display(void) {
 template <class T> ostream&  operator<< (ostream &out, const Matrix3x3<T> &mr)
 {
     
-  out << "┌" << mr.m[0][0] << " " << mr.m[0][1] << " "  << mr.m[0][2] <<  endl // "┐" << endl
-      << "│" << mr.m[1][0] << " " << mr.m[1][1] << " "  << mr.m[1][2] <<  endl // "│" << endl
-      << "└" << mr.m[2][0] << " " << mr.m[2][1] << " "  << mr.m[2][2] <<  endl; // "┘" << endl;
+  out << "┌ " << mr.m[0][0] << " " << mr.m[0][1] << " "  << mr.m[0][2] <<  endl // "┐" << endl
+      << "│ " << mr.m[1][0] << " " << mr.m[1][1] << " "  << mr.m[1][2] <<  endl // "│" << endl
+      << "└ " << mr.m[2][0] << " " << mr.m[2][1] << " "  << mr.m[2][2] <<  endl; // "┘" << endl;
   
   return out;
 
