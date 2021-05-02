@@ -30,6 +30,9 @@ public:
    
   T x,y,z; // coords 
 
+#ifdef CHECK_MEMORY
+  static inline int cpt_cons; // for verifying memory allocation/desallocation , note: inline require C++ 2017
+#endif
   
   Point3D();
 

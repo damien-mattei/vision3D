@@ -24,13 +24,7 @@ int main() {
   x=3;
   y=5;
 
-  cout << " ----------- test ObjFile ------------------  " << endl;
-
-  ObjFile<float> objF("./contrib/cube.obj");
-
-  cout << "main : objF = " << objF << endl;
-
-  cout << " ----------- End test ObjFile ------------------  " << endl;
+  
   
   cout << " ----------- test Universe ------------------  " << endl;
 
@@ -39,6 +33,14 @@ int main() {
   Universe<float> univ;
 
   univ.GetMax <int,float> (x,y);
+
+  cout << " ----------- test ObjFile ------------------  " << endl;
+
+  ObjFile<float,int> objF("./contrib/cube.obj",univ);
+
+  cout << "main : objF = " << objF << endl;
+
+  cout << " ----------- End test ObjFile ------------------  " << endl;
 
   // DEPRECATED 
   Point3D<float> & tp = univ.createObjectRef<Point3D<float>,float,float,float>(1.0,2.0,3.0);
@@ -78,12 +80,18 @@ int main() {
   
   cout << "pt3d_uniq_ref : " << pt3d_uniq_ref << endl;
 
-  cout << " avec des references vers des point3D et un container std::vector" << endl;
+  cout << " avec des references vers des Point3D et un container std::vector" << endl;
   
   Point3D<float> & pt3d_uniq_ref_vector = univ.createPoint3DRefvectorC<Point3D<float>,float,float,float>(7,4,7);
   
   cout << "pt3d_uniq_ref_vector : " << pt3d_uniq_ref_vector << endl;
 
+  
+  cout << " avec des references vers des Vector3D et un container std::vector" << endl;
+  
+  Vector3D<float> & vt3d_uniq_ref_vector = univ.createVector3DRefvectorC<Vector3D<float>,float,float,float>(4,0,7);
+  
+  cout << "vt3d_uniq_ref_vector : " << vt3d_uniq_ref_vector << endl;
   
   // DEPRECATED
   Point3D<float> & pt3d_uniq_ref2 = univ.createPoint3DReference(1,0,0);

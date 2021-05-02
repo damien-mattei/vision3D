@@ -8,7 +8,7 @@
 
 // implementations
 
-template <typename T> ObjFile<T>::ObjFile()  {
+template <typename T,typename S> ObjFile<T,S>::ObjFile()  {
 
  
 #ifdef DISPLAY_CONSTRUCTOR
@@ -16,7 +16,7 @@ template <typename T> ObjFile<T>::ObjFile()  {
 #endif
 }
 
-template <typename T> ObjFile<T>::ObjFile(string filename) :filename(filename) {
+template <typename T,typename S> ObjFile<T,S>::ObjFile(string filename,Universe<T> & univ) :filename(filename) , univ(&univ) {
 
  
 #ifdef DISPLAY_CONSTRUCTOR
@@ -32,27 +32,139 @@ template <typename T> ObjFile<T>::ObjFile(string filename) :filename(filename) {
     {
       trim( line ); // remove white space at begin and end with Boost
       std::istringstream iss(line);
-      //cerr << line << endl;
+      //cout << line << endl;
       std::string type;
       iss >> type;
-            
+
+      cout << "ObjFile.cpp : ObjFile : type =" << type << endl;
+      
       if (type=="#" || type=="" || type=="o") {
 	continue;
       }
+
       
-      T x,y,z;
       
-      iss >> x; iss >> y; iss >> z;
+      if (type=="v") {
       
-      cerr << "|" << type << "|" << endl;
+	T x,y,z;
       
-    }
+	iss >> x; iss >> y; iss >> z;
+      
+	
+	cout << "ObjFile.cpp : ObjFile : vertex : " << "x=" << x << " y=" << y << " z=" << z << endl;
+
+	if(iss.fail()) {
+	  cerr << "ObjFile.cpp : ObjFile : Read error,bad value in vertex" << endl;
+	}
+	else {
+	  univ.template createPoint3DRefvectorC<Point3D<T>,T,T,T>(x,y,z); // template 
+	}
+	continue;
+      }
+
+      if (type=="vt") {
+      
+	T x,y;
+      
+	iss >> x; iss >> y; 
+      
+	
+	cout << "ObjFile.cpp : ObjFile : texture : " << "x=" << x << " y=" << y << endl;
+
+	if(iss.fail()) {
+	  cerr << "ObjFile.cpp : ObjFile : Read error,bad value in texture" << endl;
+	}
+	
+	continue;
+      }
+
+
+      if (type=="vn") {
+      
+	T x,y,z;
+      
+	iss >> x; iss >> y; iss >> z;
+      
+	
+	cout << "ObjFile.cpp : ObjFile : normal : " << "x=" << x << " y=" << y << " z=" << z << endl;
+
+	if(iss.fail()) {
+	  cerr << "ObjFile.cpp : ObjFile : Read error,bad value in normal" << endl;
+	}
+	else {
+	  univ.template createVector3DRefvectorC<Vector3D<T>,T,T,T>(x,y,z);
+	}
+	continue;
+      }
+
+       if (type=="f") {
+
+	 S iv;
+
+	 std::string vertex;
+	 iss >> vertex;
+
+	 if(iss.fail()) {
+	  cerr << "ObjFile.cpp : ObjFile : Read error,bad value in Face's vertex" << endl;
+	  continue;
+	 }
+	 
+	 cout << "ObjFile.cpp : ObjFile : vertex :" << vertex << "." << endl;
+
+	 
+	 std::istringstream issv(vertex);
+	 issv >> iv;
+	 if(issv.fail()) {
+	  cerr << "ObjFile.cpp : ObjFile : Read error,bad value in Face's vertex index" << endl;
+	  continue;
+	 }
+
+	 cout << "ObjFile.cpp : ObjFile : vertex index :" << iv << "." << endl;
+
+	 char separ;
+	 issv >> separ;
+	 if(issv.fail()) {
+	  cerr << "ObjFile.cpp : ObjFile : Read error,bad value in Face's separator" << endl;
+	  continue;
+	 }
+	 cout << "ObjFile.cpp : ObjFile : vertex separator :" << separ << "." << endl;
+
+	 S it;
+	 issv >> it;
+	 if(issv.fail()) {
+	  cerr << "ObjFile.cpp : ObjFile : Read error,bad value in Face's texture index" << endl;
+	  continue;
+	 }
+
+	 cout << "ObjFile.cpp : ObjFile : texture index :" << it << "." << endl;
+
+	 issv >> separ;
+	 if(issv.fail()) {
+	  cerr << "ObjFile.cpp : ObjFile : Read error,bad value in Face's separator" << endl;
+	  continue;
+	 }
+	 cout << "ObjFile.cpp : ObjFile : vertex separator :" << separ << "." << endl;
+
+	 S in;
+	 issv >> in;
+	 if(issv.fail()) {
+	  cerr << "ObjFile.cpp : ObjFile : Read error,bad value in Face's normal index" << endl;
+	  continue;
+	 }
+
+	 cout << "ObjFile.cpp : ObjFile : normal index :" << in << "." << endl;
+
+	 // end one vertex face
+	 
+       } // end face
+      
+    } // end While
 
 }
 
 
 
-template <typename T> ObjFile<T>::~ObjFile() {
+template <typename T,typename S> ObjFile<T,S>::~ObjFile() {
 
 #ifdef DISPLAY_CONSTRUCTOR
   cout << "# ObjFile destructor # "  << this << endl;
@@ -63,10 +175,10 @@ template <typename T> ObjFile<T>::~ObjFile() {
 
 
 // create an instanciation that will be usefull at linking
-template class ObjFile<float>;
+template class ObjFile<float,int>;
 
 
-template <class T> ostream&  operator<< (ostream &out, const ObjFile<T> &objFR)
+template <class T,class S> ostream&  operator<< (ostream &out, const ObjFile<T,S> &objFR)
 {
     
   out << "ObjFile "
@@ -78,4 +190,4 @@ template <class T> ostream&  operator<< (ostream &out, const ObjFile<T> &objFR)
 }
 
 // create an instanciation that will be usefull at linking
-template ostream&  operator<< (ostream &, const ObjFile<float> &);
+template ostream&  operator<< (ostream &, const ObjFile<float,int> &);

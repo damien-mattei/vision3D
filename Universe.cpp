@@ -18,6 +18,20 @@ template <typename T> Universe<T>::Universe() {
 
 template <typename T> Universe<T>::~Universe() {
 
+  typename vector< Point3D<T> *>::iterator it;
+  
+  for(it = containerPoint3DptrvectorC.begin(); it != containerPoint3DptrvectorC.end(); it++)  {
+    cerr << "# Universe destructor # deleting a containerPoint3DptrvectorC"  << endl;
+    delete *it;
+  }
+  
+ typename list< Point3D<T> *>::iterator itLst;
+  
+ for(itLst = containerPoint3DptrlistC.begin(); itLst != containerPoint3DptrlistC.end(); itLst++)  {
+   cerr << "# Universe destructor # deleting a containerPoint3DptrlistC"  << endl;
+   delete *itLst;
+ }
+  
 #ifdef DISPLAY_CONSTRUCTOR
   cout << "# Universe destructor # "  << this << endl;
 #endif
@@ -80,7 +94,7 @@ ObjectType & Universe<T>::create##TYPE##Ref##TYPE_CONTAINER##C(ParamTypes ...arg
 \
     DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : found ... " << endl;) \
     DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : *iterOBJECTptr " << *iterOBJECTptr << endl;) \
-    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : **iterOBJECTptr " << **iterOBJECTptr << endl;) \
+      DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : **iterOBJECTptr " << **iterOBJECTptr << endl << endl;) \
 \
     delete &object; \
 \
@@ -89,7 +103,7 @@ ObjectType & Universe<T>::create##TYPE##Ref##TYPE_CONTAINER##C(ParamTypes ...arg
   } \
   else { /* we have to add the point to the universe */ \
     DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : NOT found ... " << endl;) \
-    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : container" #TYPE "ptr"  #TYPE_CONTAINER "C.push_back(&object);" << endl;) \
+    DEBUG(cerr << "Universe<T>::create" #TYPE "Ref" #TYPE_CONTAINER "C<> : container" #TYPE "ptr"  #TYPE_CONTAINER "C.push_back(&object);" << endl << endl;) \
 \
     container##TYPE##ptr##TYPE_CONTAINER##C.push_back(&object); \
 \
@@ -110,7 +124,7 @@ CREATE_OBJECT_TEMPLATED(Edge3D,list)
 
 CREATE_OBJECT_TEMPLATED(Point3D,vector)
 
-
+CREATE_OBJECT_TEMPLATED(Vector3D,vector)
 
 
 
@@ -413,7 +427,11 @@ template<typename T> void Universe<T>::createCube(Point3D<T> & p,T s) {
 }
 
 
+
 template class Universe<float>;
+
+
+
 
 // for tests
 //template int Universe<float>::GetMax( int,int ) ; // works too
@@ -437,3 +455,5 @@ template Edge3D<float> & Universe<float>::createEdge3DReflistC<Edge3D<float>,Poi
 
 
 template Point3D<float> & Universe<float>::createPoint3DRefvectorC<Point3D<float>,float,float,float>(float,float,float) ;
+
+template Vector3D<float> & Universe<float>::createVector3DRefvectorC<Vector3D<float>,float,float,float>(float,float,float) ;

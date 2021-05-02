@@ -8,6 +8,10 @@
 
 template <class T> Point3D<T>::Point3D() : x(0) , y(0) , z(0) {
 
+#ifdef CHECK_MEMORY
+  cpt_cons++; // for verifying memory allocation/desallocation
+#endif
+  
 #ifdef DISPLAY_CONSTRUCTOR
   cout << "# constructor "  << this->display() << " #" << endl;
 #endif
@@ -19,6 +23,10 @@ template <class T> Point3D<T>::Point3D(T x , T y , T z) : x(x) , y(y) , z(z) {
 
   // this->z =z;
 
+#ifdef CHECK_MEMORY
+  cpt_cons++; // for verifying memory allocation/desallocation
+#endif
+  
 #ifdef DISPLAY_CONSTRUCTOR
   cout << "# constructor "  << this->display() << " #" << endl;
 #endif
@@ -29,8 +37,14 @@ template <class T> Point3D<T>::Point3D(T x , T y , T z) : x(x) , y(y) , z(z) {
 
 template <class T> Point3D<T>::~Point3D() {
 
+#ifdef CHECK_MEMORY
+  cpt_cons--; // for verifying memory allocation/desallocation
+  printf("Point3D<T>::~Point3D() : remaining %i Point3D(s).\n",cpt_cons);
+#endif
+  
 #ifdef DISPLAY_CONSTRUCTOR
   cout << "# destructor " << this->display() << " #" << endl;
+  
 #endif
   
 }
@@ -66,6 +80,10 @@ template <class T> ostream&  operator<< (ostream &out, const Point3D<T> &p3d)
 // exist but should NOT be used because one point in Universe should be unique
 template <class T> Point3D<T>::Point3D(const Point3D<T> &onePoint3D) {
 
+#ifdef CHECK_MEMORY
+  cpt_cons++; // for verifying memory allocation/desallocation
+#endif
+  
   x=onePoint3D.x;
   y=onePoint3D.y;
   z=onePoint3D.z;

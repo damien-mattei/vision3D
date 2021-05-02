@@ -38,6 +38,24 @@ template <class T> ostream&  operator<< (ostream &out, Vector3D<T> &v3d)
 
 }
 
+
+// copy constructor
+// exist but should NOT be used because one point in Universe should be unique
+template <class T> Vector3D<T>::Vector3D(const Vector3D<T> &oneVector3D) {
+
+  x=oneVector3D.x;
+  y=oneVector3D.y;
+  z=oneVector3D.z;
+   
+  
+#ifdef DISPLAY_CONSTRUCTOR
+  cout << "# Vector3D copy constructor # " << &oneVector3D << " => " << this << " " << *this << endl;
+#endif
+
+}
+
+
+// assignation operator
 template <class T> Vector3D<T> & Vector3D<T>::operator=(const Vector3D<T> &v)
  {
     
@@ -51,6 +69,14 @@ template <class T> Vector3D<T> & Vector3D<T>::operator=(const Vector3D<T> &v)
     return *this;
     
   }
+
+// equality operator
+template <class T> bool Vector3D<T>::operator== (const Vector3D<T> &p3d)  {
+  
+  return (x==p3d.x) && (y==p3d.y) && (z==p3d.z);
+    
+}
+
 
 
 template <class T> Vector3D<T> & Vector3D<T>::operator+=(const Vector3D<T> &v)

@@ -4,7 +4,7 @@ DEFINIR UNE FOIS POUR TOUTES UN TYPAGE DE DONNEES PAR REFERENCE/POINTEURS LE PLU
 
 ne pas utiliser passage par valeur mais par reference
 
-verifier que les destructeurs liberent bien les listes,etc...
+verifier que les destructeurs liberent bien les listes,etc... fait , ce n'etait pas le cas ,libere les pointeurs ! mais pas les objets pointés !!!! la liste devrait être libérée elle par la STL/C++
 
 
 clipping calcule sur pixels
@@ -21,7 +21,6 @@ points 3D
 segment constitués de deux points
 face: des segments + une normale tournée vers l'exterieur
 
-ajout des points segment etc à l'univers
 
 Vision3D: contient des calculs mathematiques
 
@@ -31,8 +30,6 @@ répond au besoin de stocker les points de maniere unique dans la mémoire pour 
 
 en fait il faudrait que tous les objets puissent exister independemment de l'univers mais que l'on puisse aussi verifier leur unicité dans l'univers FAIT (pour les points3D)
 
-UniversePhysic : liste d'objets
-classe qui contient les objets ,les objets contiennent des listes vers les points, faces, etc...
 
 Objet: liste points, liste faces, listes lignes,listes groupes
 

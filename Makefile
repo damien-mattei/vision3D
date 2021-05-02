@@ -11,19 +11,19 @@ CC=g++
 
 #CFLAGS=-Wall -std=c++0x
 #CFLAGS=-Wall -std=c++11
-CFLAGS=-Wall -std=c++14
-#CFLAGS=-Wall -std=c++17
+#CFLAGS=-Wall -std=c++14
+CFLAGS=-Wall -std=c++17
 
 LDFLAGS=
 
 #DEFVAR=-DNOT_DISPLAY_CONSTRUCTOR -DDEBUG -DREF_OR_PTR
 #DEFVAR=-DDISPLAY_CONSTRUCTOR -DDEBUG
 #DEFVAR=-DDISPLAY_CONSTRUCTOR
-DEFVAR=-DDEBUG_BUILD -DDISPLAY_CONSTRUCTOR
+DEFVAR=-DDEBUG_BUILD -DDISPLAY_CONSTRUCTOR -DCHECK_MEMORY
 
 #------------------------------------------------------------------------------
 
-# strange i do not really understand which rule make the main.o compilation, default not written perheaps
+# strange: i do not really understand which rule make the main.o compilation, default not written perheaps
 
 all: $(MYPROGRAM)
 

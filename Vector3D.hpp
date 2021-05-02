@@ -35,10 +35,17 @@ public:
     
   Vector3D(T x,T y,T z);
 
+  // copy constructor
+  Vector3D(const Vector3D<T> &);
+
   // create vector AB from point A and B
   Vector3D(Point3D<T> & a,Point3D<T> & b);
 
+  // assignation operator
   Vector3D<T> & operator=(const Vector3D<T> &);
+
+  // equality operator
+  bool operator== (const Vector3D<T> &);
   
   Vector3D<T>& operator+=(const Vector3D<T> &v);
 

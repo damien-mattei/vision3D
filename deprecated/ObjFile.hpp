@@ -30,7 +30,7 @@ using namespace boost;
 #include "debug.hpp"
 
 
-template <typename T,typename S> class ObjFile {
+template <typename T,template S> class ObjFile {
         
 public:
 
