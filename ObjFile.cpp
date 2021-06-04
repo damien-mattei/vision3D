@@ -8,7 +8,7 @@
 
 // implementations
 
-template <typename T,typename S> ObjFile<T,S>::ObjFile()  {
+template <class T,class S> ObjFile<T,S>::ObjFile()  {
 
  
 #ifdef DISPLAY_CONSTRUCTOR
@@ -16,7 +16,7 @@ template <typename T,typename S> ObjFile<T,S>::ObjFile()  {
 #endif
 }
 
-template <typename T,typename S> ObjFile<T,S>::ObjFile(string filename,Universe<T> & univ) :filename(filename) , univ(&univ) {
+template <class T,class S> ObjFile<T,S>::ObjFile(string filename,Universe<T> & univ,Panorama<T> & pan) :filename(filename) , univ(&univ),pan(&pan) {
 
  
 #ifdef DISPLAY_CONSTRUCTOR
@@ -26,7 +26,12 @@ template <typename T,typename S> ObjFile<T,S>::ObjFile(string filename,Universe<
   // open the OBJ file
   ifstream objfile;
   objfile.open (filename);
+  assert(objfile.is_open()); // abort program otherwise
 
+  //Object<T> & refObject = pan.template createObject<T>(filename);
+
+  Object<T> & refObject = pan.createObject(filename);
+  
   std::string line;
   while (std::getline(objfile, line))
     {
@@ -57,7 +62,10 @@ template <typename T,typename S> ObjFile<T,S>::ObjFile(string filename,Universe<
 	  cerr << "ObjFile.cpp : ObjFile : Read error,bad value in vertex" << endl;
 	}
 	else {
-	  univ.template createPoint3DRefvectorC<Point3D<T>,T,T,T>(x,y,z); // template 
+	  // store the point in universe
+	  Point3D<T> & refP3d = univ.template createPoint3DRefvectorC<Point3D<T>,T,T,T>(x,y,z); // template
+	  // now we must store it also in the object
+	  refObject.storeVertex(refP3d);
 	}
 	continue;
       }
@@ -164,7 +172,7 @@ template <typename T,typename S> ObjFile<T,S>::ObjFile(string filename,Universe<
 
 
 
-template <typename T,typename S> ObjFile<T,S>::~ObjFile() {
+template <class T,class S> ObjFile<T,S>::~ObjFile() {
 
 #ifdef DISPLAY_CONSTRUCTOR
   cout << "# ObjFile destructor # "  << this << endl;

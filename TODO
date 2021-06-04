@@ -1,5 +1,8 @@
 DEFINIR UNE FOIS POUR TOUTES UN TYPAGE DE DONNEES PAR REFERENCE/POINTEURS LE PLUS EFFICACES
 
+Vision3D -> ObjFile(Universe,Panorama,filename) create Object stored in Panorama
+	     Panorama stocke  Objects qui stocke vertex,normals (vector) , faces
+	     Universe stocke vertex;vector,Faces
 
 
 ne pas utiliser passage par valeur mais par reference
@@ -49,5 +52,5 @@ utiliser le format .OBJ calquer la structure de donnée interne du programme sur
 
 utiliser le cube de wikipedia .obj pour tester avant la statue de la liberté et la porsche 911 ! :-)
 
-creer plus tard la liste des noms d'objet du fichier .obj repérés par les index de début et fin des vertex, normales,faces ,etc... creer une classe listes en c++ qui contient des pointeurs vers void....
+creer la liste des noms d'objet du fichier .obj repérés par les index de début et fin des vertex, normales,faces ,etc... creer une classe listes en c++ qui contient des pointeurs vers void....
 

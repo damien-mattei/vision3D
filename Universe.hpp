@@ -12,13 +12,19 @@
 
 #include <list>
 
+
 // Edge3D will include Point3D
 #include "Edge3D.hpp"
 #include "Vector3D.hpp"
+#include "Object.hpp"
 
 #include "debug.hpp"
 
+
+
 using namespace std;
+
+
 
 template <typename T> class Universe {
         
@@ -26,13 +32,17 @@ public:
    
   // data
 
-  // name must be like containerTYPEptrCONTAINER_TYPEC (must end by a char like C for macro reason (!))
+  // name must be like containerTYPEptrCONTAINER_TYPEC (must end by a char like C or other only for macro reason (!))
   // where TYPE is the element type contained in the container CONTAINER_TYPE
   
   // example1: TYPE=Point3D , CONTAINER_TYPE=vector
   std::vector< Point3D<T> *> containerPoint3DptrvectorC;
+  
   // example2: TYPE=Vector3D , CONTAINER_TYPE=vector
   std::vector< Vector3D<T> *> containerVector3DptrvectorC;
+
+  
+
   
   // deprecated
   // example3: TYPE=Edge3D , CONTAINER_TYPE=list
@@ -47,12 +57,23 @@ public:
   Universe();
 
   ~Universe();
+  
+
+  // create a Point3D by checking if it already exist in the universe
+  template <typename ObjectType, typename... ParamTypes>
+  ObjectType & createPoint3DRefvectorC(ParamTypes ...args);
+
+  // create a Vector3D by checking if it already exist in the universe
+  template <typename ObjectType, typename... ParamTypes>
+  ObjectType & createVector3DRefvectorC(ParamTypes ...args);
 
 
+
+
+  
   // DEPRECATED (for tests)
   Point3D<T> & createPoint3DReference(T x,T y,T z); // create a point by checking if it already exist
   Point3D<T> & createPoint3Dref_BACKUP(T x,T y,T z); // backup because i created macro that builds functions now
-
 
 
   
@@ -64,22 +85,6 @@ public:
   template <typename ObjectType, typename... ParamTypes>
   ObjectType & createEdge3DReflistC(ParamTypes ...args);
 
-
-
-
-
-
-
-  
-
-  // create a Point3D by checking if it already exist in the universe
-  template <typename ObjectType, typename... ParamTypes>
-  ObjectType & createPoint3DRefvectorC(ParamTypes ...args);
-
-  // create a Vector3D by checking if it already exist in the universe
-  template <typename ObjectType, typename... ParamTypes>
-  ObjectType & createVector3DRefvectorC(ParamTypes ...args);
-  
 
 
   // create an object by checking if it already exist in the universe
@@ -94,8 +99,14 @@ public:
   // for testing
   template <typename myType,typename otherType>
   myType GetMax (myType a, myType b);
- 
+
+  template <typename U> 
+  friend std::ostream&  operator<< (ostream &, const Universe<U> &);
+
+  
 };
+
+template <typename U>  std::ostream&  operator<< (ostream &, const Universe<U> &); // does not work !!!
 
 
 

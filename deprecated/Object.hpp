@@ -19,7 +19,7 @@ using namespace std;
 
 #include "debug.hpp"
 
-template <class T> class Object {
+template <typename T> class Object {
         
 public:
 

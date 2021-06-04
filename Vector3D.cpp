@@ -71,9 +71,9 @@ template <class T> Vector3D<T> & Vector3D<T>::operator=(const Vector3D<T> &v)
   }
 
 // equality operator
-template <class T> bool Vector3D<T>::operator== (const Vector3D<T> &p3d)  {
+template <class T> bool Vector3D<T>::operator== (const Vector3D<T> &v3d)  {
   
-  return (x==p3d.x) && (y==p3d.y) && (z==p3d.z);
+  return (x==v3d.x) && (y==v3d.y) && (z==v3d.z);
     
 }
 

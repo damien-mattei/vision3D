@@ -8,7 +8,7 @@
 
 // implementations
 
-template <class T> Object<T>::Object()  {
+template <typename T> Object<T>::Object()  {
 
  
 #ifdef DISPLAY_CONSTRUCTOR
@@ -16,7 +16,7 @@ template <class T> Object<T>::Object()  {
 #endif
 }
 
-template <class T> Object<T>::Object(string filename) :filename(filename) {
+template <typename T> Object<T>::Object(string filename) :filename(filename) {
 
  
 #ifdef DISPLAY_CONSTRUCTOR
@@ -24,7 +24,7 @@ template <class T> Object<T>::Object(string filename) :filename(filename) {
 #endif
 }
 
-template <class T> Object<T>::~Object() {
+template <typename T> Object<T>::~Object() {
 
 #ifdef DISPLAY_CONSTRUCTOR
   cout << "# Object destructor # "  << this << endl;

@@ -155,4 +155,4 @@ template <class T> bool Point3D<T>::operator== (const Point3D<T> &p3d)  {
 // create an instanciation that will be usefull at linking
 template class Point3D<float>;
 
-template ostream&  operator<< (ostream &out, const Point3D<float> &p3d);
+template ostream&  operator<< (ostream &, const Point3D<float> &);

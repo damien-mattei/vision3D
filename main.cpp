@@ -1,8 +1,8 @@
 // main for testing Vision3D code
 
-
+#include "Face3D.hpp"
 #include "ObjFile.hpp"
-#include "Vector3D.hpp"
+
 
 #include "Edge3D.hpp"
 
@@ -10,8 +10,12 @@
 
 #include "Point2D.hpp"
 
-#include "Universe.hpp"
 #include "Vision3D.hpp"
+
+#include "Object.hpp"
+
+#include "Panorama.hpp"
+
 
 //extern template int Universe<float>::GetMax<int>( int,int ) ;
 
@@ -32,11 +36,19 @@ int main() {
   // we create twice the same point's coordinates
   Universe<float> univ;
 
+  cout << " ----------- test Pan ------------------  " << endl;
+  
+  Panorama<float> pan;
+
+  pan.createObject("toto");
+
+  cout << " ----------- end test Pan ------------------  " << endl;
+
   univ.GetMax <int,float> (x,y);
 
   cout << " ----------- test ObjFile ------------------  " << endl;
 
-  ObjFile<float,int> objF("./contrib/cube.obj",univ);
+  ObjFile<float,int> objF("./contrib/cube.obj",univ,pan);
 
   cout << "main : objF = " << objF << endl;
 
@@ -113,6 +125,8 @@ int main() {
   pt3d_uniq_ref3 = *pt3d_uniq_ptr2;
 
   cout << "pt3d_uniq_ref3 : " << pt3d_uniq_ref3 << endl;
+
+  cout << "univ =" << univ << endl; 
   
   cout << " ------------- end test Universe -------------------------------  " << endl;
   
@@ -120,7 +134,14 @@ int main() {
 
   list < Point3D<float> > lst0;
 
-   
+  cout << " ------------- test Face3D -------------------------------  " << endl;
+  
+  Face3D<float> f1(vt3d_uniq_ref_vector);
+
+  cout << "f1 : " << f1 << endl;
+
+  cout << " ------------- end test Face3D -------------------------------  " << endl;
+  
   cout << " -----------------------------  " << endl;
   
   Point3D<float> pt3d(7,8,9);

@@ -48,17 +48,6 @@ myType Universe<T>::GetMax (myType a, myType b) {
 }
 
 
-template <typename T> ostream&  operator<< (ostream &out, Universe<T> &u)
-{
-  
-  out << "Universe("  
-      << u
-      << ")"
-    ;
-  
-  return out;
-  
-}
 
 
 #define CREATE_OBJECT_TEMPLATED(TYPE,TYPE_CONTAINER)					\
@@ -112,6 +101,17 @@ ObjectType & Universe<T>::create##TYPE##Ref##TYPE_CONTAINER##C(ParamTypes ...arg
 \
 }
 
+CREATE_OBJECT_TEMPLATED(Point3D,vector)
+
+CREATE_OBJECT_TEMPLATED(Vector3D,vector)
+
+
+
+
+
+
+
+
 // DEPRECATED
 // this create the Template only for Point3D (not a particular instance for float by example)
 // example of call : univ.createPoint3DRef<Point3D<float>,float,float,float>(1,0,0);
@@ -119,12 +119,6 @@ CREATE_OBJECT_TEMPLATED(Point3D,list)
 
 CREATE_OBJECT_TEMPLATED(Edge3D,list)
 
-
-
-
-CREATE_OBJECT_TEMPLATED(Point3D,vector)
-
-CREATE_OBJECT_TEMPLATED(Vector3D,vector)
 
 
 
@@ -427,16 +421,6 @@ template<typename T> void Universe<T>::createCube(Point3D<T> & p,T s) {
 }
 
 
-
-template class Universe<float>;
-
-
-
-
-// for tests
-//template int Universe<float>::GetMax( int,int ) ; // works too
-template int Universe<float>::GetMax<int,float>( int,int );
-
 // DEPRECATED
 //template Point3D<float> & Universe<float>::createObjectRef(float,float,float) ; // works too
 template Point3D<float> & Universe<float>::createObjectRef<Point3D<float>,float,float,float>(float,float,float) ;
@@ -444,16 +428,44 @@ template Point3D<float> & Universe<float>::createObjectRef<Point3D<float>,float,
 
 
 
+template <typename U>
+std::ostream&  operator<< (std::ostream &out, const Universe<U> &u)
+{
+  
+  out << "Universe :"  
+      << &u
+      << " "
+    ;
+  
+  return out;
+  
+}
+
+
+
+
+template class Universe<float>;
+
+
+// for tests
+//template int Universe<float>::GetMax( int,int ) ; // works too
+template int Universe<float>::GetMax<int,float>( int,int );
+
+
+ 
+
 // call by : univ.createPoint3DReflistC<Point3D<float>,float,float,float>(1,0,0);
 template Point3D<float> & Universe<float>::createPoint3DReflistC<Point3D<float>,float,float,float>(float,float,float) ;
 
 template Edge3D<float> & Universe<float>::createEdge3DReflistC<Edge3D<float>,Point3D<float>&,Point3D<float>&>(Point3D<float>&,Point3D<float>&) ;
 
 
-
-
-
-
+// here :
+// Point3D<float> is ObjectType
+// float,float,float are ... ParamTypes
 template Point3D<float> & Universe<float>::createPoint3DRefvectorC<Point3D<float>,float,float,float>(float,float,float) ;
 
 template Vector3D<float> & Universe<float>::createVector3DRefvectorC<Vector3D<float>,float,float,float>(float,float,float) ;
+
+
+template std::ostream&  operator<<  (std::ostream &, const Universe<float> &); 

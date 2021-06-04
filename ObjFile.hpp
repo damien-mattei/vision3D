@@ -12,6 +12,8 @@
 #include "Universe.hpp"
 #include "Vector3D.hpp"
 
+#include "Panorama.hpp"
+
 #include <boost/algorithm/string.hpp>
 
 //using namespace std;
@@ -27,20 +29,23 @@ using namespace boost;
 
 #include <list>
 
+#include <assert.h>     /* assert */
+
 #include "debug.hpp"
 
 
-template <typename T,typename S> class ObjFile {
+template <class T,class S> class ObjFile { // NOTE: i replaced typenam by class? no difference seen
         
 public:
 
   string filename;
 
   Universe<T> * univ;
-
+  Panorama<T> * pan;
+  
   ObjFile();
 
-  ObjFile(string,Universe<T> &);
+  ObjFile(string,Universe<T> &,Panorama<T> &);
 
   ~ObjFile();
 

@@ -4,6 +4,7 @@
 #ifndef FACE3D_HPP
 #define FACE3D_HPP
 
+#include "Vector3D.hpp"
 
 #include <iostream>
 #include <sstream>      // std::stringstream
@@ -22,7 +23,7 @@ public:
 
   Vector3D<T> * normal;
 
-  list < Point3D<T> *> containerPoint3Dptrlist;
+  list < Point3D<T> *> vertexList;
   
   Face3D();
 
@@ -35,6 +36,8 @@ public:
 
   std::string display(void);
 
+  void addVertex(Point3D<T> &);
+
   // assignation operator
   Face3D<T> & operator=(const Face3D<T> &);
 
@@ -44,6 +47,6 @@ public:
 
 };
 
-template <class T> std::ostream&  operator<< (std::ostream &out, const Face3D<T> &p3d);
+template <class T> std::ostream&  operator<< (std::ostream &, const Face3D<T> &);
 
 #endif /* FACE3D_HPP */
