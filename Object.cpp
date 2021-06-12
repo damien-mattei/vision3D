@@ -40,6 +40,12 @@ template <class T> void Object<T>::storeVertex(Point3D<T> & p3dRef) {
 
 }
 
+template <class T> void Object<T>::storeVector(Vector3D<T> & v3dRef) {
+
+  normalVector.push_back(&v3dRef);
+  DEBUG(cerr << "Object<T>::storeVector : one Vector stored : " << v3dRef << endl;)
+
+}
 
 // create an instanciation that will be usefull at linking
 template class Object<float>;

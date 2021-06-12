@@ -41,6 +41,7 @@ public:
   ~Object();
 
   void storeVertex(Point3D<T> &);
+  void storeVector(Vector3D<T> &);
 
 };
 
