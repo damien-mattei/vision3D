@@ -1,6 +1,6 @@
 DEFINIR UNE FOIS POUR TOUTES UN TYPAGE DE DONNEES PAR REFERENCE/POINTEURS LE PLUS EFFICACES
 
-Vision3D -> ObjFile(Universe,Panorama,filename) create Object stored in Panorama
+Vision3D -> ObjFile(Universe,Panorama,filename) read obj file and create Object stored in Panorama
 	     Panorama stocke  Objects qui stocke vertex,normals (vector) , faces
 	     Universe stocke vertex;vector,Faces
 
@@ -37,8 +37,6 @@ en fait il faudrait que tous les objets puissent exister independemment de l'uni
 Objet: liste points, liste faces, listes lignes,listes groupes
 
 Groupe: liste faces
-
-il faudrait pouvoir dessiner les objets par ordre de distance (décroissante par/r camera) et gérer les intersections
 
 https://fr.wikipedia.org/wiki/Triangulation_d%27un_polygone
 

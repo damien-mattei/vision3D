@@ -115,11 +115,14 @@ template <class T,class S> ObjFile<T,S>::ObjFile(string filename,Universe<T> & u
       
 	if (type=="f") {
 
+	  // Face3D must created in Universe
+	  //Face3D<T> & refF3d = 
+	  
 	  S iv;
 
 	  // vertex 
 	  std::string vertex;
-	  iss >> vertex;
+	  iss >> vertex; // searching an indice
 
 	  if(iss.fail()) {
 	    cerr << "ObjFile.cpp : ObjFile : Read error,bad value in Face's vertex" << endl;
@@ -130,7 +133,7 @@ template <class T,class S> ObjFile<T,S>::ObjFile(string filename,Universe<T> & u
 
 	 
 	  std::istringstream issv(vertex);
-	  issv >> iv;
+	  issv >> iv; // reading a type number
 	  if(issv.fail()) {
 	    cerr << "ObjFile.cpp : ObjFile : Read error,bad value in Face's vertex index" << endl;
 	    continue;
@@ -146,6 +149,7 @@ template <class T,class S> ObjFile<T,S>::ObjFile(string filename,Universe<T> & u
 	  }
 	  cout << "ObjFile.cpp : ObjFile : vertex separator :" << separ << "." << endl;
 
+	  // texture
 	  S it;
 	  issv >> it;
 	  if(issv.fail()) {

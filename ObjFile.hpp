@@ -14,6 +14,8 @@
 
 #include "Panorama.hpp"
 
+#include "Face3D.hpp"
+
 #include <boost/algorithm/string.hpp>
 
 //using namespace std;
@@ -33,7 +35,7 @@ using namespace boost;
 
 #include "debug.hpp"
 
-
+// what S is used for?
 template <class T,class S> class ObjFile { // NOTE: i replaced typenam by class? no difference seen
         
 public:
