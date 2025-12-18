@@ -3,7 +3,9 @@
 
 OBJECT=Panorama.o Point2D.o Point3D.o Edge2D.o Edge3D.o Vector3D.o Matrix3x3.o Face3D.o Object.o ObjFile.o Universe.o Vision3D.o  main.o
 MYPROGRAM=vision3d
-MYINCLUDES=.
+
+# for Mac OS
+MYINCLUDES=/opt/homebrew/Cellar/boost/1.90.0/include # . seems to be by default
 
 MYLIBRARIES=
 
@@ -24,7 +26,6 @@ DEFVAR=-DDEBUG_BUILD -DDISPLAY_CONSTRUCTOR -DCHECK_MEMORY
 
 #------------------------------------------------------------------------------
 
-# strange: i do not really understand which rule make the main.o compilation, default not written perheaps
 
 all: $(MYPROGRAM)
 

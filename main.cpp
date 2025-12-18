@@ -1,20 +1,6 @@
 // main for testing Vision3D code
 
-#include "Face3D.hpp"
-#include "ObjFile.hpp"
-
-
-#include "Edge3D.hpp"
-
-#include "Edge2D.hpp"
-
-#include "Point2D.hpp"
-
-#include "Vision3D.hpp"
-
-#include "Object.hpp"
-
-#include "Panorama.hpp"
+#include "main.hpp"
 
 
 //extern template int Universe<float>::GetMax<int>( int,int ) ;
