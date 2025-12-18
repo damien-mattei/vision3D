@@ -138,7 +138,8 @@ template <class T> struct hash_point3d {
 
 
 // equality test, mainly used with hash tables
-template <class T> struct point3DEquals : binary_function<const Point3D<T>&, const Point3D<T>&, bool> {
+//template <class T> struct point3DEquals : binary_function<const Point3D<T>&, const Point3D<T>&, bool> { // deprecated in C++17
+template <class T> struct point3DEquals  {
   bool operator()(  const Point3D<T>& lhs, const Point3D<T>& rhs ) const
   {
     return (&lhs == &rhs); // i compare the addresses !!!

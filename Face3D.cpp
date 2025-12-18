@@ -127,7 +127,8 @@ template <class T> struct hash_face3d {
 
 
 // equality test, mainly used with hash tables
-template <class T> struct face3DEquals : binary_function<const Face3D<T>&, const Face3D<T>&, bool> {
+//template <class T> struct face3DEquals : binary_function<const Face3D<T>&, const Face3D<T>&, bool> {
+template <class T> struct face3DEquals  {
   bool operator()(  const Face3D<T>& lhs, const Face3D<T>& rhs ) const
   {
     return (&lhs == &rhs); // i compare the addresses !!!

@@ -13,6 +13,7 @@ CC=g++
 #CFLAGS=-Wall -std=c++11
 #CFLAGS=-Wall -std=c++14
 CFLAGS=-Wall -std=c++17
+#CFLAGS=-Wall -std=gnu++17 # idem c++17
 
 LDFLAGS=
 
