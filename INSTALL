@@ -1,0 +1,12 @@
+INSTALL:
+
+use Makefile or use CMake.
+
+With CMake:
+cmake -S . -B ./build
+cd build
+
+
+and do:
+make
+
